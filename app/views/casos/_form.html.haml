@@ -1,0 +1,57 @@
+= form_for [@bufete, @caso] do |f|
+    .row
+        .col-md-6
+            .form-group
+                = f.label :nombre, 'Nombre del Caso'
+                = f.text_field :nombre, autofocus: true, class: 'form-control input-sm'
+            
+            .form-group
+                = f.label :num_accion, 'Numero de Accion'
+                = f.text_field :num_accion, placeholder: 'Ej: 0801-2015-0001', class: 'form-control input-sm'
+            
+            .form-group
+                = f.label :accion, 'Accion'
+                = f.text_field :accion, placeholder: 'Ej: Herencia', class: 'form-control input-sm'
+        
+        .col-md-6
+            
+            .form-group
+                = f.label :materia, 'Materia'
+                = f.text_field :materia, placeholder: 'Ej: Civil', class: 'form-control input-sm'
+                
+            .form-group
+                = f.label :oficina, 'Oficina'
+                = f.text_field :oficina, placeholder: 'Ej: Juzgado de Letras', class: 'form-control input-sm'
+    
+    %hr
+    
+    .row
+        .col-md-12
+            / TokenInput Railscasts: http://railscasts.com/episodes/258-token-fields?autoplay=true
+            / TokenInput JQuery Plugin: http://loopj.com/jquery-tokeninput/
+            .form-group
+                = f.label :client_tokens, 'Clientes'
+                %br
+                = f.text_field :client_tokens, "data-pre" => @caso.clientes.map { |model| {:id => model.id, :nombre_completo => model.nombre_completo } }.to_json
+                
+            .form-group
+                = f.label :witness_tokens, 'Testigos'
+                %br
+                = f.text_field :witness_tokens, "data-pre" => @caso.testigos.map { |model| {:id => model.id, :nombre_completo => model.nombre_completo } }.to_json
+                
+            .form-group
+                = f.label :counterpart_tokens, 'Contrapartes'
+                %br
+                = f.text_field :counterpart_tokens, "data-pre" => @caso.contrapartes.map { |model| {:id => model.id, :nombre_completo => model.nombre_completo } }.to_json
+    
+    %hr
+    
+    .row
+        .col-md-12
+            .form-group
+                = f.label :descripcion, 'Descripcion'
+                = f.text_area :descripcion, rows: '10', class: 'form-control input-sm'
+                
+            .form-group
+                = f.submit ( f.object.new_record? ? "Crear Caso" : "Guardar Cambios"), class: 'btn btn-default'
+                

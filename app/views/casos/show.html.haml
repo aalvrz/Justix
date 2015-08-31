@@ -1,0 +1,53 @@
+.col-md-8.col-md-offset-2
+    %h2= @caso.nombre
+    
+    .row
+        .col-md-6
+            %p
+                %strong Numero de Accion:
+                = @caso.num_accion
+                
+            %p
+                %strong Accion:
+                = @caso.accion
+        
+        .col-md-6 
+            %p
+                %strong Materia:
+                = @caso.materia
+                
+            %p
+                %strong Oficina:
+                = @caso.oficina
+                
+    .row
+        .col-md-12
+            
+            %p
+                %strong Descripcion:
+                =simple_format h @caso.descripcion
+    
+            %ul.list-inline.text-center
+                %li
+                    = link_to edit_bufete_caso_path(@bufete, @caso) do
+                        %span.glyphicon.glyphicon-pencil
+                        Editar Caso
+                        
+                %li
+                    = link_to bufete_caso_path(@bufete, @caso), method: :delete, class: 'text-danger' do
+                        %span.glyphicon.glyphicon-remove
+                        Eliminar Caso
+    
+    %hr
+    
+    = render 'clientes'
+    
+    = render 'contrapartes'
+    
+    = render 'testigos'
+    
+    = link_to bufete_path(@bufete) do
+        %span.glyphicon.glyphicon-arrow-left
+        Regresar
+        
+    %hr

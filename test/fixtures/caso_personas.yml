@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  persona_id: 1
+  caso_id: 1
+
+two:
+  persona_id: 1
+  caso_id: 1

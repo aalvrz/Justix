@@ -1,0 +1,2 @@
+class Cliente < Persona
+end

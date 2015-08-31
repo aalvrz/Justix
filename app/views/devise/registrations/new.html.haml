@@ -1,0 +1,33 @@
+.col-md-6.col-md-offset-3
+    .row
+        .panel.panel-default
+            .panel-body
+                %legend Registrar Cuenta
+                
+                = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+                    = devise_error_messages!
+                    
+                    %p Registra una nueva cuenta para poder probar todas las funcionalidades de la aplicacion!
+                    
+                    .form-group
+                        = f.label :email
+                        %br
+                        = f.email_field :email, class: 'form-control'
+                        
+                    .form-group
+                        = f.label :password, 'Contraseña'
+                        -if @minimum_password_length
+                            %em
+                                (
+                                =@minimum_password_length
+                                caracteres mínimo)
+                        %br
+                        = f.password_field :password, autocomplete: "off", class: 'form-control'
+                        
+                    .form-group
+                        = f.label :password_confirmation, 'Confirmar contraseña'
+                        %br
+                        = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
+                        
+                    .form-group
+                        = f.submit "Registrarse", class: 'form-control btn btn-success'

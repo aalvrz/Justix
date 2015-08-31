@@ -1,0 +1,29 @@
+!!! 5
+
+%html
+%head
+    %title Mi Bufete
+    
+    /= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+    /= javascript_include_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js'
+    
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    
+    = csrf_meta_tags
+    
+%body
+
+    = render 'layouts/navbar'
+    
+    .container
+        .row
+            .col-md-12
+                - flash.each do |name, msg|
+                    - if name == "alert"
+                        = content_tag(:div, msg, class: "alert alert-danger")
+                    - elsif name == "notice"
+                        = content_tag(:div, msg, class: "alert alert-success")
+                    - else
+                        = content_tag :div, msg, class: "alert alert-#{name}"
+        = yield

@@ -1,0 +1,11 @@
+/%h3= "Casos (" + @bufete.casos.count.to_s + " Casos)"
+%h3 Casos
+
+.list-group
+    - @bufete.casos.uniq.each do |caso|
+        = link_to caso.nombre, bufete_caso_path(@bufete, caso), class: 'list-group-item'
+
+.row.text-center
+    = link_to new_bufete_caso_path(@bufete) do
+        %span.glyphicon.glyphicon-plus
+        Crear Nuevo Caso

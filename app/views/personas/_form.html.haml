@@ -1,0 +1,46 @@
+= form_for [@bufete, @persona] do |f|
+    .row
+        .col-md-6
+            .form-group
+                = f.label :nombre, 'Nombre'
+                = f.text_field :nombre, autofocus: true, class: 'form-control'
+                
+            .form-group
+                = f.label :apellido, 'Apellido'
+                = f.text_field :apellido, class: 'form-control'
+            
+            .form-group
+                = f.label :email
+                = f.email_field :email, class: 'form-control'
+                
+            .form-group
+                = f.label :fecha_nacimiento, 'Fecha de Nacimiento'
+                = f.date_field :fecha_nacimiento, class: 'form-control input-sm'
+                
+            .form-group
+                = f.label :type, 'Tipo de Persona'
+                = f.select :type,  Persona::PERSONA_TYPES, {}, class: 'form-control'
+                
+        .col-md-6
+            .form-group
+                = f.label :num_registro, 'ID / Numero de Registro'
+                = f.text_field :num_registro, placeholder: 'Ej: 0801-1990-22134', class: 'form-control'
+        
+            .form-group
+                = f.label :estado_civil, 'Estado Civil'
+                = f.text_field :estado_civil, class: 'form-control'
+            
+            .form-group
+                = f.label :telefono, 'Telefono'
+                = f.text_field :telefono, class: 'form-control'
+                
+            .form-group
+                = f.label :domicilio, 'Domicilo'
+                = f.text_field :domicilio, class: 'form-control'    
+                
+            .form-group
+                = f.label :photo, 'Foto'
+                = f.file_field :photo
+        
+    .form-group
+        = f.submit ( f.object.new_record? ? "Registrar Persona" : "Guardar Cambios"), class: 'btn btn-default'

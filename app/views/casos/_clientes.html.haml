@@ -1,0 +1,13 @@
+/ Show all Clients for this Case
+%h3 Clientes
+
+.row
+    - @caso.clientes.each do |cliente|
+        .col-sm-12.col-md-3.text-center    
+            = link_to bufete_persona_path(@bufete, cliente) do
+                = image_tag cliente.photo.url(:thumb), class: 'img-circle'
+                
+                %h5
+                    = cliente.nombre_completo
+                    
+%hr

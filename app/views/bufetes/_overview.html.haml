@@ -1,0 +1,18 @@
+%h2= @bufete.nombre
+
+%p
+    %i= @bufete.direccion + ", " + "Tel: " + @bufete.telefono
+    
+=simple_format h @bufete.descripcion
+
+%ul.list-inline.text-center
+    %li
+        = link_to edit_bufete_path(@bufete) do
+            %span.glyphicon.glyphicon-pencil
+            Editar Mi Bufete
+        
+    %li
+        = link_to bufete_path(@bufete), method: :delete, class: 'text-danger' do
+            %span.glyphicon.glyphicon-remove
+            Eliminar Mi Bufete
+            

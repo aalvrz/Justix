@@ -1,0 +1,2 @@
+class Contraparte < Persona
+end

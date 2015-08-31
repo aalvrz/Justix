@@ -1,0 +1,67 @@
+.col-md-8.col-md-offset-2
+    %legend Editar Perfil
+
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart:true }) do |f|
+        
+        = devise_error_messages!
+        
+        .form-group
+            = f.label :name, 'Nombre'
+            = f.text_field :name, class: 'form-control'
+        
+        .form-group
+            = f.label :last_name, 'Apellido'
+            = f.text_field :last_name, class: 'form-control'
+        
+        .form-group
+            = f.label :email
+            = f.email_field :email, class: 'form-control'
+
+        .form-group
+            = f.label :avatar, 'Foto'
+            = f.file_field :avatar
+
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+            %div
+                Currently waiting confirmation for:
+                = resource.unconfirmed_email
+
+        .form-group
+            = f.label 'Contraseña' 
+            %i (Dejala en blanco si no quieres cambiarla)
+            %br
+            = f.password_field :password, autocomplete: "off", class: 'form-control'
+
+        .form-group
+            = f.label 'Confirmar contraseña'
+            = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
+
+        %hr
+
+        .form-group
+            = f.label 'Contraseña actual'
+            %i (Ingresa tu contraseña actual para confirmar los cambios)
+            %br
+            = f.password_field :current_password, autocomplete: "off", class: 'form-control'
+
+
+        .form-group.text-center
+            = f.submit "Guardar Cambios", class: 'btn btn-success'
+
+
+    %hr
+
+    .panel.panel-danger
+        .panel-heading
+            %h1.panel-title Eliminar Mi Cuenta
+        .panel-body
+            %p 
+                Presiona el boton abajo si quiere eliminar tu cuenta.
+                %b Esta accion es irreversible.
+                
+                .form-group.text-center
+                    = button_to "Eliminar Mi Cuenta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger'
+    
+    = link_to :back do
+        %span.glyphicon.glyphicon-arrow-left
+        Regresar

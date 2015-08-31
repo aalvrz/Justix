@@ -1,0 +1,9 @@
+.page-header
+    %h3 Listado de Bufetes
+
+- @bufetes.each do |bufete|
+    %h4
+        = link_to bufete.name, bufete_path(bufete)
+    %p= bufete.address
+    
+    %hr

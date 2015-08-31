@@ -1,0 +1,65 @@
+.col-md-8.col-md-offset-2
+    %h2
+        = @persona.nombre_completo
+        
+    .row        
+        .col-md-4
+            %p
+                %strong Nombre:
+                = @persona.nombre
+                
+            %p
+                %strong Apellido:
+                = @persona.apellido
+                
+            %p
+                %strong Fecha de Nacimiento:
+                
+            %p
+                %strong E-mail:
+                = @persona.email
+                
+            %p
+                %strong Tipo:
+                = @persona.type
+        .col-md-4
+            %p
+                %strong Numero de Registro:
+                = @persona.num_registro
+        
+            %p
+                %strong Estado Civil:
+                = @persona.estado_civil
+                
+            %p
+                %strong Telefono:
+                = @persona.telefono
+                
+            %p
+                %strong Domicilio:
+                = @persona.domicilio
+            
+        .col-md-4
+            = image_tag @persona.photo.url(:thumb), class: 'img-circle'
+    
+    %ul.list-inline.text-center
+        %li
+            = link_to edit_bufete_persona_path(@bufete, @persona) do
+                %span.glyphicon.glyphicon-pencil
+                Editar Cliente
+        %li
+            = link_to bufete_persona_path(@bufete, @persona), method: :delete, class: 'text-danger' do
+                %span.glyphicon.glyphicon-remove
+                Eliminar Cliente
+        
+    %hr
+            
+    .row
+        .col-md-12
+            %h3 Casos
+            
+    = link_to bufete_path(@bufete) do
+        %span.glyphicon.glyphicon-arrow-left
+        Regresar
+        
+    %hr

@@ -1,0 +1,21 @@
+.col-md-8.col-md-offset-2
+    %h3 Agregar Usuario a Bufete
+    
+    %p 
+        A continuacion podras agregar empleados a tu bufete para que ellos tambien puedan utilizar el sistema. Simplemente ingresa
+        el correo electronico.
+        
+    %p
+        %strong NOTA:
+        Los empleados deben de disponer de una cuenta creada en el sistema para poder agregarlos.
+        
+    .row
+        .col-md-4
+            = form_for apply_bufete_path(@bufete) do |f|
+                .form-group
+                    = f.label :email
+                    = f.text_field :email, autofocus: true, class: 'form-control'
+                
+                .form-group
+                    = f.submit 'Agregar Usuario', class: 'btn btn-primary'
+                    

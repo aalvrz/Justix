@@ -1,0 +1,2 @@
+class Testigo < Persona
+end

@@ -1,0 +1,13 @@
+.row
+    .col-md-8.col-md-offset-2
+        .panel.panel-default
+            .panel-body
+        
+                = form_for Bufete.new do |f|
+                
+                    .form-group
+                        = f.label 'Codigo del Bufete'
+                        = f.text_field :id, autofocus: true, class: 'form-control'
+                    
+                    .form-group        
+                        = f.submit 'Ingresar', class: 'btn btn-primary'

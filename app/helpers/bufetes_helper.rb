@@ -1,0 +1,2 @@
+module BufetesHelper
+end

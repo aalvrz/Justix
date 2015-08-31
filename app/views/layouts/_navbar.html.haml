@@ -1,0 +1,60 @@
+%nav.navbar.navbar-default{role: "navigation"}
+    .container
+
+        / Brand and toggle get grouped for better mobile display
+        .navbar-header
+            %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", type: "button"}
+                %span.sr-only Toggle navigation
+                %span.icon-bar
+                %span.icon-bar
+                %span.icon-bar
+            %strong= link_to "Mi Bufete", root_path, class: 'navbar-brand'
+        
+        / Collect the nav links, forms, and other content for toggling
+        .collapse.navbar-collapse.navbar-ex1-collapse
+            %ul.nav.navbar-nav
+                
+          
+            %ul.nav.navbar-nav.navbar-right
+                - if user_signed_in?
+                    %li.dropdown
+                        %a{ :class => 'dropdown-toggle', "data-toggle" => 'dropdown', :role => 'button', "aria-expanded" => false }
+                            %strong= current_user.email 
+                            %span.caret
+                        %ul{:class => 'dropdown-menu', :role => 'menu' }
+                            %li
+                                - if current_user.can_create_bufete?
+                                    = link_to new_bufete_path do
+                                        %span.glyphicon.glyphicon-home
+                                        Crear Bufete
+                                - else
+                                    = link_to bufete_path(current_user.bufete) do
+                                        %span.glyphicon.glyphicon-home
+                                        Mi Bufete
+                                        
+                                    %li
+                                        = link_to root_path do
+                                            %span.glyphicon.glyphicon-book
+                                            Mis Casos
+                                    
+                            %li.divider
+                            
+                            %li
+                                = link_to edit_user_registration_path do
+                                    %span.glyphicon.glyphicon-user
+                                    Mi Perfil
+                                    
+                            %li.divider
+                            
+                            %li
+                                = link_to logout_path, method: :delete do
+                                    %span.glyphicon.glyphicon-off
+                                    Salir
+                - else
+                    %li
+                        = link_to "Registrarse", registro_path
+                
+                    %li
+                        = link_to "Login", login_path
+          
+        / /.navbar-collapse
