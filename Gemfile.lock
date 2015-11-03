@@ -107,6 +107,7 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
+    pg (0.18.3)
     rack (1.6.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -132,6 +133,11 @@ GEM
     rails-i18n (4.0.6)
       i18n (~> 0.7)
       railties (~> 4.0)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.4)
+    rails_stdout_logging (0.0.4)
     railties (4.2.1)
       actionpack (= 4.2.1)
       activesupport (= 4.2.1)
@@ -192,8 +198,10 @@ DEPENDENCIES
   jquery-tokeninput-rails
   jquery-turbolinks
   paperclip (~> 4.3)
+  pg
   rails (= 4.2.1)
   rails-i18n (~> 4.0.0)
+  rails_12factor
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
