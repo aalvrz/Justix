@@ -1,0 +1,8 @@
+es:
+  activerecord:
+    
+      caso:
+        num_accion: "Numero de accion"
+  
+      user:
+        current_password: "Contraseña actual"

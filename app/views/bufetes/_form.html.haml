@@ -1,25 +1,30 @@
 = form_for @bufete do |f|
     
+    // ERROR MESSAGES
+    = render "shared/error_messages", model: @bufete
+    
     .row
         .col-md-6
             .form-group
                 = f.label :nombre, 'Nombre'
-                = f.text_field :nombre, autofocus: true, class: 'form-control'
+                = f.text_field :nombre, autofocus: true, class: 'form-control input-sm'
         
         .col-md-6
             .form-group
                 = f.label :telefono, 'Telefono'
-                = f.text_field :telefono, class: 'form-control'    
+                = f.text_field :telefono, class: 'form-control input-sm'
+                
+                
     
     .row
         .col-md-12
             .form-group
                 = f.label :direccion, 'Direccion'
-                = f.text_field :direccion, class: 'form-control'
+                = f.text_field :direccion, class: 'form-control input-sm'
         
             .form-group
                 = f.label :descripcion, 'Descripcion'
                 = f.text_area :descripcion, rows: '7', class: 'form-control'
                 
             .form-group
-                = f.submit ( f.object.new_record? ? "Crear Bufete" : "Guardar Cambios"), class: 'btn btn-default'
+                = f.submit ( f.object.new_record? ? "Crear Mi Bufete" : "Guardar Cambios"), class: 'btn btn-success'

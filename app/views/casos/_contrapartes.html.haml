@@ -1,13 +1,7 @@
 / Show all Counterparts for this Case
-%h3 Contrapartes
+%h4.text-center Contrapartes
 
-.row
-    - @caso.contrapartes.each do |cp|
-        .col-sm-12.col-md-3.text-center    
-            = link_to bufete_persona_path(@bufete, cp) do
-                = image_tag cp.photo.url(:thumb), class: 'img-circle'
+.list-group
+    - @caso.contrapartes.each do |contraparte|
+        = link_to "#{contraparte.nombre_completo}", bufete_persona_path(@bufete, contraparte), class: 'list-group-item'
                 
-                %h5
-                    = cp.nombre_completo
-                    
-%hr

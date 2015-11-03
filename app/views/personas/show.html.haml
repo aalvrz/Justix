@@ -1,65 +1,63 @@
-.col-md-8.col-md-offset-2
-    %h2
-        = @persona.nombre_completo
-        
-    .row        
-        .col-md-4
-            %p
-                %strong Nombre:
-                = @persona.nombre
-                
-            %p
-                %strong Apellido:
-                = @persona.apellido
-                
-            %p
-                %strong Fecha de Nacimiento:
-                
-            %p
-                %strong E-mail:
-                = @persona.email
-                
-            %p
-                %strong Tipo:
-                = @persona.type
-        .col-md-4
-            %p
-                %strong Numero de Registro:
-                = @persona.num_registro
-        
-            %p
-                %strong Estado Civil:
-                = @persona.estado_civil
-                
-            %p
-                %strong Telefono:
-                = @persona.telefono
-                
-            %p
-                %strong Domicilio:
-                = @persona.domicilio
+.panel.panel-default
+    .panel-body
+        %h3
+            = @persona.nombre_completo
+            .pull-right
+                .btn-group.btn-group-sm.pull-right
+                    - if can? :update, Persona
+                        = link_to edit_bufete_persona_path(@bufete, @persona), class: "btn btn-default btn-sm" do
+                            %span.glyphicon.glyphicon-pencil
+                            Editar
+                        = link_to bufete_persona_path(@bufete, @persona), method: :delete, class: "btn btn-danger btn-sm" do
+                            %span.glyphicon.glyphicon-trash
+                            Eliminar
+        %br
+        .row        
+            .col-md-5
+                %p
+                    %span.glyphicon.glyphicon-calendar
+                    %strong Fecha de Nacimiento:
+                    
+                %p
+                    %span.fa.fa-envelope-o
+                    %strong E-mail:
+                    = @persona.email
+                    
+                %p
+                    %span.fa.fa-users
+                    %strong Tipo:
+                    = @persona.type
+                    
+                %p
+                    %span.glyphicon.glyphicon-time
+                    %strong Fecha de Creacion:
+                    = I18n.localize( @persona.created_at.to_s.to_time, :format => '%e de %B del %Y')
+            .col-md-4
+                %p
+                    %span.glyphicon.glyphicon-credit-card
+                    %strong Numero de Registro:
+                    = @persona.num_registro
             
-        .col-md-4
-            = image_tag @persona.photo.url(:thumb), class: 'img-circle'
-    
-    %ul.list-inline.text-center
-        %li
-            = link_to edit_bufete_persona_path(@bufete, @persona) do
-                %span.glyphicon.glyphicon-pencil
-                Editar Cliente
-        %li
-            = link_to bufete_persona_path(@bufete, @persona), method: :delete, class: 'text-danger' do
-                %span.glyphicon.glyphicon-remove
-                Eliminar Cliente
+                %p
+                    %span.fa.fa-heart-o
+                    %strong Estado Civil:
+                    = @persona.estado_civil
+                    
+                %p 
+                    %span.fa.fa-phone
+                    %strong Telefono:
+                    = @persona.telefono
+                    
+                %p
+                    %span.glyphicon.glyphicon-map-marker
+                    %strong Domicilio:
+                    = @persona.domicilio
+                
+            .col-md-3
+                = image_tag @persona.photo.url(:thumb), class: 'thumbnail'
         
-    %hr
-            
-    .row
-        .col-md-12
-            %h3 Casos
-            
-    = link_to bufete_path(@bufete) do
-        %span.glyphicon.glyphicon-arrow-left
-        Regresar
+        %hr
         
-    %hr
+        = link_to bufete_personas_path(@bufete) do
+            %span.glyphicon.glyphicon-arrow-left
+            Regresar

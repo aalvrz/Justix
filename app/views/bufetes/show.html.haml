@@ -1,40 +1,20 @@
-.col-md-12
-    .row
-        .col-md-2
-            %br
-            / NAV PILLS
-            %ul.nav.nav-pills.nav-stacked
-                %li.active
-                    %a{ "aria-expanded" => "true", href: "#overview", "data-toggle" => "tab" }
-                        %span.glyphicon.glyphicon-info-sign
-                        Resumen
-                %li
-                    %a{ "aria-expanded" => "true", href: "#users", "data-toggle" => "tab" }
-                        %span.glyphicon.glyphicon-user
-                        Usuarios
-                        /%span.badge.pull-right= @bufete.users.count
-                %li
-                    %a{ "aria-expanded" => "true", href: "#clientes", "data-toggle" => "tab" }
-                        %span.glyphicon.glyphicon-briefcase
-                        Clientes
-                        /%span.badge.pull-right= @bufete.clients.count
-                %li
-                    %a{ "aria-expanded" => "true", href: "#casos", "data-toggle" => "tab" }
-                        %span.glyphicon.glyphicon-book
-                        Casos
-                        /%span.badge.pull-right= @bufete.cases.count
-            
+.panel.panel-default
+    .panel-body
+        %h2
+            = @bufete.nombre
+            .pull-right
+                .btn-group.btn-group-sm.pull-right
+                    - if can? :update, @bufete
+                        = link_to edit_bufete_path(@bufete), class: "btn btn-default" do
+                            %span.glyphicon.glyphicon-pencil
+                            Editar
+                    - if can? :destroy, @bufete    
+                        = link_to bufete_path(@bufete), method: :delete, class: "btn btn-default btn-danger" do
+                            %span.glyphicon.glyphicon-remove
+                            Eliminar
         
-        .col-md-10
-            / CONTENT
-            %div{ id: 'myTabContent', class: 'tab-content' }
-                %div{ class: "tab-pane fade active in", id: "overview" }
-                    = render 'overview'
-                %div{ class: "tab-pane fade", id: "users" }
-                    = render 'users'    
-                %div{ class: "tab-pane fade", id: "clientes" }
-                    = render 'clientes'    
-                %div{ class: "tab-pane fade", id: "casos" }
-                    = render 'casos'
-    
-            %hr
+        %p
+            %span.glyphicon.glyphicon-map-marker
+            = @bufete.direccion + ", " + "Tel: " + @bufete.telefono
+            
+        =simple_format h @bufete.descripcion

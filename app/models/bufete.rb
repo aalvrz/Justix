@@ -4,10 +4,11 @@ class Bufete < ActiveRecord::Base
     validates :direccion, :presence => true
     validates :telefono, :presence => true
     
-    has_many :users
+    belongs_to :user
     
+    has_many :casos
     has_many :personas, dependent: :destroy
-    has_many :casos, through: :personas
+    #has_many :casos, through: :personas
     
     # Assocations Stack Overflow Question:
     # http://stackoverflow.com/questions/31873297/choosing-the-right-model-associations-in-rails-4

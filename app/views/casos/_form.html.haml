@@ -1,4 +1,8 @@
 = form_for [@bufete, @caso] do |f|
+
+    // ERROR MESSAGES
+    = render "shared/error_messages", model: @caso
+
     .row
         .col-md-6
             .form-group
@@ -22,28 +26,42 @@
             .form-group
                 = f.label :oficina, 'Oficina'
                 = f.text_field :oficina, placeholder: 'Ej: Juzgado de Letras', class: 'form-control input-sm'
+                
+            .form-group
+                = f.label :estado, 'Estado'
+                %br
+                %div{ class: "btn-group", "data-toggle" => "buttons" }
+                    %label.btn.btn-default.active
+                        = f.radio_button :estado, "En Progreso", :checked => true
+                        %span.glyphicon.glyphicon-hourglass
+                        En Progreso
+                
+                    %label.btn.btn-default
+                        = f.radio_button :estado, "Ganado"
+                        %span.glyphicon.glyphicon-thumbs-up
+                        Ganado
+                        
+                    %label.btn.btn-default
+                        = f.radio_button :estado, "Perdido"
+                        %span.glyphicon.glyphicon-thumbs-down
+                        Perdido
+                    
     
     %hr
     
     .row
         .col-md-12
-            / TokenInput Railscasts: http://railscasts.com/episodes/258-token-fields?autoplay=true
-            / TokenInput JQuery Plugin: http://loopj.com/jquery-tokeninput/
             .form-group
-                = f.label :client_tokens, 'Clientes'
-                %br
-                = f.text_field :client_tokens, "data-pre" => @caso.clientes.map { |model| {:id => model.id, :nombre_completo => model.nombre_completo } }.to_json
+                = f.label :cliente_tokens, 'Clientes'
+                = f.text_field :cliente_tokens, "data-pre" => @caso.clientes.map { |model| {:id => model.id, :nombre_completo => model.nombre_completo } }.to_json, class: 'form-control'
                 
             .form-group
-                = f.label :witness_tokens, 'Testigos'
-                %br
-                = f.text_field :witness_tokens, "data-pre" => @caso.testigos.map { |model| {:id => model.id, :nombre_completo => model.nombre_completo } }.to_json
+                = f.label :contraparte_tokens, 'Contrapartes'
+                = f.text_field :contraparte_tokens, "data-pre" => @caso.contrapartes.map { |model| {:id => model.id, :nombre_completo => model.nombre_completo } }.to_json, class: 'form-control'
                 
             .form-group
-                = f.label :counterpart_tokens, 'Contrapartes'
-                %br
-                = f.text_field :counterpart_tokens, "data-pre" => @caso.contrapartes.map { |model| {:id => model.id, :nombre_completo => model.nombre_completo } }.to_json
-    
+                = f.label :testigo_tokens, 'Testigos'
+                = f.text_field :testigo_tokens, "data-pre" => @caso.testigos.map { |model| {:id => model.id, :nombre_completo => model.nombre_completo } }.to_json, class: 'form-control'
     %hr
     
     .row
@@ -53,5 +71,4 @@
                 = f.text_area :descripcion, rows: '10', class: 'form-control input-sm'
                 
             .form-group
-                = f.submit ( f.object.new_record? ? "Crear Caso" : "Guardar Cambios"), class: 'btn btn-default'
-                
+                = f.submit ( f.object.new_record? ? "Crear Caso" : "Guardar Cambios"), class: 'btn btn-success'

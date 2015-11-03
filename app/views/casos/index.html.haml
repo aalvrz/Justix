@@ -1,0 +1,32 @@
+.panel.panel-default
+    .panel-body
+        %h3 
+            Casos
+            .pull-right
+                .btn-group.btn-group-sm.pull-right
+                    - if can? :create, Caso
+                        = link_to new_bufete_caso_path(@bufete), class: "btn btn-default" do
+                            %span.glyphicon.glyphicon-plus
+                            Nuevo Caso
+        
+        .row.text-center
+            .col-md-12
+                %ul.list-inline
+                    %li
+                        %span.glyphicon.glyphicon-stop.text-warning
+                        = "= En Proceso"
+                        
+                    %li
+                        %span.glyphicon.glyphicon-stop.text-success
+                        = "= Ganado"
+                        
+                    %li
+                        %span.glyphicon.glyphicon-stop.text-danger
+                        = "= Perdido"
+        
+        .list-group
+            - @bufete.casos.uniq.each do |caso|
+                = link_to bufete_caso_path(@bufete, caso), class: "list-group-item list-group-item-#{caso_estado_contextual(caso.estado)}" do
+                    %h4
+                        %strong= caso.nombre
+                    %p= caso.descripcion

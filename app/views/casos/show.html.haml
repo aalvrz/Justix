@@ -1,53 +1,69 @@
-.col-md-8.col-md-offset-2
-    %h2= @caso.nombre
-    
-    .row
-        .col-md-6
-            %p
-                %strong Numero de Accion:
-                = @caso.num_accion
-                
-            %p
-                %strong Accion:
-                = @caso.accion
-        
-        .col-md-6 
-            %p
-                %strong Materia:
-                = @caso.materia
-                
-            %p
-                %strong Oficina:
-                = @caso.oficina
-                
-    .row
-        .col-md-12
+.col-md-10.col-md-offset-1
+    .panel.panel-default
+        .panel-body
+            %h3
+                = @caso.nombre
+                .pull-right
+                    .btn-group.btn-group-sm.pull-right
+                        - if can? :edit, Caso
+                            = link_to edit_bufete_caso_path(@bufete, @caso), class: "btn btn-default" do
+                                %span.glyphicon.glyphicon-pencil
+                                Editar
+                        - if can? :destroy, Caso
+                            = link_to bufete_caso_path(@bufete, @caso), method: :delete, class: "btn btn-danger" do
+                                %span.glyphicon.glyphicon-trash
+                                Eliminar
             
-            %p
-                %strong Descripcion:
-                =simple_format h @caso.descripcion
-    
-            %ul.list-inline.text-center
-                %li
-                    = link_to edit_bufete_caso_path(@bufete, @caso) do
-                        %span.glyphicon.glyphicon-pencil
-                        Editar Caso
+            .row
+                .col-md-6
+                    %p
+                        %span.glyphicon.glyphicon-th-list
+                        %strong Numero de Accion:
+                        = @caso.num_accion
                         
-                %li
-                    = link_to bufete_caso_path(@bufete, @caso), method: :delete, class: 'text-danger' do
-                        %span.glyphicon.glyphicon-remove
-                        Eliminar Caso
-    
-    %hr
-    
-    = render 'clientes'
-    
-    = render 'contrapartes'
-    
-    = render 'testigos'
-    
-    = link_to bufete_path(@bufete) do
-        %span.glyphicon.glyphicon-arrow-left
-        Regresar
-        
-    %hr
+                    %p
+                        %span.glyphicon.glyphicon-bookmark
+                        %strong Accion:
+                        = @caso.accion
+                        
+                    %p
+                        %span.glyphicon.glyphicon-time
+                        %strong Fecha de Creacion:
+                        = I18n.localize( @caso.created_at.to_s.to_time, :format => '%e de %B del %Y')
+                
+                .col-md-6 
+                    %p
+                        %span.fa.fa-book
+                        %strong Materia:
+                        = @caso.materia
+                        
+                    %p
+                        %span.fa.fa-building
+                        %strong Oficina:
+                        = @caso.oficina
+                        
+                    %p
+                        %span.glyphicon.glyphicon-ok
+                        %strong Estado:
+                        %span{ class: "label label-#{caso_estado_contextual(@caso.estado)}" }
+                            = @caso.estado
+                    
+                        
+            .row
+                .col-md-12
+                    
+                    %p
+                        %strong Descripcion:
+                        =simple_format h @caso.descripcion
+            
+            %hr
+            
+            .row
+                .col-md-4
+                    = render 'clientes'
+            
+                .col-md-4
+                    = render 'contrapartes'
+            
+                .col-md-4
+                    = render 'testigos'

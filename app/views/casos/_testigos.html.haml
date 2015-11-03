@@ -1,13 +1,6 @@
 / Show all Witnesses for this Case
-%h3 Testigos
+%h4.text-center Testigos
 
-.row
+.list-group
     - @caso.testigos.each do |testigo|
-        .col-sm-12.col-md-3.text-center    
-            = link_to bufete_persona_path(@bufete, testigo) do
-                = image_tag testigo.photo.url(:thumb), class: 'img-circle'
-                
-                %h5
-                    = testigo.nombre_completo
-                    
-%hr
+        = link_to "#{testigo.nombre_completo}", bufete_persona_path(@bufete, testigo), class: 'list-group-item'

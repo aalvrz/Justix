@@ -10,15 +10,24 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     
+    = stylesheet_link_tag 'https://bootswatch.com/simplex/bootstrap.min.css'
+    = stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+    = javascript_include_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js'
+    
     = csrf_meta_tags
     
 %body
-
-    = render 'layouts/navbar'
-    
     .container
         .row
             .col-md-12
+                %br
+    
+        .row
+            .col-md-10.col-md-offset-1
+                = render 'layouts/navbar'
+                
+        .row
+            .col-md-10.col-md-offset-1
                 - flash.each do |name, msg|
                     - if name == "alert"
                         = content_tag(:div, msg, class: "alert alert-danger")
@@ -26,4 +35,11 @@
                         = content_tag(:div, msg, class: "alert alert-success")
                     - else
                         = content_tag :div, msg, class: "alert alert-#{name}"
-        = yield
+                        
+        .row
+            .col-md-10.col-md-offset-1
+                = yield
+                
+        .row
+            .col-md-10.col-md-offset-1
+                = render 'layouts/footer'

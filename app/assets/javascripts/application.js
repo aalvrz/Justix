@@ -11,36 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery.tokeninput
 //= require turbolinks
-//= require bootstrap-sprockets
 //= require_tree .
-
-/* Token Input Scripts */
-$(function() {
-    $("#caso_client_tokens").tokenInput("../clientes.json", {
-        crossDomain: false,
-        propertyToSearch: 'nombre_completo',
-        prePopulate: $("#caso_client_tokens").data("pre"),
-        theme: "bootstrap"
-    });
-});
-
-$(function() {
-    $("#caso_counterpart_tokens").tokenInput("../contrapartes.json", {
-        crossDomain: false,
-        propertyToSearch: 'nombre_completo',
-        prePopulate: $("#caso_counterpart_tokens").data("pre"),
-        theme: "bootstrap"
-    });
-});
-
-$(function() {
-    $("#caso_witness_tokens").tokenInput("../testigos.json", {
-        crossDomain: false,
-        propertyToSearch: 'nombre_completo',
-        prePopulate: $("#caso_witness_tokens").data("pre"),
-        theme: "bootstrap"
-    });
-});

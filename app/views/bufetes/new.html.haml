@@ -1,6 +1,11 @@
-.col-md-8.col-md-offset-2
-    %legend Crea tu Bufete
-    
-    %p Para empezar, ingresa los datos de tu bufete. Luego podras realizar acciones.
-    
-    = render 'form'
+.panel.panel-default
+    .panel-body
+        - if current_user.bufetes.count == 1
+            %p.text-center
+                Tu plan actual no te permite crear mas de un bufete. Actualiza tu plan ya.
+        - else
+            %legend Crea tu Bufete
+            
+            %p.text-center Ya casi estas listo! Pero antes de comenzar, crea tu bufete llenando los campos a continuacion:
+            
+            = render 'form'

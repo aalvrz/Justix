@@ -4,15 +4,37 @@ class PersonasController < ApplicationController
     before_action :find_persona, only:[:show, :edit, :update, :destroy]
     before_action :set_type
     before_action :authenticate_user!
+    load_and_authorize_resource
     
-    def index
-       @personas = type_class.all.where("nombre like ? OR apellido like ?", "%#{params[:q]}%", "%#{params[:q]}%")
+    def clientes
+        @clientes = @bufete.clientes.all.where("nombre LIKE ? OR apellido LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
        
-        # Generate JSON Script for Token Input Plugin
         respond_to do |format|
             format.html
-            format.json { render :json => @personas.map { |model| {:id => model.id, :nombre_completo => model.nombre_completo } } }
+            format.json { render :json => @clientes.map { |model| {:id => model.id, :nombre_completo => model.nombre_completo } } }
         end
+    end
+    
+    def contrapartes
+        @contrapartes = @bufete.contrapartes.all.where("nombre LIKE ? OR apellido LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
+       
+        respond_to do |format|
+            format.html
+            format.json { render :json => @contrapartes.map { |model| {:id => model.id, :nombre_completo => model.nombre_completo } } }
+        end
+    end
+    
+    def testigos
+        @testigos = @bufete.testigos.all.where("nombre LIKE ? OR apellido LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
+       
+        respond_to do |format|
+            format.html
+            format.json { render :json => @testigos.map { |model| {:id => model.id, :nombre_completo => model.nombre_completo } } }
+        end
+    end
+    
+    def index
+       @personas = @bufete.personas.all
     end
     
     def new
@@ -66,15 +88,15 @@ class PersonasController < ApplicationController
         end
     
         def find_persona
-           @persona = Persona.find(params[:id]) 
+            @persona = Persona.find(params[:id]) 
         end
         
         def set_type
-           @type = type 
+            @type = type 
         end
         
         def type
-           Persona.types.include?(params[:type]) ? params[:type] : "Persona"
+            Persona.types.include?(params[:type]) ? params[:type] : "Persona"
         end
         
         def type_class

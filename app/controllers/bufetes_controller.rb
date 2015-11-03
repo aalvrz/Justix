@@ -2,9 +2,10 @@ class BufetesController < ApplicationController
     
     before_action :find_bufete, only:[:show, :edit, :update, :destroy]
     before_action :authenticate_user!
+    load_and_authorize_resource
     
     def index
-        @bufetes = Bufete.all
+        @bufetes = current_user.bufetes
     end
     
     def show
@@ -12,27 +13,19 @@ class BufetesController < ApplicationController
     
     def new
         @bufete = Bufete.new
-        @bufete.personas.build
     end
     
     def create
-        @user = current_user
-        
-        if @user.can_create_bufete?
-            @bufete = Bufete.create(bufete_params)
-       
-            @user.bufete = @bufete  # Assign user to @bufete
-            @user.owner = true      # Mark this user as an owner
-       
-            respond_to do |format|
-                if @user.save
-                    format.html { redirect_to @bufete, :flash => { :success => 'Tu bufete ha sido creado exitosamente.' } }
-                    format.json { render :show, status: :created, location: @bufete }
-                else
-                    format.html { render 'new', :flash => { :danger => 'Hubo un error al tratar de crear tu bufete. 
-                    Porfavor asegurese de que el correo electronico es una direccion valida' } }
-                    format.json { render json: @bufete.errors, status: :unprocessable_entity }
-                end
+        @bufete = current_user.bufetes.build(bufete_params)
+        #@user.owner = true      # Mark this user as an owner
+   
+        respond_to do |format|
+            if @bufete.save
+                format.html { redirect_to @bufete, :flash => { :success => 'Tu bufete ha sido creado exitosamente.' } }
+                format.json { render :show, status: :created, location: @bufete }
+            else
+                format.html { render 'new', :flash => { :danger => 'Hubo un error al tratar de crear tu bufete.' } }
+                format.json { render json: @bufete.errors, status: :unprocessable_entity }
             end
         end
     end
@@ -41,7 +34,7 @@ class BufetesController < ApplicationController
     end
     
     def update
-       respond_to do |format|
+        respond_to do |format|
             if @bufete.update(bufete_params)
                 format.html { redirect_to @bufete, :flash => { :success => 'Tu bufete ha sido editado exitosamente.' } }
                 format.json { render :show, status: :updated, location: @bufete }
@@ -65,21 +58,6 @@ class BufetesController < ApplicationController
         end 
     end
     
-    def apply
-        @owner = current_user
-        @user = User.find_by_email(params[:email])
-       
-        respond_to do |format|
-            if !@user.blank?
-                format.html { redirect_to @bufete, :flash => { :success => "Usuario #{@user.email} fue agregado al bufete." } }
-                format.json { render :show, status: :created, location: @bufete }
-            else
-                format.html { redirect_to @bufete, :flash => { :danger => 'Hubo un error al tratar de agregar el usuario.' } }
-                format.json { render json: @user.errors, status: :unprocessable_entity }
-            end
-        end
-    end
-    
     private
         
         def find_bufete
@@ -87,7 +65,7 @@ class BufetesController < ApplicationController
         end
         
         def bufete_params
-            params.require(:bufete).permit(:nombre, :direccion, :telefono, :descripcion)
+            params.require(:bufete).permit(:nombre, :direccion, :telefono, :descripcion, :user_id)
         end
     
 end

@@ -5,6 +5,13 @@ class ApplicationController < ActionController::Base
   
   before_action :configure_permitted_parameters, if: :devise_controller?
   
+  # If CanCan privileges are denied
+  rescue_from CanCan::AccessDenied do |e|
+    flash[:danger] = "Acceso denegado. Usted no tiene permiso para realizar esta accion"
+    redirect_to root_path
+  end
+  
+  
   private
   
     def configure_permitted_parameters
