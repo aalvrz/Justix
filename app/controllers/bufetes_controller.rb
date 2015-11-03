@@ -21,7 +21,7 @@ class BufetesController < ApplicationController
    
         respond_to do |format|
             if @bufete.save
-                format.html { redirect_to @bufete, :flash => { :success => 'Tu bufete ha sido creado exitosamente.' } }
+                format.html { redirect_to @bufete, :flash => { :success => 'Tu bufete ha sido creado exitosamente. Ahora puedes comenzar a registar y manejar personas y casos.' } }
                 format.json { render :show, status: :created, location: @bufete }
             else
                 format.html { render 'new', :flash => { :danger => 'Hubo un error al tratar de crear tu bufete.' } }
