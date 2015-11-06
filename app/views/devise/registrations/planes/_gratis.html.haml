@@ -1,0 +1,31 @@
+// PLAN GRATUITO
+.panel.panel-default
+    .panel-heading
+        %h2.text-center 
+            Gratuito
+            %br
+            %small Lps 0.00
+            
+    %ul.list-group
+        %li.list-group-item 
+            %strong 1
+            Cuenta para tu Bufete
+            %span.glyphicon.glyphicon-ok.pull-right
+    
+        %li.list-group-item 
+            Capacidad para manejar 
+            %strong 1 Caso
+            %span.glyphicon.glyphicon-ok.pull-right
+        %li.list-group-item 
+            Capacidad para manejar
+            %strong 1 Cliente
+            %span.glyphicon.glyphicon-ok.pull-right
+        %li.list-group-item 
+            Entradas 
+            %strong ilimitadas
+            en tu bitacora.
+            %span.glyphicon.glyphicon-ok.pull-right
+        
+    .panel-footer
+        .text-center
+            = link_to 'Seleccionar', registrarse_path(plan: 'Gratuito'), class: 'btn btn-success btn-lg'

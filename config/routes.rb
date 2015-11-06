@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
   
   devise_scope :user do
-    get 'registro', to: 'devise/registrations#new'
+    get 'registrarse', to: 'devise/registrations#new'
     get 'login', to: 'devise/sessions#new'
     delete 'logout', to: 'devise/sessions#destroy'
   end
@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   
   get 'mi_bufete', to: 'bufetes#show'
   get 'crear_bufete', to: 'bufetes#new'
+  
+  get 'planes', to: 'paginas#planes'
   
   root 'home#index'  
 end

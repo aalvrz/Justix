@@ -13,4 +13,6 @@ class User < ActiveRecord::Base
     !owner && !bufete.present?
   end
   
+  PLANES_REGISTRO = ["Gratuito"]
+  
 end
