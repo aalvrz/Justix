@@ -1,69 +1,45 @@
-.col-md-10.col-md-offset-1
-    .panel.panel-default
-        .panel-body
-            %h3
-                = @caso.nombre
-                .pull-right
-                    .btn-group.btn-group-sm.pull-right
-                        - if can? :edit, Caso
-                            = link_to edit_bufete_caso_path(@bufete, @caso), class: "btn btn-default" do
-                                %span.glyphicon.glyphicon-pencil
-                                Editar
-                        - if can? :destroy, Caso
-                            = link_to bufete_caso_path(@bufete, @caso), method: :delete, class: "btn btn-danger" do
-                                %span.glyphicon.glyphicon-trash
-                                Eliminar
-            
-            .row
-                .col-md-6
-                    %p
-                        %span.glyphicon.glyphicon-th-list
-                        %strong Numero de Accion:
-                        = @caso.num_accion
-                        
-                    %p
-                        %span.glyphicon.glyphicon-bookmark
-                        %strong Accion:
-                        = @caso.accion
-                        
-                    %p
-                        %span.glyphicon.glyphicon-time
-                        %strong Fecha de Creacion:
-                        = I18n.localize( @caso.created_at.to_s.to_time, :format => '%e de %B del %Y')
-                
-                .col-md-6 
-                    %p
-                        %span.fa.fa-book
-                        %strong Materia:
-                        = @caso.materia
-                        
-                    %p
-                        %span.fa.fa-building
-                        %strong Oficina:
-                        = @caso.oficina
-                        
-                    %p
-                        %span.glyphicon.glyphicon-ok
-                        %strong Estado:
-                        %span{ class: "label label-#{caso_estado_contextual(@caso.estado)}" }
-                            = @caso.estado
+.panel.panel-default
+    .panel-body
+        %h3
+            = @caso.nombre
+            .pull-right
+                .btn-group.btn-group-sm.pull-right
+                    - if can? :edit, Caso
+                        = link_to edit_bufete_caso_path(@bufete, @caso), class: "btn btn-default" do
+                            %span.glyphicon.glyphicon-pencil
+                            Editar
+                    - if can? :destroy, Caso
+                        = link_to bufete_caso_path(@bufete, @caso), method: :delete, class: "btn btn-danger" do
+                            %span.glyphicon.glyphicon-trash
+                            Eliminar
+        
+        %ul.nav.nav-tabs
+            %li.active
+                %a{ "aria-expanded" => "true", href: "#resumen", "data-toggle" => "tab" }
+                    %span.glyphicon.glyphicon-text-size
+                    Resumen
                     
-                        
-            .row
-                .col-md-12
+            %li
+                %a{ "aria-expanded" => "true", href: "#bitacora", "data-toggle" => "tab" }
+                    %span.glyphicon.glyphicon-book
+                    Bitacora
                     
-                    %p
-                        %strong Descripcion:
-                        =simple_format h @caso.descripcion
+            %li
+                %a{ "aria-expanded" => "true", href: "#evidencia", "data-toggle" => "tab" }
+                    %span.glyphicon.glyphicon-paperclip
+                    Evidencia 
+                        
             
-            %hr
+        %div{ id: 'myTabContent', class: 'tab-content' }
+            %div{ class: "tab-pane fade active in", id: "resumen" }
+                / RESUMEN
+                %br
+                = render 'resumen'
+            %div{ class: "tab-pane fade", id: "bitacora" }
+                / BITACORA
+                %br
+            %div{ class: "tab-pane fade", id: "evidencia" }
+                / BITACORA
+                %br    
             
-            .row
-                .col-md-4
-                    = render 'clientes'
-            
-                .col-md-4
-                    = render 'contrapartes'
-            
-                .col-md-4
-                    = render 'testigos'
+                    

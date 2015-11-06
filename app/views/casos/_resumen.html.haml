@@ -1,0 +1,53 @@
+.row
+    .col-md-6
+        %p
+            %span.glyphicon.glyphicon-th-list
+            %strong Numero de Accion:
+            = @caso.num_accion
+            
+        %p
+            %span.glyphicon.glyphicon-bookmark
+            %strong Accion:
+            = @caso.accion
+            
+        %p
+            %span.glyphicon.glyphicon-time
+            %strong Fecha de Creacion:
+            = I18n.localize( @caso.created_at.to_s.to_time, :format => '%e de %B del %Y')
+    
+    .col-md-6 
+        %p
+            %span.fa.fa-book
+            %strong Materia:
+            = @caso.materia
+            
+        %p
+            %span.fa.fa-building
+            %strong Oficina:
+            = @caso.oficina
+            
+        %p
+            %span.glyphicon.glyphicon-ok
+            %strong Estado:
+            %span{ class: "label label-#{caso_estado_contextual(@caso.estado)}" }
+                = @caso.estado
+        
+            
+.row
+    .col-md-12
+        
+        %p
+            %strong Descripcion:
+            =simple_format h @caso.descripcion
+
+%hr
+
+.row
+    .col-md-4
+        = render 'clientes'
+
+    .col-md-4
+        = render 'contrapartes'
+
+    .col-md-4
+        = render 'testigos'
