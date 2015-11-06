@@ -1,0 +1,42 @@
+// PLAN PREMIUM
+.panel.panel-default
+    .panel-heading
+        %h2.text-center 
+            Premium
+            %br
+            %small Lps 1,000.00 / mes
+            
+    %ul.list-group
+        %li.list-group-item 
+            %strong 1
+            Cuenta para tu Bufete
+            %span.glyphicon.glyphicon-ok.pull-right
+        %li.list-group-item 
+            Maneja
+            %strong multiples Usuarios
+            %span.glyphicon.glyphicon-ok.pull-right
+        %li.list-group-item 
+            Maneja
+            %strong multiples
+            Casos
+            %span.glyphicon.glyphicon-ok.pull-right
+        %li.list-group-item 
+            Maneja
+            %strong multiples
+            Personas
+            %span.glyphicon.glyphicon-ok.pull-right
+        %li.list-group-item 
+            Entradas 
+            %strong ilimitadas
+            en tu bitacora.
+            %span.glyphicon.glyphicon-ok.pull-right
+        %li.list-group-item 
+            Maneja 
+            %strong evidencia
+            en tus casos
+            %span.glyphicon.glyphicon-ok.pull-right
+        
+        
+    .panel-footer
+        .text-center
+            = link_to 'Seleccionar', registrarse_path(plan: 'Gratuito'), class: 'btn btn-success btn-lg', :disabled => "disabled"

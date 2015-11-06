@@ -4,7 +4,7 @@ class PersonasController < ApplicationController
     before_action :find_persona, only:[:show, :edit, :update, :destroy]
     before_action :set_type
     before_action :authenticate_user!
-    load_and_authorize_resource
+    load_and_authorize_resource :except => [:clientes, :contrapartes, :testigos]
     
     def clientes
         @clientes = @bufete.clientes.all.where("nombre LIKE ? OR apellido LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")

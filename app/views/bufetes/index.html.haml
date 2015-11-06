@@ -1,11 +1,5 @@
 %h2 
     Mis Bufetes
-    .pull-right
-        .btn-group.btn-group-sm.pull-right
-            - if can? :create, Bufete
-                = link_to new_bufete_path, class: "btn btn-default" do
-                    %span.glyphicon.glyphicon-plus
-                    Crear Nuevo Bufete
 
 - if @bufetes.empty?
     %p.text-center 

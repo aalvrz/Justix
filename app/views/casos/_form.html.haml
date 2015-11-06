@@ -31,17 +31,17 @@
                 = f.label :estado, 'Estado'
                 %br
                 %div{ class: "btn-group", "data-toggle" => "buttons" }
-                    %label.btn.btn-default.active
-                        = f.radio_button :estado, "En Progreso", :checked => true
+                    %label.btn.btn-default.active.btn-sm
+                        = f.radio_button :estado, "En Proceso", :checked => true
                         %span.glyphicon.glyphicon-hourglass
-                        En Progreso
+                        En Proceso
                 
-                    %label.btn.btn-default
+                    %label.btn.btn-default.btn-sm
                         = f.radio_button :estado, "Ganado"
                         %span.glyphicon.glyphicon-thumbs-up
                         Ganado
                         
-                    %label.btn.btn-default
+                    %label.btn.btn-default.btn-sm
                         = f.radio_button :estado, "Perdido"
                         %span.glyphicon.glyphicon-thumbs-down
                         Perdido

@@ -31,10 +31,7 @@ class CasosController < ApplicationController
     end
     
     def create
-        #@clientes = params[:cliente_tokens]  # Get all the clients assigned using the Token Input
-        
         @caso = @bufete.casos.build(caso_params)
-        #@caso.persona_ids = params[:client_tokens].split(",") + params[:witness_tokens].split(",") + params[:counterpart_tokens].split(",")
         
         respond_to do |format|
             if @caso.save
