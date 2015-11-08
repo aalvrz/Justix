@@ -24,6 +24,10 @@ class Ability
       #can :view_json, :clients, :bufete => { :user_id => user.id } # Access for JSON data
       can :create, Persona
       can :crud, Persona, :bufete => { :user_id => user.id }
+      
+      # Evidencia
+      can :create, Prueba
+      can :crud, Prueba, :bufete => { :user_id => user.id }
     end
     
     # Guest User Priveleges

@@ -25,8 +25,12 @@
                         = "= Perdido"
         
         .list-group
-            - @bufete.casos.uniq.each do |caso|
+            - @casos.each do |caso|
                 = link_to bufete_caso_path(@bufete, caso), class: "list-group-item list-group-item-#{caso_estado_contextual(caso.estado)}" do
                     %h4
                         %strong= caso.nombre
                     %p= caso.descripcion
+                    
+        / Pagination
+        .row.text-center
+            = will_paginate @casos, renderer: BootstrapPagination::Rails

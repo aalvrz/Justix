@@ -36,11 +36,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'devise'
 gem 'haml'
+gem 'will_paginate', '~> 3.0.6'
+gem 'will_paginate-bootstrap'
 gem 'jquery-turbolinks'
 gem 'rails-i18n', '~> 4.0.0'
 gem "paperclip", "~> 4.3"
+gem 'carrierwave'
 gem 'cancancan', '~> 1.10'
-
 gem 'jquery-tokeninput-rails'
 
 # Use ActiveModel has_secure_password

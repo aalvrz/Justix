@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151106025158) do
+ActiveRecord::Schema.define(version: 20151108043634) do
 
   create_table "bufetes", force: :cascade do |t|
     t.string   "nombre"
@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(version: 20151106025158) do
     t.string   "estado",      default: "En Proceso"
   end
 
+  create_table "evidencia", force: :cascade do |t|
+    t.string   "titulo"
+    t.text     "descripcion"
+    t.string   "archivo"
+    t.integer  "caso_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "personas", force: :cascade do |t|
     t.string   "nombre"
     t.string   "num_registro"
@@ -60,6 +69,15 @@ ActiveRecord::Schema.define(version: 20151106025158) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+  end
+
+  create_table "pruebas", force: :cascade do |t|
+    t.string   "titulo"
+    t.text     "descripcion"
+    t.string   "archivo"
+    t.integer  "caso_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "taggings", force: :cascade do |t|

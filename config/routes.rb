@@ -17,7 +17,9 @@ Rails.application.routes.draw do
     resources :contrapartes, controller: 'personas', type: 'Contraparte'
     resources :testigos, controller: 'personas', type: 'Testigo'
     
-    resources :casos
+    resources :casos do
+      resources :pruebas
+    end
   end
   
   get 'mi_bufete', to: 'bufetes#show'

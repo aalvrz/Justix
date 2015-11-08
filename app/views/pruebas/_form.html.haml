@@ -1,0 +1,18 @@
+= form_for [@bufete, @caso, @prueba] do |f|
+
+    // ERROR MESSAGES
+    = render "shared/error_messages", model: @prueba
+
+    .form-group
+        = f.label :titulo
+        = f.text_field :titulo, autofocus: true, class: 'form-control'
+        
+    .form-group
+        = f.label :descripcion, 'Breve Descripcion'
+        = f.text_field :descripcion, class: 'form-control'
+        
+    .form-group
+        = f.label :archivo
+        = f.file_field :archivo, multiple: false
+        
+    = f.submit ( f.object.new_record? ? "Agregar Evidencia" : "Guardar Cambios"), class: 'btn btn-success'

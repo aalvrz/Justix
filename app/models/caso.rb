@@ -14,8 +14,7 @@ class Caso < ActiveRecord::Base
     has_many :clientes, class_name: 'Cliente', through: :caso_personas, source: :persona
     has_many :contrapartes, class_name: 'Contraparte', through: :caso_personas, source: :persona
     has_many :testigos, class_name: 'Testigo', through: :caso_personas, source: :persona
-    
-
+    has_many :pruebas, dependent: :destroy
     
     #delegate :clientes, :contrapartes, :testigos, to: :personas
     

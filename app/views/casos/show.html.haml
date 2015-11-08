@@ -7,11 +7,11 @@
                     - if can? :edit, Caso
                         = link_to edit_bufete_caso_path(@bufete, @caso), class: "btn btn-default" do
                             %span.glyphicon.glyphicon-pencil
-                            Editar
+                            Editar Caso
                     - if can? :destroy, Caso
                         = link_to bufete_caso_path(@bufete, @caso), method: :delete, class: "btn btn-danger" do
                             %span.glyphicon.glyphicon-trash
-                            Eliminar
+                            Eliminar Caso
         
         %ul.nav.nav-tabs
             %li.active
@@ -28,6 +28,7 @@
                 %a{ "aria-expanded" => "true", href: "#evidencia", "data-toggle" => "tab" }
                     %span.glyphicon.glyphicon-paperclip
                     Evidencia 
+                    %span.badge= @caso.pruebas.count
                         
             
         %div{ id: 'myTabContent', class: 'tab-content' }
@@ -40,6 +41,7 @@
                 %br
             %div{ class: "tab-pane fade", id: "evidencia" }
                 / BITACORA
-                %br    
+                %br
+                = render 'evidencia'
             
                     
