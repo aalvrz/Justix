@@ -1,12 +1,9 @@
-.col-md-12
-    .panel.panel-default
-        .panel-body
-            %legend Editar Caso
-            
-            = render 'form'
-            
-            = link_to :back do
-                %span.glyphicon.glyphicon-arrow-left
-                Regresar
-                
-            %hr
+.main-content
+    .widget
+        .widget-content-white.glossed
+            .padded
+                %h3.form-title.form-title-first
+                    %i.fa.fa-terminal
+                    Editar Caso
+
+                = render 'form'

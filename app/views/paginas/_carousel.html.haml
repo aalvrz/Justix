@@ -3,18 +3,17 @@
     %ol.carousel-indicators
         %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
         %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
-        %li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
   
     / Wrapper for slides
     // 1170 x 500
     .carousel-inner{:role => "listbox"}
         .item.active
-            %img{src: 'http://www.ansonika.com/planar/img/slider/slide-4.jpg', class: 'img-rounded' }
+            = image_tag 'carousel/bufete.jpg'
             .carousel-caption
                 %h3 Caption
         
         .item
-            %img{src: 'http://www.ansonika.com/planar/img/slider/slide-2.jpg', class: 'img-rounded' }
+            = image_tag 'carousel/slider_cloud.jpg'
             .carousel-caption
                 %h3 Caption  2
         

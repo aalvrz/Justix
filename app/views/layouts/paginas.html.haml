@@ -15,14 +15,17 @@
     = csrf_meta_tags
     
 %body
-    .all-wrapper
+    .container
+        = render 'layouts/header'
+    
         .row
-            // NAVBAR
-            = render 'layouts/navbar'
-        
-            // CONTENT
-            .col-md-9
-                .content-wrapper
-                    = render 'layouts/error_alerts'
-                    .content-inner
-                        = yield
+            .col-md-10.col-md-offset-1
+                = render 'layouts/error_alerts'
+                        
+        .row
+            .col-md-10.col-md-offset-1
+                = yield
+                
+        .row
+            .col-md-10.col-md-offset-1
+                = render 'layouts/footer'

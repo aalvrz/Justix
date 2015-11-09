@@ -11,9 +11,11 @@
  * file per style scope.
  *
  */
-
+ 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "token-input";
 @import "token-input-bootstrap3";
-@import "home"
+@import "paginas";
+
+@import "app";

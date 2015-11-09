@@ -1,10 +1,9 @@
-.col-md-12
-    .panel.panel-default
-        .panel-body
-            %legend Edita tu Bufete
+.main-content
+    .widget
+        .widget-content-white.glossed
+            .padded
+                %h3.form-title.form-title-first
+                    %i.fa.fa-terminal
+                    Editar Mi Bufete
             
-            = render 'form'
-            
-            = link_to :back do
-                %span.glyphicon.glyphicon-arrow-left
-                Regresar
+                = render 'form'

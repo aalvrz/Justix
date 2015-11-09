@@ -1,12 +1,16 @@
-.panel.panel-default
-    .panel-body
+.main-content
+    .widget
         - if current_user.bufetes.count == 1
             %p.text-center
                 Tu plan actual no te permite crear mas de un bufete. Actualiza tu plan ya.
         - else
-            %legend Crea tu Bufete
+            .widget-content-white.glossed
+                .padded
+                    %h3.form-title.form-title-first
+                        %i.fa.fa-terminal
+                        Crear Mi Bufete
+                        
+                    .alert.alert-info
+                        %p.text-center Ya casi estas listo! Pero antes de comenzar, crea tu bufete llenando los campos a continuacion:
             
-            .alert.alert-info
-                %p.text-center Ya casi estas listo! Pero antes de comenzar, crea tu bufete llenando los campos a continuacion:
-            
-            = render 'form'
+                    = render 'form'

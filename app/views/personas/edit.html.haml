@@ -1,9 +1,7 @@
-.panel.panel-default
-    .panel-body
-        %legend Editar Persona
-        
-        = render 'form'
-        
-        = link_to bufete_persona_path(@bufete, @persona) do
-            %span.glyphicon.glyphicon-arrow-left
-            Regresar
+%legend Editar Persona
+
+= render 'form'
+
+= link_to bufete_persona_path(@bufete, @persona) do
+    %span.glyphicon.glyphicon-arrow-left
+    Regresar

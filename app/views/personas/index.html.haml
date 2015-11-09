@@ -1,32 +1,30 @@
-.panel.panel-default
-    .panel-body
-        %h3 
-            Personas
-            .pull-right
-                .btn-group.btn-group-sm.pull-right
-                    - if can? :create, Persona
-                        = link_to new_bufete_persona_path(@bufete), class: 'btn btn-default btn-sm' do
-                            %span.glyphicon.glyphicon-plus
-                            Crear Persona
+%h3 
+    Personas
+    .pull-right
+        .btn-group.btn-group-sm.pull-right
+            - if can? :create, Persona
+                = link_to new_bufete_persona_path(@bufete), class: 'btn btn-default btn-sm' do
+                    %span.glyphicon.glyphicon-plus
+                    Crear Persona
 
-        .row
-            .col-md-10.col-md-offset-1
-                %table.table
-                    %thead
-                        %th.text-center Nombre Completo
-                        %th.text-center Identidad
-                        %th.text-center Telefono
-                        %th.text-center Domicilio
-                        %th.text-center Tipo
-                        %th.text-center Ver
-                    %tbody
-                        - @personas.each do |p|
-                            %tr.text-center
-                                %td= p.nombre_completo
-                                %td= p.num_registro
-                                %td= p.telefono
-                                %td= p.domicilio
-                                %td= p.type
-                                %td
-                                    = link_to bufete_persona_path(@bufete, p), class: 'btn btn-default btn-xs' do
-                                        %span.glyphicon.glyphicon-search
+.row
+    .col-md-10.col-md-offset-1
+        %table.table
+            %thead
+                %th.text-center Nombre Completo
+                %th.text-center Identidad
+                %th.text-center Telefono
+                %th.text-center Domicilio
+                %th.text-center Tipo
+                %th.text-center Ver
+            %tbody
+                - @personas.each do |p|
+                    %tr.text-center
+                        %td= p.nombre_completo
+                        %td= p.num_registro
+                        %td= p.telefono
+                        %td= p.domicilio
+                        %td= p.type
+                        %td
+                            = link_to bufete_persona_path(@bufete, p), class: 'btn btn-default btn-xs' do
+                                %span.glyphicon.glyphicon-search

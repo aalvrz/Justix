@@ -11,7 +11,6 @@ class ApplicationController < ActionController::Base
     redirect_to root_path
   end
   
-  
   private
   
     def configure_permitted_parameters
