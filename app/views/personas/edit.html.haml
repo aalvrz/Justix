@@ -1,7 +1,14 @@
-%legend Editar Persona
+.page-header
+    %h1
+        %i.fa.fa-users
+        Personas
 
-= render 'form'
+.main-content
+    .widget
+        .widget-content-white.glossed
+            .padded
+                %h3.form-title.form-title-first
+                    %i.fa.fa-pencil
+                    Editar Persona
 
-= link_to bufete_persona_path(@bufete, @persona) do
-    %span.glyphicon.glyphicon-arrow-left
-    Regresar
+                = render 'form'

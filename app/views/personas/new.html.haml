@@ -1,11 +1,14 @@
-%legend Registrar Persona
+.page-header
+    %h1
+        %i.fa.fa-users
+        Personas
 
-%p Registra personas como clientes o contra-personas y manten su informacion almacenada en el sistema.
-
-= render 'form'
-
-= link_to :back do
-    %span.glyphicon.glyphicon-arrow-left
-    Regresar
-    
-%hr
+.main-content
+    .widget
+        .widget-content-white.glossed
+            .padded
+                %h3.form-title.form-title-first
+                    %i.fa.fa-plus
+                    Crear Nueva Persona
+                    
+                = render 'form'

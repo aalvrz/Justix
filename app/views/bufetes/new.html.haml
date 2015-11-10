@@ -1,3 +1,8 @@
+.page-header
+    %h1
+        %i.fa.fa-briefcase
+        Mi Bufete
+
 .main-content
     .widget
         - if current_user.bufetes.count == 1
@@ -7,7 +12,7 @@
             .widget-content-white.glossed
                 .padded
                     %h3.form-title.form-title-first
-                        %i.fa.fa-terminal
+                        %i.fa.fa-plus
                         Crear Mi Bufete
                         
                     .alert.alert-info

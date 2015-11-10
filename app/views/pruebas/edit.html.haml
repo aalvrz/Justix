@@ -1,12 +1,14 @@
-.col-md-8.col-md-offset-2
-    .panel.panel-default
-        .panel-body
-            %legend Editar Evidencia
-            
-            = render 'form'
-            
-            %hr
-            
-            = link_to :back do
-                %span.glyphicon.glyphicon-arrow-left
-                Regresar
+.page-header
+    %h1
+        %i.fa.fa-paperclip
+        Evidencia
+
+.main-content
+    .widget
+        .widget-content-white.glossed
+            .padded
+                %h3.form-title.form-title-first
+                    %i.fa.fa-pencil
+                    Editar Evidencia
+
+                = render 'form'

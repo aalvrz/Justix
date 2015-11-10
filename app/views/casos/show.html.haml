@@ -9,41 +9,42 @@
                 %i.fa.fa-trash-o
                 Eliminar
     %h1
-        %i.fa.fa-briefcase
-        = @caso.nombre
+        %i.fa.fa-book
+        Casos
 
 .main-content
-
+    .widget
+        %h3.section-title.first-title= @caso.nombre
     
-    %ul.nav.nav-tabs
-        %li.active
-            %a{ "aria-expanded" => "true", href: "#resumen", "data-toggle" => "tab" }
-                %span.glyphicon.glyphicon-text-size
-                Resumen
-                
-        %li
-            %a{ "aria-expanded" => "true", href: "#bitacora", "data-toggle" => "tab" }
-                %span.glyphicon.glyphicon-book
-                Bitacora
-                
-        %li
-            %a{ "aria-expanded" => "true", href: "#evidencia", "data-toggle" => "tab" }
-                %span.glyphicon.glyphicon-paperclip
-                Evidencia 
-                %span.badge= @caso.pruebas.count
+        %ul.nav.nav-tabs
+            %li.active
+                %a{ "aria-expanded" => "true", href: "#resumen", "data-toggle" => "tab" }
+                    %span.glyphicon.glyphicon-text-size
+                    Resumen
                     
-        
-    %div{ id: 'myTabContent', class: 'tab-content' }
-        %div{ class: "tab-pane fade active in", id: "resumen" }
-            / RESUMEN
-            .padded
-                = render 'resumen'
-        %div{ class: "tab-pane fade", id: "bitacora" }
-            / BITACORA
-            .padded
-        %div{ class: "tab-pane fade", id: "evidencia" }
-            / BITACORA
-            .padded
-                = render 'evidencia'
+            %li
+                %a{ "aria-expanded" => "true", href: "#bitacora", "data-toggle" => "tab" }
+                    %span.glyphicon.glyphicon-book
+                    Bitacora
+                    
+            %li
+                %a{ "aria-expanded" => "true", href: "#evidencia", "data-toggle" => "tab" }
+                    %span.glyphicon.glyphicon-paperclip
+                    Evidencia 
+                    %span.badge= @caso.pruebas.count
+                        
+            
+        %div{ id: 'myTabContent', class: 'tab-content' }
+            %div{ class: "tab-pane fade active in", id: "resumen" }
+                / RESUMEN
+                .padded
+                    = render 'resumen'
+            %div{ class: "tab-pane fade", id: "bitacora" }
+                / BITACORA
+                .padded
+            %div{ class: "tab-pane fade", id: "evidencia" }
+                / BITACORA
+                .padded
+                    = render 'evidencia'
             
                     
