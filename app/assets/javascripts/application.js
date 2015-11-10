@@ -16,3 +16,5 @@
 //= require jquery.tokeninput
 //= require turbolinks
 //= require_tree .
+
+// Navbar Active State Change
