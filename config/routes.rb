@@ -27,5 +27,7 @@ Rails.application.routes.draw do
   
   get 'planes', to: 'paginas#planes'
   
+  get 'panel', to: 'panel#index'
+  
   root 'paginas#home'  
 end

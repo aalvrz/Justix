@@ -28,4 +28,5 @@
                 
             .form-group
                 = f.submit ( f.object.new_record? ? "Crear Mi Bufete" : "Guardar Cambios"), class: 'btn btn-success'
-                = link_to 'Cancelar', :back, class: 'btn btn-default'
+                - if !f.object.new_record?
+                    = link_to 'Cancelar', :back, class: 'btn btn-default'

@@ -16,15 +16,15 @@
             /   %input.form-control{:placeholder => "SEARCH", :type => "text"}
             
             %ul.side-menu
-                %li
-                    %a{:href => "notifications.html"}
+                %li.current
+                    = link_to panel_path, class: 'current' do
                         %i.fa.fa-dashboard
                         Panel de Control
     
             .relative-w
                 %ul.side-menu
-                    %li.current
-                        = link_to (current_user.bufetes.any? ? current_user.bufetes.first : crear_bufete_path), class: 'current' do
+                    %li
+                        = link_to (current_user.bufetes.any? ? current_user.bufetes.first : crear_bufete_path) do
                             %i.fa.fa-briefcase
                             Mi Bufete
                     %li

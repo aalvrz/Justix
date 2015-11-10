@@ -25,7 +25,8 @@ module Workspace
     
     # Layouts for Devise views
     config.to_prepare do
-      Devise::SessionsController.layout "sessions" 
+      Devise::SessionsController.layout "sessions"
+      Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "paginas" }
     end
   end
 end

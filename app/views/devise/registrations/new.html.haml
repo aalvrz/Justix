@@ -1,43 +1,49 @@
-.col-md-6.col-md-offset-3
-    .row
-        .panel.panel-default
-            .panel-body
-            
-                - if !plan_es_valido? params[:plan]
-                    %p.text-center 
-                        Porfavor
-                        = link_to 'selecciona un plan valido', planes_path
-                        para poder continuar.
-                - else
-                    %legend Registra tu Cuenta
+.row
+    .col-md-6.col-md-offset-3
+        .well
+            - if !plan_es_valido? params[:plan]
+                %p.text-center 
+                    Porfavor
+                    = link_to 'selecciona un plan valido', planes_path
+                    para poder continuar.
+            - else
+                %legend Registra tu Cuenta
+                
+                = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+                    = devise_error_messages!
                     
-                    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-                        = devise_error_messages!
-                        
-                        
+                    .alert.alert-info
                         %p.text-center Registra la cuenta que usaras para manejar tu bufete.
+                    
+                    = f.hidden_field :plan, :value => params[:plan]
+                    
+                    .form-group
+                        = f.label :name, 'Nombre'
+                        = f.text_field :name, autofocus: true, class: 'form-control'
                         
-                        = f.hidden_field :plan, :value => params[:plan]
+                    .form-group
+                        = f.label :last_name, 'Apellido'
+                        = f.text_field :last_name, class: 'form-control'
+                    
+                    .form-group
+                        = f.label :email
+                        %br
+                        = f.email_field :email, class: 'form-control'
                         
-                        .form-group
-                            = f.label :email
-                            %br
-                            = f.email_field :email, class: 'form-control'
-                            
-                        .form-group
-                            = f.label :password, 'Contraseña'
-                            -if @minimum_password_length
-                                %em
-                                    (
-                                    =@minimum_password_length
-                                    caracteres mínimo)
-                            %br
-                            = f.password_field :password, autocomplete: "off", class: 'form-control'
-                            
-                        .form-group
-                            = f.label :password_confirmation, 'Confirmar contraseña'
-                            %br
-                            = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
-                            
-                        .form-group
-                            = f.submit "Registrarse", class: 'form-control btn btn-success'
+                    .form-group
+                        = f.label :password, 'Contraseña'
+                        -if @minimum_password_length
+                            %em
+                                (
+                                =@minimum_password_length
+                                caracteres mínimo)
+                        %br
+                        = f.password_field :password, autocomplete: "off", class: 'form-control'
+                        
+                    .form-group
+                        = f.label :password_confirmation, 'Confirmar contraseña'
+                        %br
+                        = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
+                        
+                    .form-group
+                        = f.submit "Registrarse", class: 'form-control btn btn-success'
