@@ -5,7 +5,7 @@
                 %i.fa.fa-pencil
                 Editar
         - if can? :destroy, @caso
-            = link_to bufete_caso_path(@bufete, @caso), method: :delete do
+            = link_to bufete_caso_path(@bufete, @caso), method: :delete, data: { confirm: 'Estas seguro?' } do
                 %i.fa.fa-trash-o
                 Eliminar
     %h1
@@ -46,5 +46,3 @@
                 / BITACORA
                 .padded
                     = render 'evidencia'
-            
-                    

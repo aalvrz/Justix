@@ -16,5 +16,16 @@
     = csrf_meta_tags
     
 %body
-    
-    = yield
+    .all-wrapper.no-menu-wrapper
+        .login-logo-w
+            = link_to root_path, class: 'logo' do
+                %i.fa.fa-balance-scale
+                %span= "#{APP_NAME}"
+  
+        .row
+            .col-md-4.col-md-offset-4
+                .content-wrapper.bold-shadow
+                    .content-inner
+                        .main-content.main-content-grey-gradient.no-page-header
+                            .main-content-inner
+                                = yield

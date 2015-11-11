@@ -1,19 +1,19 @@
-.col-md-4.col-md-offset-4
-    .row
-        .panel.panel-default
-            .panel-body
-                %legend Recuperar Contraseña
-                    
-                %p.small.text-center Ingresa tu email y presiona el boton para recibir instrucciones de como recuperar tu contraseña.    
-                    
-                = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-                    = devise_error_messages!
+= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+    = devise_error_messages!
 
-                    .form-group
-                        = f.label :email
-                        = f.email_field :email, autofocus: true, class: 'form-control'
+    %h3.form-title.form-title-first
+        %i.fa.fa-lock
+        Recuperar Contraseña
+        
+    %p.small.text-center Ingresa tu email y presiona el boton para recibir instrucciones de como recuperar tu contraseña.
 
-                    
-                    .form-group.text-center
-                        = f.submit "Enviar Instrucciones", class: 'form-control btn btn-success'
+    .form-group
+        = f.label :email
+        = f.email_field :email, autofocus: true, class: 'form-control'
 
+    
+    .form-group.text-center
+        = f.submit "Enviar Instrucciones", class: 'form-control btn btn-success'
+
+    %p.text-center
+        = link_to 'Log In', login_path

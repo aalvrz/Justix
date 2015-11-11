@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     get 'registrarse', to: 'devise/registrations#new'
     get 'login', to: 'devise/sessions#new'
     delete 'logout', to: 'devise/sessions#destroy'
+    get 'recuperar_pass', to: 'devise/passwords#new'
   end
   
   resources :bufetes do
