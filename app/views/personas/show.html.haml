@@ -4,7 +4,8 @@
             = link_to edit_bufete_persona_path(@bufete, @persona) do
                 %span.glyphicon.glyphicon-pencil
                 Editar
-            = link_to bufete_persona_path(@bufete, @persona), method: :delete do
+        - if can? :destroy, Persona
+            = link_to bufete_persona_path(@bufete, @persona), method: :delete, data: { confirm: 'Estas seguro? Esta accion es irreversible.' } do
                 %span.glyphicon.glyphicon-trash
                 Eliminar
     %h1

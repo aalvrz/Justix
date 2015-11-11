@@ -5,7 +5,7 @@
                 %i.fa.fa-pencil
                 Editar
         - if can? :destroy, @bufete
-            = link_to bufete_path(@bufete), method: :delete do
+            = link_to bufete_path(@bufete), method: :delete, data: { confirm: 'Estas seguro? Esta accion es irreversible.' } do
                 %i.fa.fa-trash-o
                 Eliminar
     %h1

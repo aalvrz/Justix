@@ -44,7 +44,7 @@ gem "paperclip", "~> 4.3"
 gem 'carrierwave'
 gem 'cancancan', '~> 1.10'
 gem 'jquery-tokeninput-rails'
-
+#gem 'data-confirm-modal', github: 'ifad/data-confirm-modal' # Modal does not appear in correct position....
 
 
 # Use ActiveModel has_secure_password
