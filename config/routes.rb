@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     get 'login', to: 'devise/sessions#new'
     delete 'logout', to: 'devise/sessions#destroy'
     get 'recuperar_pass', to: 'devise/passwords#new'
+    get 'nuevo_pass', to: 'devise/passwords#edit'
   end
   
   resources :bufetes do

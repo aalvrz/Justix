@@ -15,34 +15,35 @@
             /.search-box
             /   %input.form-control{:placeholder => "SEARCH", :type => "text"}
             
-            %ul.side-menu
-                %li
-                    = link_to panel_path do
-                        %i.fa.fa-dashboard
-                        Panel de Control
-    
-            .relative-w
+            #sidebar
+                %ul.side-menu
+                    %li.current
+                        = link_to panel_path do
+                            %i.fa.fa-dashboard
+                            Panel de Control
+        
+                .relative-w
+                    %ul.side-menu
+                        %li
+                            = link_to (current_user.bufetes.any? ? current_user.bufetes.first : crear_bufete_path) do
+                                %i.fa.fa-briefcase
+                                Mi Bufete
+                        %li
+                            = link_to (current_user.bufetes.any? ? bufete_casos_path(current_user.bufetes.first) : crear_bufete_path) do
+                                %i.fa.fa-book
+                                Casos
+                        %li
+                            = link_to (current_user.bufetes.any? ? bufete_personas_path(current_user.bufetes.first) : crear_bufete_path) do
+                                %i.fa.fa-users
+                                Personas
+                
                 %ul.side-menu
                     %li
-                        = link_to (current_user.bufetes.any? ? current_user.bufetes.first : crear_bufete_path) do
-                            %i.fa.fa-briefcase
-                            Mi Bufete
+                        = link_to edit_user_registration_path do
+                            %i.fa.fa-cog
+                            Mi Cuenta
                     %li
-                        = link_to (current_user.bufetes.any? ? bufete_casos_path(current_user.bufetes.first) : crear_bufete_path) do
-                            %i.fa.fa-book
-                            Casos
-                    %li
-                        = link_to (current_user.bufetes.any? ? bufete_personas_path(current_user.bufetes.first) : crear_bufete_path) do
-                            %i.fa.fa-users
-                            Personas
-            
-            %ul.side-menu
-                %li
-                    = link_to edit_user_registration_path do
-                        %i.fa.fa-cog
-                        Mi Cuenta
-                %li
-                    = link_to logout_path, method: :delete  do
-                        %i.fa.fa-sign-out
-                        Salir        
+                        = link_to logout_path, method: :delete  do
+                            %i.fa.fa-sign-out
+                            Salir        
                 

@@ -25,7 +25,7 @@
                 %tbody
                     - @personas.each do |p|
                         %tr.text-center
-                            %td= p.nombre_completo
+                            %td= link_to p.nombre_completo, bufete_persona_path(@bufete, p)
                             %td= p.num_registro
                             %td= p.telefono
                             %td= p.domicilio

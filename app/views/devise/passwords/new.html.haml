@@ -1,9 +1,9 @@
 = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-    = devise_error_messages!
-
     %h3.form-title.form-title-first
         %i.fa.fa-lock
         Recuperar Contraseña
+        
+    = devise_error_messages!
         
     %p.small.text-center Ingresa tu email y presiona el boton para recibir instrucciones de como recuperar tu contraseña.
 
