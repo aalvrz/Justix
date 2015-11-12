@@ -1,49 +1,48 @@
 .row
     .col-md-6.col-md-offset-3
         .well
-            - if !plan_es_valido? params[:plan]
-                %p.text-center 
-                    Porfavor
-                    = link_to 'selecciona un plan valido', planes_path
-                    para poder continuar.
-            - else
-                %legend Registra tu Cuenta
+        
+            %legend Registra tu Cuenta
+            
+            = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
                 
-                = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-                    = devise_error_messages!
-                    
-                    .alert.alert-info
-                        %p.text-center Registra la cuenta que usaras para manejar tu bufete.
-                    
+                - if plan_es_valido? params[:plan]
                     = f.hidden_field :plan, :value => params[:plan]
+                - else
+                    = f.hidden_field :plan, :value => 'Prueba'
                     
-                    .form-group
-                        = f.label :name, 'Nombre'
-                        = f.text_field :name, autofocus: true, class: 'form-control'
-                        
-                    .form-group
-                        = f.label :last_name, 'Apellido'
-                        = f.text_field :last_name, class: 'form-control'
+                = devise_error_messages!
+                
+                .alert.alert-info
+                    %p.text-center Registra la cuenta que usaras para manejar tu bufete.
+                
+                .form-group
+                    = f.label :nombre, 'Nombre'
+                    = f.text_field :nombre, autofocus: true, class: 'form-control'
                     
-                    .form-group
-                        = f.label :email
-                        %br
-                        = f.email_field :email, class: 'form-control'
-                        
-                    .form-group
-                        = f.label :password, 'Contraseña'
-                        -if @minimum_password_length
-                            %em
-                                (
-                                =@minimum_password_length
-                                caracteres mínimo)
-                        %br
-                        = f.password_field :password, autocomplete: "off", class: 'form-control'
-                        
-                    .form-group
-                        = f.label :password_confirmation, 'Confirmar contraseña'
-                        %br
-                        = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
-                        
-                    .form-group
-                        = f.submit "Registrarse", class: 'form-control btn btn-success'
+                .form-group
+                    = f.label :apellido, 'Apellido'
+                    = f.text_field :apellido, class: 'form-control'
+                
+                .form-group
+                    = f.label :email
+                    %br
+                    = f.email_field :email, class: 'form-control'
+                    
+                .form-group
+                    = f.label :password, 'Contraseña'
+                    -if @minimum_password_length
+                        %em
+                            (
+                            =@minimum_password_length
+                            caracteres mínimo)
+                    %br
+                    = f.password_field :password, autocomplete: "off", class: 'form-control'
+                    
+                .form-group
+                    = f.label :password_confirmation, 'Confirmar contraseña'
+                    %br
+                    = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
+                    
+                .form-group
+                    = f.submit "Registrarse", class: 'form-control btn btn-success'
