@@ -6,9 +6,13 @@
                     = image_tag 'justix_logo.jpg'
             .col-md-8 
                 %br
-                - if !user_signed_in?
-                    %ul.list-inline.pull-right
+                %ul.list-inline.pull-right
+                    - if !user_signed_in?
                         %li 
                             = link_to 'Ver Planes', planes_path, class: 'btn btn-success'
                         %li 
                             = link_to 'Login', login_path, class: 'btn btn-default'
+                                
+                    - else
+                        %li
+                            = link_to 'Entrar al Sistema', panel_path, class: 'btn btn-success'
