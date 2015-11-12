@@ -1,0 +1,21 @@
+// Place all the styles related to the cases controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.caso-item {
+    border-left: 5px solid;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.caso-ganado {
+    border-color: #468847;
+}
+
+.caso-perdido {
+    border-color: #B94A48;
+}
+
+.caso-proceso {
+    border-color: #1B809E;
+}

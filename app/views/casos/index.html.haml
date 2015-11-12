@@ -15,7 +15,7 @@
             .col-md-12
                 %ul.list-inline
                     %li
-                        %span.fa.fa-square.text-warning
+                        %span.fa.fa-square.text-info
                         = "= En Proceso"
                         
                     %li
@@ -29,10 +29,11 @@
             .col-md-12
                 .list-group
                     - @casos.each do |caso|
-                        = link_to bufete_caso_path(@bufete, caso), class: "list-group-item list-group-item-#{caso_estado_contextual(caso.estado)}" do
-                            %h4
-                                %strong= caso.nombre
-                            %p= caso.descripcion
+                        %div{ class: "caso-item caso-#{caso_estado_contextual caso.estado}" }
+                            = link_to bufete_caso_path(@bufete, caso), class: "list-group-item" do
+                                %h4
+                                    %strong= caso.nombre
+                                %p= caso.descripcion
                             
         / Pagination
         .row.text-center
