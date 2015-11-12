@@ -1,22 +1,25 @@
-%footer
-    %hr
-    
-    .pull-right
-        %a{:href => "#"}
-            %i.fa.fa-facebook
-    .footer-left
-        %p.footer-links
-            = link_to 'Inicio', root_path
-            ·
-            = link_to 'Terminos y Condiciones', root_path
-            ·
-            = link_to 'Privacidad', root_path
-            ·
-            = link_to 'Acerca', root_path
-            ·
-            = link_to 'FAQ', root_path
-            ·
-            = link_to 'Contacto', root_path
+.row
+    .col-md-12
+        %footer.text-center
+            %p
+                = link_to 'Inicio', root_path
+                ·
+                = link_to 'Terminos y Condiciones', root_path
+                ·
+                = link_to 'Privacidad', root_path
+                ·
+                = link_to 'Acerca', root_path
+                ·
+                = link_to 'FAQ', root_path
+                ·
+                = link_to 'Contacto', root_path
+            
+            %p
+                Justix &copy; 2015
         
-        %p.small 
-            MiBufete &copy; 2015
+            %p
+                %a{:href => "#"}
+                    %i.fa.fa-facebook
+            
+                
+                

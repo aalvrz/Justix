@@ -14,20 +14,26 @@
     
     = csrf_meta_tags
     
-%body.home-bg
-    = render 'layouts/header'
-    
+%body
     .container
-        
     
+        // HEADER
+        = render 'layouts/header'
+        
+        // ALERTS
         .row
             .col-md-10.col-md-offset-1
                 = render 'layouts/error_alerts'
-                        
-        .row
-            .col-md-10.col-md-offset-1
-                = yield
-                
-        .row
-            .col-md-10.col-md-offset-1
-                = render 'layouts/footer'
+    
+        // MAIN CONTENT
+        .all-wrapper.no-menu-wrapper
+            .row
+                .col-md-12
+                    .content-wrapper.wood-wrapper.bold-shadow
+                        .content-inner
+                            .main-content.main-content-grey-gradient.no-page-header
+                                .main-content-inner
+                                    = yield
+                                    
+        // FOOTER
+        = render 'layouts/footer'

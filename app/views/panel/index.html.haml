@@ -4,8 +4,36 @@
         Panel de Control
         
 .main-content
-    %h3.section-title.first-title
-        %i.fa.fa-tasks
-        Estadisticas
-        
-    .row
+    .widget
+        %h3.section-title.first-title
+            %i.fa.fa-tasks
+            Estadisticas
+            
+        .row
+            .col-lg-3.col-md-4.col-sm-6.text-center
+                .widget-content-blue-wrapper.changed-up
+                    .widget-content-blue-inner.padded
+                        
+                        .pre-value-block
+                            %i.fa.fa-book
+                            Total Casos
+                        .value-block
+                            .value-self
+                                = current_user.bufetes.first.casos.count
+                            .value-sub
+                                Este mes
+                        %span.dynamicsparkline Cargando...
+                        
+            .col-lg-3.col-md-4.col-sm-6.text-center
+                .widget-content-blue-wrapper.changed-up
+                    .widget-content-blue-inner.padded
+                        
+                        .pre-value-block
+                            %i.fa.fa-money
+                            Honorarios
+                        .value-block
+                            .value-self
+                                $0
+                            .value-sub
+                                Este mes
+                        %span.dynamicsparkline Cargando...

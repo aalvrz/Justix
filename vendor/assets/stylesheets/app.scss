@@ -6644,7 +6644,7 @@ td.visible-print {
   color: #444;
 }
 .content-wrapper.wood-wrapper {
-  background: #5f3c22 url(../images/bg-wood.jpg) top left repeat;
+  background: #5f3c22 image-url('bg-wood.jpg') top left repeat;
   border-radius: 20px;
   padding: 30px;
   -webkit-box-shadow: inset 2px 2px 2px rgba(255,255,255,0.3), 0px 0px 20px 2px rgba(0,0,0,0.7);

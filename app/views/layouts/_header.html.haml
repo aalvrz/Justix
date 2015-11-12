@@ -1,18 +1,17 @@
-.header
-    .row
-        .col-md-6.col-md-offset-3
-            .col-md-4
-                = link_to root_path do
-                    = image_tag 'justix_logo.jpg'
-            .col-md-8 
-                %br
-                %ul.list-inline.pull-right
-                    - if !user_signed_in?
-                        %li 
-                            = link_to 'Ver Planes', planes_path, class: 'btn btn-success'
-                        %li 
-                            = link_to 'Login', login_path, class: 'btn btn-default'
-                                
-                    - else
-                        %li
-                            = link_to 'Entrar al Sistema', panel_path, class: 'btn btn-success'
+.all-wrapper.no-menu-wrapper
+    .login-logo-w.pull-left
+        = link_to root_path, class: 'logo' do
+            %span
+                .fa.fa-balance-scale.fa-lg
+                = "#{APP_NAME}"
+                
+    %ul.list-inline.pull-right
+        - if !user_signed_in?
+            %li 
+                = link_to 'Ver Planes', planes_path, class: 'btn btn-success'
+            %li 
+                = link_to 'Login', login_path, class: 'btn btn-default'
+                    
+        - else
+            %li
+                = link_to 'Entrar al Sistema', panel_path, class: 'btn btn-success'

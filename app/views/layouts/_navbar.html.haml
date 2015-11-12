@@ -18,7 +18,7 @@
             #sidebar
                 %ul.side-menu
                     %li.current
-                        = link_to panel_path do
+                        = link_to (current_user.bufetes.any? ? panel_path : crear_bufete_path) do
                             %i.fa.fa-dashboard
                             Panel de Control
         
