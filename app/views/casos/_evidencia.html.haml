@@ -3,7 +3,7 @@
         .pull-right
             .btn-group.btn-group-xs.pull-right
                 - if can? :create, Prueba
-                    = link_to new_bufete_caso_prueba_path(@bufete, @caso), class: "btn btn-default btn-round" do
+                    = link_to new_bufete_caso_prueba_path(@bufete, @caso), class: "btn btn-info btn-round" do
                         %span.glyphicon.glyphicon-plus
                         Agregar Evidencia
                         

@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   get 'terminos', to: 'paginas#terminos'
   get 'acerca', to: 'paginas#acerca'
   get 'faq', to: 'paginas#faq'
+  get 'prueba', to: 'paginas#prueba'
   
   get 'panel', to: 'panel#index'
   

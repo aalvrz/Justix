@@ -1,0 +1,22 @@
+.row
+    .col-md-12
+        %h1.text-center
+            Prueba Justix Totalmente
+            %span.text-success GRATIS!
+
+%hr
+
+.row
+    .col-md-4
+        = render 'devise/registrations/planes/prueba'
+    
+    .col-md-8
+        %p 
+            Simplemente escogiendo el plan de prueba gratuito, y luego registrando tu cuenta, tendras acceso a funciones basicas que te daran un
+            %em feel
+            de como funciona la aplicacion.
+            
+        %p Podras probar y jugar con la aplicacion a tu gusto, todo sin gastar ni un centavo.
+        
+        .text-center
+            = link_to 'QUIERO PROBARLO', registrarse_path(plan: 'Prueba'), class: 'btn btn-success btn-lg'

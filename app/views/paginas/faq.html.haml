@@ -11,51 +11,49 @@
 
 %div{ :class => "panel-group", :id => "accordion", :role => "tablist", "aria-multiselectable" => "true" }
 
-    .panel.panel-primary
+    .panel.panel-info
         %div{ :class => "panel-heading", :role => "tab", :id => "headingQ1" }
             %h4.panel-title
                 %a{ :role => "button", "data-toggle" => "collapse", "data-parent" => "#accordion", :href => "#collapseQ1", "aria-expanded" => "true", "aria-controls" => "collapseQ1" }
-                    Por que es necesario ingresar mi numero de identidad? Sera este mostrado al publico?
+                    Puedo probar la aplicacion gratis?
         %div{ :id => "collapseQ1", :class => "panel-collapse collapse in", :role => "tabpanel", "aria-labelledby" => "headingQ1" }
             .panel-body
                 %p
-                    Al momento de registrarse, es necesario ingresar el numero de identidad ya que necesitamos validar que no existan numeros de identidad repetidos en nuestra base de datos. Adicionalmente, el numero de identidad sirve tambien para verificar a los usuarios son personas reales y publican propiedades reales que en efecto poseen.
-                
-                %p
-                    El numero de identidad nunca sera mostrado a los demas usuarios ni al publico general que visita el sitio.
+                    %strong SI!
+                    Puedes probar la aplicacion totalmente gratis escogiendo el 
+                    = link_to 'plan de prueba', planes_path 
+                    y luego registrando tu cuenta.
+                    
+                %p 
+                    Para poder hacer uso de otras funciones en la aplicacion, 
+                    = link_to 'escoge un plan pagado', planes_path
 
 
-    .panel.panel-primary
+    .panel.panel-info
         %div{ :class => "panel-heading", :role => "tab", :id => "headingQ2" }
             %h4.panel-title
                 %a{ :class => "collapsed", :role => "button", "data-toggle" => "collapse", "data-parent" => "#accordion", :href => "#collapseQ2", "aria-expanded" => "false", "aria-controls" => "collapseQ2" }
-                    Hay algun limite para listar propiedades?
+                    Al usar la aplicacion, mi informacion sera privada?
         %div{ :id => "collapseQ2", :class => "panel-collapse collapse", :role => "tabpanel", "aria-labelledby" => "headingQ2" }
             .panel-body
-                %p
-                    Por los momentos no hay ningun limite ni restriccion para listar propiedades. Puedes listar todas las propiedades que poseas sin ningun limite o costo alguno.
-                    
-                %p
-                    %strong
-                        Sin embargo, esto podria cambiar en el futuro, asi que asegurate de aprovechar ahora para listar todas tus propiedades.
-                
-    .panel.panel-primary
+                %p Si. Toda informacion que ingreses utilizando el sistema sera completamente privada y solo tu podras acceder a esta informacion.
+                %p 
+                    Asegurate de echar un vistaso a nuestra
+                    = link_to 'politica de privacidad', privacidad_path
+                    para saber mas.
+   
+    .panel.panel-info
         %div{ :class => "panel-heading", :role => "tab", :id => "headingQ3" }
             %h4.panel-title
                 %a{ :class => "collapsed", :role => "button", "data-toggle" => "collapse", "data-parent" => "#accordion", :href => "#collapseQ3", "aria-expanded" => "false", "aria-controls" => "collapseQ3" }
-                    Una propiedad contiene varias imagenes, pero al tratar de ver todas las imagenes solo aparece una. Que sucede?
+                    Como puedo contactarlos si tengo sugerencias o quiero reportar fallas o errores?
         %div{ :id => "collapseQ3", :class => "panel-collapse collapse", :role => "tabpanel", "aria-labelledby" => "headingQ3" }
             .panel-body
-                %p
-                    Al cargar las imagenes en tamaño real, puedes navegar a travez de ellas haciendo click en una imagen y luego en las flechas que apareceran a ambos lados de la imagen.
-                    
-                %p
-                    De igual manera, puedes hacer uso de las teclas
-                    %kbd
-                        <
-                    &nbsp; 
-                    %kbd
-                        >
-                    &nbsp; 
-                    en tu teclado para cambiar las imagenes.
-   
+                %p Siempre estamos manteniendo y mejorando la aplicacion. Las sugerencias siempre son bienvenidas.
+                
+                %p 
+                    Para contactarnos, simplemente utiliza nuestro 
+                    = link_to 'formulario de contacto', root_path
+                    y te responderemos lo mas pronto posible.
+                
+                

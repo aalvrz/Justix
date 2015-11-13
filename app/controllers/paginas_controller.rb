@@ -19,5 +19,8 @@ class PaginasController < ApplicationController
     
     def faq
     end
+    
+    def prueba
+    end
         
 end
