@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151108043634) do
+ActiveRecord::Schema.define(version: 20151113021709) do
 
   create_table "bufetes", force: :cascade do |t|
     t.string   "nombre"
@@ -53,13 +53,9 @@ ActiveRecord::Schema.define(version: 20151108043634) do
     t.string   "email"
     t.string   "domicilio"
     t.string   "type"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.integer  "bufete_id"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
   end
 
   create_table "pruebas", force: :cascade do |t|
@@ -87,10 +83,6 @@ ActiveRecord::Schema.define(version: 20151108043634) do
     t.boolean  "admin",                  default: false
     t.string   "nombre"
     t.string   "apellido"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
     t.string   "plan",                   default: "Prueba"
   end
 

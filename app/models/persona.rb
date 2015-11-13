@@ -15,9 +15,7 @@ class Persona < ActiveRecord::Base
     validates :photo, :presence => true
     validates :type, :presence => true
     
-    # Paperclip
-    has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "128x128>" }, :default_url => "/images/:style/missing.png"
-    validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
+    
     
     # Associations
     belongs_to :bufete

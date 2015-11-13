@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :find_bufete, if: :user_signed_in?
   
   # If CanCan privileges are denied
   rescue_from CanCan::AccessDenied do |e|
@@ -22,5 +23,9 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:email, :password, :remember_me) }
       devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:nombre, :apellido, :email, :password, :password_confirmation, :current_password, :avatar ) }
       
+    end
+  
+    def find_bufete
+      @bufete = current_user.bufetes.first
     end
 end

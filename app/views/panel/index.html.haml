@@ -13,21 +13,18 @@
             .col-lg-3.col-md-4.col-sm-6.text-center
                 .widget-content-blue-wrapper.changed-up
                     .widget-content-blue-inner.padded
-                        
                         .pre-value-block
                             %i.fa.fa-book
-                            Total Casos
+                            Casos
                         .value-block
                             .value-self
-                                = current_user.bufetes.first.casos.count
+                                = @bufete.casos.count
                             .value-sub
-                                Este mes
-                        %span.dynamicsparkline Cargando...
+                                En Total
                         
             .col-lg-3.col-md-4.col-sm-6.text-center
                 .widget-content-blue-wrapper.changed-up
                     .widget-content-blue-inner.padded
-                        
                         .pre-value-block
                             %i.fa.fa-money
                             Honorarios
@@ -36,4 +33,15 @@
                                 $0
                             .value-sub
                                 Este mes
-                        %span.dynamicsparkline Cargando...
+                                
+            .col-lg-3.col-md-4.col-sm-6.text-center
+                .widget-content-blue-wrapper.changed-up
+                    .widget-content-blue-inner.padded
+                        .pre-value-block
+                            %i.fa.fa-user
+                            Clientes
+                        .value-block
+                            .value-self
+                                = @bufete.clientes.count
+                            .value-sub
+                                En Total
