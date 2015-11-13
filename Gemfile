@@ -43,7 +43,7 @@ gem 'rails-i18n', '~> 4.0.0'
 gem 'carrierwave'
 gem 'cancancan', '~> 1.10'
 gem 'jquery-tokeninput-rails'
-gem 'fog'
+gem 'fog-aws'
 gem "figaro"
 #gem 'data-confirm-modal', github: 'ifad/data-confirm-modal' # Modal does not appear in correct position....
 
