@@ -15,7 +15,8 @@ class Persona < ActiveRecord::Base
     validates :photo, :presence => true
     validates :type, :presence => true
     
-    
+    # Carrierwave
+    mount_uploader :photo, PhotoUploader
     
     # Associations
     belongs_to :bufete
