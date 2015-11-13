@@ -28,8 +28,14 @@ Rails.application.routes.draw do
   get 'crear_bufete', to: 'bufetes#new'
   
   get 'planes', to: 'paginas#planes'
+  get 'privacidad', to: 'paginas#privacidad'
+  get 'terminos', to: 'paginas#terminos'
+  get 'acerca', to: 'paginas#acerca'
+  get 'faq', to: 'paginas#faq'
   
   get 'panel', to: 'panel#index'
+  
+  get 'contacto', to: 'paginas#home'
   
   root 'paginas#home'  
 end

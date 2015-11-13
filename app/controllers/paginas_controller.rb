@@ -7,4 +7,17 @@ class PaginasController < ApplicationController
     
     def planes
     end
+    
+    def privacidad
+    end
+    
+    def terminos
+    end
+    
+    def acerca
+    end
+    
+    def faq
+    end
+        
 end
