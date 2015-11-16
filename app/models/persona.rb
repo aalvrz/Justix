@@ -12,7 +12,6 @@ class Persona < ActiveRecord::Base
     validates :estado_civil, :presence => true
     validates :email, :presence => true
     validates :domicilio, :presence => true
-    validates :photo, :presence => true
     validates :type, :presence => true
 
     # Associations

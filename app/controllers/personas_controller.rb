@@ -1,9 +1,9 @@
 class PersonasController < ApplicationController
     
+    before_action :authenticate_user!
     before_action :find_bufete
     before_action :find_persona, only:[:show, :edit, :update, :destroy]
     before_action :set_type
-    before_action :authenticate_user!
     load_and_authorize_resource :except => [:clientes, :contrapartes, :testigos]
     
     def clientes
@@ -104,7 +104,6 @@ class PersonasController < ApplicationController
         end
         
         def persona_params
-           params.require(:persona).permit(:nombre, :apellido, :email, :num_registro, :estado_civil, :telefono, 
-           :domicilio, :type, :bufete_id) 
+           params.require(:persona).permit(:nombre, :apellido, :email, :num_registro, :estado_civil, :telefono, :domicilio, :type, :bufete_id) 
         end
 end

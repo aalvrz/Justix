@@ -35,12 +35,12 @@
                             = @persona.type
                             
                         %p
-                            %span.glyphicon.glyphicon-time
+                            %span.fa.fa-clock-o
                             %strong Fecha de Creacion:
                             = I18n.localize( @persona.created_at.to_s.to_time, :format => '%e de %B del %Y')
                     .col-md-4
                         %p
-                            %span.glyphicon.glyphicon-credit-card
+                            %span.fa.fa-credit-card
                             %strong Numero de Registro:
                             = @persona.num_registro
                     
@@ -55,9 +55,6 @@
                             = @persona.telefono
                             
                         %p
-                            %span.glyphicon.glyphicon-map-marker
+                            %span.fa.fa-map-marker
                             %strong Domicilio:
                             = @persona.domicilio
-                        
-                    .col-md-3
-                        = image_tag @persona.photo.url(:thumb), class: 'thumbnail'
