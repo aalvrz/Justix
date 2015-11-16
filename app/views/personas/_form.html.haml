@@ -42,10 +42,6 @@
                 = f.label :domicilio, 'Domicilo'
                 = f.text_field :domicilio, class: 'form-control'    
                 
-            .form-group
-                = f.label :photo, 'Foto'
-                = f.file_field :photo
-        
     .form-group
         = f.submit ( f.object.new_record? ? "Registrar Persona" : "Guardar Cambios"), class: 'btn btn-success'
         = link_to 'Cancelar', :back, class: 'btn btn-default'

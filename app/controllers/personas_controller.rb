@@ -105,6 +105,6 @@ class PersonasController < ApplicationController
         
         def persona_params
            params.require(:persona).permit(:nombre, :apellido, :email, :num_registro, :estado_civil, :telefono, 
-           :domicilio, :photo, :type, :bufete_id) 
+           :domicilio, :type, :bufete_id) 
         end
 end
