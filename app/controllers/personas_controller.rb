@@ -47,10 +47,8 @@ class PersonasController < ApplicationController
         respond_to do |format|
             if @persona.save
                 format.html { redirect_to bufete_persona_path(@bufete, @persona), :flash => { :success => 'La persona ha sido registrada exitosamente' } }
-                format.json { render :show, status: :created, location: @persona }
             else
                 format.html { render 'new', :flash => { :danger => 'Hubo un error al tratar de registrar la persona.' } }
-                format.json { render json: @persona.errors, status: :unprocessable_entity }
             end
         end
     end
@@ -58,11 +56,9 @@ class PersonasController < ApplicationController
     def update
         respond_to do |format|
             if @persona.update(persona_params)
-                format.html { redirect_to @persona, :flash => { :success => 'Persona ha sido editada exitosamente.' } }
-                format.json { render :show, status: :updated, location: @persona }
+                format.html { redirect_to bufete_persona_path(@bufete, @persona), :flash => { :success => 'La persona ha sido editada exitosamente.' } }
             else
                 format.html { render :edit, :flash => { :danger => 'Hubo un error al tratar de editar la persona.' } }
-                format.json { render json: @persona.errors, status: :unprocessable_entity }
             end
         end
     end
