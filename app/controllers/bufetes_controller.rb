@@ -17,15 +17,12 @@ class BufetesController < ApplicationController
     
     def create
         @bufete = current_user.bufetes.build(bufete_params)
-        #@user.owner = true      # Mark this user as an owner
    
         respond_to do |format|
             if @bufete.save
                 format.html { redirect_to @bufete, :flash => { :success => 'Tu bufete ha sido creado exitosamente. Ahora puedes comenzar a registar y manejar personas y casos.' } }
-                format.json { render :show, status: :created, location: @bufete }
             else
                 format.html { render 'new', :flash => { :danger => 'Hubo un error al tratar de crear tu bufete.' } }
-                format.json { render json: @bufete.errors, status: :unprocessable_entity }
             end
         end
     end
@@ -37,23 +34,20 @@ class BufetesController < ApplicationController
         respond_to do |format|
             if @bufete.update(bufete_params)
                 format.html { redirect_to @bufete, :flash => { :success => 'Tu bufete ha sido editado exitosamente.' } }
-                format.json { render :show, status: :updated, location: @bufete }
             else
                 format.html { render :edit, :flash => { :danger => 'Hubo un error al tratar de editar tu bufete.' } }
-                format.json { render json: @bufete.errors, status: :unprocessable_entity }
             end
         end 
     end
     
     def destroy
         @user = current_user
-        @user.bufete = nil      # Remove assigned Bufete from user
-        @user.owner = false     # Remove owner status
+        #@user.bufete = nil      # Remove assigned Bufete from user
+        #@user.owner = false     # Remove owner status
         
         respond_to do |format|
             if @user.save && @bufete.destroy
                 format.html { redirect_to root_path, :flash => { :success => 'Tu bufete ha sido eliminado exitosamente.' } }
-                format.json { redirect_to root_path, status: :destroyed, location: @bufete }
             end
         end 
     end

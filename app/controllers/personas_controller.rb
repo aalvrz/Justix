@@ -4,6 +4,7 @@ class PersonasController < ApplicationController
     before_action :find_bufete
     before_action :find_persona, only:[:show, :edit, :update, :destroy]
     before_action :set_type
+    
     load_and_authorize_resource :except => [:clientes, :contrapartes, :testigos]
     
     def clientes
@@ -38,7 +39,7 @@ class PersonasController < ApplicationController
     end
     
     def new
-        @persona = @bufete.personas.build
+       @persona = @bufete.personas.build
     end
     
     def create
@@ -56,7 +57,7 @@ class PersonasController < ApplicationController
     def update
         respond_to do |format|
             if @persona.update(persona_params)
-                format.html { redirect_to bufete_persona_path(@bufete, @persona), :flash => { :success => 'La persona ha sido editada exitosamente.' } }
+                format.html { redirect_to [@bufete, @persona], :flash => { :success => 'La persona ha sido editada exitosamente.' } }
             else
                 format.html { render :edit, :flash => { :danger => 'Hubo un error al tratar de editar la persona.' } }
             end
@@ -100,6 +101,6 @@ class PersonasController < ApplicationController
         end
         
         def persona_params
-           params.require(:persona).permit(:nombre, :apellido, :email, :num_registro, :estado_civil, :telefono, :domicilio, :type, :bufete_id) 
+           params.require(type.downcase.to_sym).permit(:nombre, :apellido, :email, :num_registro, :estado_civil, :telefono, :domicilio, :type, :bufete_id) 
         end
 end

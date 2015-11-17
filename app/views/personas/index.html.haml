@@ -2,7 +2,7 @@
     .header-links.hidden-xs
         - if can? :create, Persona
             = link_to new_bufete_persona_path(@bufete) do
-                %span.glyphicon.glyphicon-plus
+                %span.fa.fa-plus
                 Crear Persona
     %h1
         %i.fa.fa-users
@@ -12,7 +12,6 @@
     .widget
         .widget-content-white.glossed
             
-                
             %table.table.table-striped.table-hover
                 %thead
                     %tr
@@ -21,7 +20,7 @@
                         %th.text-center Telefono
                         %th.text-center Domicilio
                         %th.text-center Tipo
-                        %th.text-center Ver
+                        %th
                 %tbody
                     - @personas.each do |p|
                         %tr.text-center
@@ -32,4 +31,6 @@
                             %td= p.type
                             %td
                                 = link_to bufete_persona_path(@bufete, p), class: 'btn btn-default btn-xs' do
-                                    %span.glyphicon.glyphicon-search
+                                    %span.fa.fa-search
+                                = link_to [:edit, @bufete, p], class: 'btn btn-default btn-xs' do
+                                    %span.fa.fa-pencil

@@ -5,13 +5,7 @@ class Persona < ActiveRecord::Base
     
     # Validations
     validates :nombre, :presence => true
-    validates :num_registro, :presence => true
     validates :apellido, :presence => true
-    #validates :birth, :presence => true
-    validates :telefono, :presence => true
-    validates :estado_civil, :presence => true
-    validates :email, :presence => true
-    validates :domicilio, :presence => true
     validates :type, :presence => true
 
     # Associations
@@ -20,7 +14,7 @@ class Persona < ActiveRecord::Base
     has_many :casos, through: :caso_personas
     
     # We will need a way to know which persons
-    # will subclass the Perso model
+    # will subclass the Persona model
     def self.types
       %w(Cliente Testigo Contraparte)
     end

@@ -1,12 +1,12 @@
 .page-header
     .header-links.hidden-xs
         - if can? :update, Persona
-            = link_to edit_bufete_persona_path(@bufete, @persona) do
-                %span.glyphicon.glyphicon-pencil
+            = link_to [:edit, @bufete, @persona] do
+                %span.fa.fa-pencil
                 Editar
         - if can? :destroy, Persona
             = link_to bufete_persona_path(@bufete, @persona), method: :delete, data: { confirm: 'Estas seguro? Esta accion es irreversible.' } do
-                %span.glyphicon.glyphicon-trash
+                %span.fa.fa-trash
                 Eliminar
     %h1
         %i.fa.fa-users
