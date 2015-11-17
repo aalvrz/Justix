@@ -1,30 +1,38 @@
-.row
-    .col-md-12
-        .btn-group.btn-group-xs
-            - if can? :create, Prueba
-                = link_to new_bufete_caso_prueba_path(@bufete, @caso), class: "btn btn-info btn-round" do
-                    %span.fa.fa-plus
-                    Agregar Evidencia
-                    
-// SHOW EVIDENCE
-.row
-    .col-md-8.col-md-offset-2
-        - @pruebas.each do |evidencia|
-            .media
-                .media-left.media-middle
-                    %span{ class: "fa fa-#{get_evidencia_icon evidencia.archivo.file.extension.downcase} fa-3x" }
-                .media-body
-                    .media-heading
-                        %h4
-                            = link_to evidencia.titulo, evidencia.archivo.url.to_s, :target => "_blank"
-                            .pull-right
-                                - if can? :edit, Prueba
-                                    = link_to edit_bufete_caso_prueba_path(@bufete, @caso, evidencia), class: 'btn btn-default btn-xs' do
-                                        %span.fa.fa-pencil
-                                - if can? :destroy, Prueba
-                                    = link_to bufete_caso_prueba_path(@bufete, @caso, evidencia), method: :delete, data: { confirm: 'Estas seguro? Esta accion es irreversible.' }, class: 'btn btn-danger btn-xs' do
-                                        %span.fa.fa-trash
-                    = evidencia.descripcion
-            %hr
-                    
-                    
+.widget
+    %h3.section-title.first-title
+        %i.fa.fa-paperclip
+        Evidencia
+        
+    .widget-content-white.glossed
+        .padded
+
+            .row
+                .col-md-12
+                    .btn-group.btn-group-xs
+                        - if can? :create, Prueba
+                            = link_to new_bufete_caso_prueba_path(@bufete, @caso), class: "btn btn-default" do
+                                %span.fa.fa-plus
+                                Agregar Evidencia
+                                
+            // SHOW EVIDENCE
+            .row
+                .col-md-8.col-md-offset-2
+                    - @pruebas.each do |evidencia|
+                        .media
+                            .media-left.media-middle
+                                %span{ class: "fa fa-#{get_evidencia_icon evidencia.archivo.file.extension.downcase} fa-3x" }
+                            .media-body
+                                .media-heading
+                                    %h4
+                                        = link_to evidencia.titulo, evidencia.archivo.url.to_s, :target => "_blank"
+                                        .pull-right
+                                            - if can? :edit, Prueba
+                                                = link_to edit_bufete_caso_prueba_path(@bufete, @caso, evidencia), class: 'btn btn-default btn-xs' do
+                                                    %span.fa.fa-pencil
+                                            - if can? :destroy, Prueba
+                                                = link_to bufete_caso_prueba_path(@bufete, @caso, evidencia), method: :delete, data: { confirm: 'Estas seguro? Esta accion es irreversible.' }, class: 'btn btn-danger btn-xs' do
+                                                    %span.fa.fa-trash
+                                = evidencia.descripcion
+                        %hr
+                                
+                                
