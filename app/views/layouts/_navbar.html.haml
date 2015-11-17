@@ -17,11 +17,16 @@
             
             #sidebar
                 %ul.side-menu
+                    - if can? :manage, :all
+                        %li
+                            = link_to admin_path do
+                                %i.fa.fa-lock
+                                Panel de Administracion
                     %li.current
                         = link_to (current_user.bufetes.any? ? panel_path : crear_bufete_path) do
                             %i.fa.fa-dashboard
                             Panel de Control
-        
+    
                 .relative-w
                     %ul.side-menu
                         %li

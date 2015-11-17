@@ -41,6 +41,7 @@ Rails.application.routes.draw do
   get 'prueba', to: 'paginas#prueba'
   
   get 'panel', to: 'panel#index'
+  get 'admin', to: 'panel#admin'
   
   get 'contacto', to: 'paginas#home'
   

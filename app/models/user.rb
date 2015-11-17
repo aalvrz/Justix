@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
   
   PLANES_REGISTRO = ["Prueba", "Basico", "Premium"]
   
+  def nombre_completo
+    "#{self.nombre} #{self.apellido}"
+  end
+  
 end
