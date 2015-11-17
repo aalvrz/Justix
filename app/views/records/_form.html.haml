@@ -1,0 +1,43 @@
+= form_for [@bufete, @caso, @record], class: 'form-horizontal' do |f|
+
+    // ERROR MESSAGES
+    = render "shared/error_messages", model: @record
+    
+    .form-group
+        = f.label :visita
+        = f.text_field :visita, class: 'form-control'
+
+    
+    .form-group
+        = f.label :hora
+        = f.text_field :hora, class: 'form-control'
+        
+    .form-group
+        = f.label :instancia
+        = f.text_field :instancia, class: 'form-control'
+        
+    .form-group
+        = f.label :folio
+        = f.text_field :folio, class: 'form-control'
+        
+    .form-group
+        = f.label :actuacion
+        = f.text_field :actuacion, class: 'form-control'
+        
+    .form-group
+        = f.label :fecha
+        = f.text_field :fecha, class: 'form-control'
+        
+    .form-group
+        = f.label :notificacion
+        = f.text_field :notificacion, class: 'form-control'
+        
+    .form-group
+        = f.label :observaciones
+        = f.text_field :observaciones, class: 'form-control'
+    
+    
+    
+    .form-group    
+        = f.submit ( f.object.new_record? ? "Agregar Entrada" : "Guardar Cambios"), class: 'btn btn-success'
+        = link_to 'Cancelar', :back, class: 'btn btn-default'

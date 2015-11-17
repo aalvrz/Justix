@@ -19,7 +19,7 @@
         .widget-content-white.glossed
             .padded
                 .row        
-                    .col-md-5
+                    .col-md-6
                         %p
                             %span.fa.fa-calendar
                             %strong Fecha de Nacimiento:
@@ -38,7 +38,7 @@
                             %span.fa.fa-clock-o
                             %strong Fecha de Creacion:
                             = I18n.localize( @persona.created_at.to_s.to_time, :format => '%e de %B del %Y')
-                    .col-md-4
+                    .col-md-6
                         %p
                             %span.fa.fa-credit-card
                             %strong Numero de Registro:

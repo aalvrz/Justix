@@ -8,7 +8,7 @@
                 %span.icon-bar
   
         .side-bar-wrapper.collapse.navbar-collapse.navbar-ex1-collapse
-            %a.logo.hidden-sm.hidden-xs{:href => "#"}
+            = link_to root_path, class: 'logo hidden-sm hidden-xs' do
                 %i.fa.fa-balance-scale
                 %span= "#{APP_NAME}"
     

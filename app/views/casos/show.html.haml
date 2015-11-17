@@ -19,17 +19,17 @@
         %ul.nav.nav-tabs
             %li.active
                 %a{ "aria-expanded" => "true", href: "#resumen", "data-toggle" => "tab" }
-                    %span.glyphicon.glyphicon-text-size
+                    %span.fa.fa-font
                     Resumen
                     
             %li
                 %a{ "aria-expanded" => "true", href: "#bitacora", "data-toggle" => "tab" }
-                    %span.glyphicon.glyphicon-book
+                    %span.fa.fa-book
                     Bitacora
                     
             %li
                 %a{ "aria-expanded" => "true", href: "#evidencia", "data-toggle" => "tab" }
-                    %span.glyphicon.glyphicon-paperclip
+                    %span.fa.fa-paperclip
                     Evidencia 
                     %span.badge= @caso.pruebas.count
                         
@@ -42,6 +42,7 @@
             %div{ class: "tab-pane fade", id: "bitacora" }
                 / BITACORA
                 .padded
+                    = render 'bitacora'
             %div{ class: "tab-pane fade", id: "evidencia" }
                 / BITACORA
                 .padded

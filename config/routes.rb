@@ -12,18 +12,20 @@ Rails.application.routes.draw do
   
   resources :bufetes do
     resources :personas
-    # STI Routes
-    resources :clientes, controller: 'personas', type: 'Cliente'
-    resources :contrapartes, controller: 'personas', type: 'Contraparte'
-    resources :testigos, controller: 'personas', type: 'Testigo'
     
     # JSON Routes
     get 'clientes', to: 'personas#clientes'
     get 'contrapartes', to: 'personas#contrapartes'
     get 'testigos', to: 'personas#testigos'
     
+    # STI Routes
+    resources :clientes, controller: 'personas', type: 'Cliente'
+    resources :contrapartes, controller: 'personas', type: 'Contraparte'
+    resources :testigos, controller: 'personas', type: 'Testigo'
+    
     resources :casos do
       resources :pruebas
+      resources :records
     end
   end
   

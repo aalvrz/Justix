@@ -1,17 +1,17 @@
 .row
     .col-md-6
         %p
-            %span.glyphicon.glyphicon-th-list
+            %span.fa.fa-list-ol
             %strong Numero de Accion:
             = @caso.num_accion
             
         %p
-            %span.glyphicon.glyphicon-bookmark
+            %span.fa.fa-bookmark
             %strong Accion:
             = @caso.accion
             
         %p
-            %span.glyphicon.glyphicon-time
+            %span.fa.fa-clock-o
             %strong Fecha de Creacion:
             = I18n.localize( @caso.created_at.to_s.to_time, :format => '%e de %B del %Y')
     
@@ -27,7 +27,7 @@
             = @caso.oficina
             
         %p
-            %span.glyphicon.glyphicon-ok
+            %span.fa.fa-flag
             %strong Estado:
             %span= @caso.estado
         

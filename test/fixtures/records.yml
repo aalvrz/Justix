@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  visita: MyString
+  hora: 2015-11-17 12:12:11
+  instancia: MyString
+  folio: MyString
+  actuacion: MyString
+  fecha: 2015-11-17
+  notificacion: MyString
+  observaciones: MyText
+
+two:
+  visita: MyString
+  hora: 2015-11-17 12:12:11
+  instancia: MyString
+  folio: MyString
+  actuacion: MyString
+  fecha: 2015-11-17
+  notificacion: MyString
+  observaciones: MyText

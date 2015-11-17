@@ -17,7 +17,8 @@ class Caso < ActiveRecord::Base
     
     has_many :pruebas, dependent: :destroy
     
-    delegate :clientes, :contrapartes, :testigos, to: :personas
+    has_many :records, dependent: :destroy
+    #delegate :clientes, :contrapartes, :testigos, to: :personas
     
     attr_reader :cliente_tokens
     attr_reader :testigo_tokens

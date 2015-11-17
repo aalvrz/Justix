@@ -15,6 +15,7 @@ class CasosController < ApplicationController
     
     def show
         @pruebas = @caso.pruebas
+        @records = @caso.records
     end
     
     def new

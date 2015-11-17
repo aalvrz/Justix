@@ -1,12 +1,11 @@
 .row
     .col-md-12
-        .pull-right
-            .btn-group.btn-group-xs.pull-right
-                - if can? :create, Prueba
-                    = link_to new_bufete_caso_prueba_path(@bufete, @caso), class: "btn btn-info btn-round" do
-                        %span.glyphicon.glyphicon-plus
-                        Agregar Evidencia
-                        
+        .btn-group.btn-group-xs
+            - if can? :create, Prueba
+                = link_to new_bufete_caso_prueba_path(@bufete, @caso), class: "btn btn-info btn-round" do
+                    %span.fa.fa-plus
+                    Agregar Evidencia
+                    
 // SHOW EVIDENCE
 .row
     .col-md-8.col-md-offset-2
@@ -21,10 +20,10 @@
                             .pull-right
                                 - if can? :edit, Prueba
                                     = link_to edit_bufete_caso_prueba_path(@bufete, @caso, evidencia), class: 'btn btn-default btn-xs' do
-                                        %span.glyphicon.glyphicon-pencil
+                                        %span.fa.fa-pencil
                                 - if can? :destroy, Prueba
                                     = link_to bufete_caso_prueba_path(@bufete, @caso, evidencia), method: :delete, data: { confirm: 'Estas seguro? Esta accion es irreversible.' }, class: 'btn btn-danger btn-xs' do
-                                        %span.glyphicon.glyphicon-trash
+                                        %span.fa.fa-trash
                     = evidencia.descripcion
             %hr
                     
