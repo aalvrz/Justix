@@ -16,20 +16,20 @@
             
                 %fieldset
                     .form-group
-                        = f.label :nombre, 'Nombre:'
-                        = f.text_field :nombre, class: 'form-control input-sm'
+                        = f.label :name, 'Nombre:'
+                        = f.text_field :name, class: 'form-control input-sm'
                         
                     .form-group
                         = f.label :email, 'E-mail:'
                         = f.email_field :email, class: 'form-control input-sm'
                         
                     .form-group
-                        = f.label :asunto, 'Asunto:'
-                        = f.text_field :asunto, class: 'form-control input-sm'
+                        = f.label :subject, 'Asunto:'
+                        = f.text_field :subject, class: 'form-control input-sm'
                         
                     .form-group
-                        = f.label :mensaje, 'Mensaje:'
-                        = f.text_area :mensaje, rows: 5, class: 'form-control'
+                        = f.label :message, 'Mensaje:'
+                        = f.text_area :message, rows: 5, class: 'form-control'
                         
                     .hidden
                         f.text_field :nickname, :hint => 'Leave this field blank!'
