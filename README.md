@@ -1,29 +1,5 @@
-<<<<<<< HEAD
+# Justix
 
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+Law firm and law cases management software for attorneys and lawyers.
 
-
-Welcome to your Rails project on Cloud9 IDE!
-
-To get started, just do the following:
-
-1. Run the project with the "Run Project" button in the menu bar on top of the IDE.
-2. Preview your new app by clicking on the URL that appears in the Run panel below (https://mi-bufete-bigchief45.c9.io/).
-
-Happy coding!
-The Cloud9 IDE team
-
-
-## Support & Documentation
-
-Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
-To watch some training videos, visit http://www.youtube.com/user/c9ide
-=======
-# MiBufete
-Web version of the firm management software for attorneys.
->>>>>>> 0a7a8dbb321a82fcaf3fe6fe3d2e3af19052496c
+Application Language: Spanish
