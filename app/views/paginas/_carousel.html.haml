@@ -3,19 +3,28 @@
     %ol.carousel-indicators
         %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
         %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
+        %li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
   
     / Wrapper for slides
     // 1170 x 500
     .carousel-inner{:role => "listbox"}
         .item.active
-            = image_tag 'carousel/bufete.jpg'
+            = image_tag 'carousel/bufete_wood.jpg'
             .carousel-caption
-                %h3 Caption
+                %h3 Tu Bufete Mas Ordenado
+                %p Con Justix, tus casos estaran mas ordenado que nunca
         
         .item
             = image_tag 'carousel/slider_cloud.jpg'
             .carousel-caption
-                %h3 Caption 2
+                %h3 Acceso Global
+                %p Accesa a Justix desde cualquier parte del mundo.
+                
+        .item
+            = image_tag 'carousel/security.jpg'
+            .carousel-caption
+                %h3 Informacion Asegurada
+                %p Mantendremos toda tu informacion segura.
         
         
     / Controls
