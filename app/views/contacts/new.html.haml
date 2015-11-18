@@ -1,0 +1,37 @@
+.row
+    .col-md-8.col-md-offset-2
+        %h1.text-center Contactanos
+        
+        %p.text-center Tienes preguntas o sugerencias? Utiliza el formulario abajo para contactarnos.
+        
+        %hr
+        
+        .well
+            .alert.alert-warning
+                %p.text-center
+                    %i.fa.fa-exclamation-circle
+                    %strong Todos los campos son requeridos.
+            
+            = form_for @contact, class: 'form-horizontal' do |f|
+            
+                %fieldset
+                    .form-group
+                        = f.label :nombre, 'Nombre:'
+                        = f.text_field :nombre, class: 'form-control input-sm'
+                        
+                    .form-group
+                        = f.label :email, 'E-mail:'
+                        = f.email_field :email, class: 'form-control input-sm'
+                        
+                    .form-group
+                        = f.label :asunto, 'Asunto:'
+                        = f.text_field :asunto, class: 'form-control input-sm'
+                        
+                    .form-group
+                        = f.label :mensaje, 'Mensaje:'
+                        = f.text_area :mensaje, rows: 5, class: 'form-control'
+                        
+                    .hidden
+                        f.text_field :nickname, :hint => 'Leave this field blank!'
+                        
+                    = f.submit 'Enviar Mensaje', class: 'btn btn-primary'

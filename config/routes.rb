@@ -43,7 +43,9 @@ Rails.application.routes.draw do
   get 'panel', to: 'panel#index'
   get 'admin', to: 'panel#admin'
   
-  get 'contacto', to: 'paginas#home'
+  # Contact
+  resources :contacts, only: [:new, :create]
+  get 'contacto', to: 'contacts#new'
   
   root 'paginas#home'  
 end
