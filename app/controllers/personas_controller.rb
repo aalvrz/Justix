@@ -36,10 +36,12 @@ class PersonasController < ApplicationController
     
     def index
        @personas = @bufete.personas.all
+       @title = "Mis Personas"
     end
     
     def new
        @persona = @bufete.personas.build
+       @title = "Registrar Nueva Persona"
     end
     
     def create
@@ -65,9 +67,11 @@ class PersonasController < ApplicationController
     end
     
     def edit
+        @title = "Editar Persona'"
     end
     
     def show
+        @title = @persona.nombre_completo
     end
     
     def destroy

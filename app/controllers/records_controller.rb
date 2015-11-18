@@ -6,13 +6,12 @@ class RecordsController < ApplicationController
     before_action :authenticate_user!
     
     def new
-        #@record = Record.new
         @record = @caso.records.build
+        @title = "Crear Entrada de Bitacora"
     end
     
     def create
         @record = @caso.records.build(record_params)
-        
         respond_to do |format|
             if @record.save
                 format.html { redirect_to bufete_caso_path(@bufete, @caso), :flash => { :success => 'La entrada ha sido agregada exitosamente a la bitacora.' } }
@@ -23,6 +22,7 @@ class RecordsController < ApplicationController
     end
     
     def edit
+        @title = "Editar Entrada de Bitacora"
     end
     
     def update

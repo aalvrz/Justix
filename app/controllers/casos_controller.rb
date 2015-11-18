@@ -11,18 +11,23 @@ class CasosController < ApplicationController
         
         # Pagination
         @casos = @casos.paginate(:page => params[:page], :per_page => 10)
+        @title = "Mis Casos"
     end
     
     def show
         @pruebas = @caso.pruebas
         @records = @caso.records
+        
+        @title = @caso.nombre
     end
     
     def new
         @caso = @bufete.casos.build
+        @title = "Crear Nuevo Caso"
     end
     
     def edit
+        @title = "Editar Caso"
     end
     
     def update

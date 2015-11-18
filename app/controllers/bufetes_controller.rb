@@ -9,6 +9,7 @@ class BufetesController < ApplicationController
     end
     
     def show
+        @title = @bufete.nombre
     end
     
     def new

@@ -11,6 +11,7 @@ class PruebasController < ApplicationController
     
     def new
         @prueba = @caso.pruebas.build
+        @title = "Agregar Evidencia"
     end
     
     def create
@@ -29,6 +30,7 @@ class PruebasController < ApplicationController
     end
     
     def edit
+        @title = "Editar Evidencia"
     end
     
     def update
