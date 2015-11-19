@@ -11,30 +11,36 @@
 .main-content
     .widget
         
-        .row.text-center
-            .col-md-12
-                %ul.list-inline
-                    %li
-                        %span.fa.fa-square.text-info
-                        = "= En Proceso"
-                        
-                    %li
-                        %span.fa.fa-square.text-success
-                        = "= Ganado"
-                        
-                    %li
-                        %span.fa.fa-square.text-danger
-                        = "= Perdido"
         .row
-            .col-md-12
+            .col-md-8.col-md-offset-2
                 .list-group
                     - @casos.each do |caso|
-                        %div{ class: "caso-item caso-#{caso_estado_contextual caso.estado}" }
+                        .caso-item
                             = link_to bufete_caso_path(@bufete, caso), class: "list-group-item" do
-                                %h4
+                                %h4.list-group-item-heading
                                     %strong= caso.nombre
-                                %p= caso.descripcion
+                                    %span{ class: "label label-#{caso_estado_contextual caso.estado}"}= caso.estado
+                                
+                                    .pull-right
+                                        .small
+                                            %ul.list-inline
+                                                %li{ "data-toggle"=> "tooltip", "data-placement" => "bottom", :title => "Entradas en Bitacora" }
+                                                    %span.fa.fa-file-text-o.fa-lg
+                                                    = caso.records.count
+                                                    
+                                                %li{ "data-toggle"=> "tooltip", "data-placement" => "bottom", :title => "Evidencia" }
+                                                    %span.fa.fa-paperclip.fa-lg
+                                                    = caso.pruebas.count
+                                                    
+                                                
+                                %p.list-group-item-text= caso.descripcion
                             
         / Pagination
         .row.text-center
             = will_paginate @casos, renderer: BootstrapPagination::Rails
+            
+            
+:javascript
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })

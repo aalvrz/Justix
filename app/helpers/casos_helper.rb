@@ -2,11 +2,11 @@ module CasosHelper
     
     def caso_estado_contextual(estado)
         if estado == "En Proceso"
-            "proceso"
+            "info"
         elsif estado == "Ganado"
-            "ganado"
+            "success"
         elsif estado == "Perdido"
-            "perdido"
+            "danger"
         end
     end
     
