@@ -10,7 +10,7 @@
             .form-group
                 = f.label :visita
                 %br
-                = f.datetime_select :visita, class: 'form-control'
+                = f.datetime_select :visita, :ampm => true, :minute_step => 15, class: 'form-control'
             
             .form-group
                 = f.label :folio
@@ -34,7 +34,7 @@
             .form-group
                 = f.label :fecha_contraparte, 'Fecha'
                 %br
-                = f.datetime_select :fecha_contraparte, class: 'form-control'
+                = f.datetime_select :fecha_contraparte, :include_blank => true, :ampm => true, :minute_step => 15, class: 'form-control'
                 
             .form-group
                 = f.label :notificacion_contraparte, 'Notificacion'
