@@ -1,52 +1,57 @@
-.row
-    .col-md-6
-        %p
-            %span.fa.fa-list-ol
-            %strong Numero de Accion:
-            = @caso.num_accion
+.widget
+    %h3.section-title.first-title
+        %i.fa.fa-font
+        Resumen
+
+    .row
+        .col-md-6
+            %p
+                %span.fa.fa-list-ol
+                %strong Numero de Accion:
+                = @caso.num_accion
+                
+            %p
+                %span.fa.fa-bookmark
+                %strong Accion:
+                = @caso.accion
+                
+            %p
+                %span.fa.fa-clock-o
+                %strong Fecha de Creacion:
+                = I18n.localize( @caso.created_at.to_s.to_time, :format => '%e de %B del %Y')
+        
+        .col-md-6 
+            %p
+                %span.fa.fa-book
+                %strong Materia:
+                = @caso.materia
+                
+            %p
+                %span.fa.fa-building
+                %strong Oficina:
+                = @caso.oficina
+                
+            %p
+                %span.fa.fa-flag
+                %strong Estado:
+                %span= @caso.estado
             
-        %p
-            %span.fa.fa-bookmark
-            %strong Accion:
-            = @caso.accion
+                
+    .row
+        .col-md-12
             
-        %p
-            %span.fa.fa-clock-o
-            %strong Fecha de Creacion:
-            = I18n.localize( @caso.created_at.to_s.to_time, :format => '%e de %B del %Y')
+            %p
+                %strong Descripcion:
+                =simple_format h @caso.descripcion
     
-    .col-md-6 
-        %p
-            %span.fa.fa-book
-            %strong Materia:
-            = @caso.materia
-            
-        %p
-            %span.fa.fa-building
-            %strong Oficina:
-            = @caso.oficina
-            
-        %p
-            %span.fa.fa-flag
-            %strong Estado:
-            %span= @caso.estado
-        
-            
-.row
-    .col-md-12
-        
-        %p
-            %strong Descripcion:
-            =simple_format h @caso.descripcion
-
-%hr
-
-.row
-    .col-md-4
-        = render 'clientes'
-
-    .col-md-4
-        = render 'contrapartes'
-
-    .col-md-4
-        = render 'testigos'
+    %hr
+    
+    .row
+        .col-md-4
+            = render 'clientes'
+    
+        .col-md-4
+            = render 'contrapartes'
+    
+        .col-md-4
+            = render 'testigos'

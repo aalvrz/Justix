@@ -3,38 +3,46 @@
     // ERROR MESSAGES
     = render "shared/error_messages", model: @record
     
-    .form-group
-        = f.label :visita
-        = f.text_field :visita, class: 'form-control'
-
-    
-    .form-group
-        = f.label :hora
-        = f.text_field :hora, class: 'form-control'
+    .row
+        .col-md-6
+            %h3.section-title.first-title Cliente
         
-    .form-group
-        = f.label :instancia
-        = f.text_field :instancia, class: 'form-control'
+            .form-group
+                = f.label :visita
+                %br
+                = f.datetime_select :visita, class: 'form-control'
+            
+            .form-group
+                = f.label :folio
+                = f.text_field :folio, class: 'form-control'
+            
+            .form-group
+                = f.label :instancia
+                = f.text_field :instancia, class: 'form-control'
+                
+            .form-group
+                = f.label :actuacion
+                = f.text_field :actuacion, class: 'form-control'
+                
+            .form-group
+                = f.label :notificacion_cliente, 'Notificacion'
+                = f.text_field :notificacion_cliente, class: 'form-control'
         
-    .form-group
-        = f.label :folio
-        = f.text_field :folio, class: 'form-control'
+        .col-md-6
+            %h3.section-title.first-title Contraparte
         
-    .form-group
-        = f.label :actuacion
-        = f.text_field :actuacion, class: 'form-control'
-        
-    .form-group
-        = f.label :fecha
-        = f.text_field :fecha, class: 'form-control'
-        
-    .form-group
-        = f.label :notificacion
-        = f.text_field :notificacion, class: 'form-control'
-        
-    .form-group
-        = f.label :observaciones
-        = f.text_field :observaciones, class: 'form-control'
+            .form-group
+                = f.label :fecha_contraparte, 'Fecha'
+                %br
+                = f.datetime_select :fecha_contraparte, class: 'form-control'
+                
+            .form-group
+                = f.label :notificacion_contraparte, 'Notificacion'
+                = f.text_field :notificacion_contraparte, class: 'form-control'
+                
+            .form-group
+                = f.label :observaciones
+                = f.text_field :observaciones, class: 'form-control'
     
     
     

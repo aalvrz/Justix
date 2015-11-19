@@ -47,7 +47,7 @@ class RecordsController < ApplicationController
     private
     
         def record_params
-           params.require(:record).permit(:visita, :hora, :instancia, :folio, :actuacion, :fecha, :notificacion, :observaciones, :caso_id) 
+           params.require(:record).permit(:visita, :instancia, :folio, :actuacion, :notificacion_cliente, :fecha_contraparte, :observaciones, :caso_id) 
         end
     
         def find_caso
