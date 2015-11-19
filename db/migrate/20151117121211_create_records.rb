@@ -1,15 +1,16 @@
 class CreateRecords < ActiveRecord::Migration
   def change
     create_table :records do |t|
-      t.string :visita
-      t.time :hora
-      t.string :instancia
+      t.datetime :visita
       t.string :folio
+      t.string :instancia
       t.string :actuacion
-      t.date :fecha
-      t.string :notificacion
+      t.string :notificacion_cliente
+      t.datetime :fecha_contraparte
+      t.string :notificacion_contraparte
       t.text :observaciones
-
+      t.integer :caso_id
+      
       t.timestamps null: false
     end
   end
