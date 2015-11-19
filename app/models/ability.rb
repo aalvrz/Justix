@@ -22,7 +22,6 @@ class Ability
       can :crud, Caso, :bufete => { :user_id => user.id }
 
       # Personas
-      #can :view_json, :clients, :bufete => { :user_id => user.id } # Access for JSON data
       can :create, Persona
       can :crud, Persona, :bufete => { :user_id => user.id }
       

@@ -5,29 +5,25 @@ class PersonasController < ApplicationController
     before_action :find_persona, only:[:show, :edit, :update, :destroy]
     before_action :set_type
     
-    load_and_authorize_resource :except => [:clientes, :contrapartes, :testigos]
+    load_and_authorize_resource :through => :bufete
     
     def clientes
         @clientes = @bufete.clientes.all.where("nombre LIKE ? OR apellido LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
-       
         respond_to do |format|
-            format.html
             format.json { render :json => @clientes.map { |model| {:id => model.id, :nombre_completo => model.nombre_completo } } }
         end
+        
     end
     
     def contrapartes
         @contrapartes = @bufete.contrapartes.all.where("nombre LIKE ? OR apellido LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
-       
         respond_to do |format|
-            format.html
             format.json { render :json => @contrapartes.map { |model| {:id => model.id, :nombre_completo => model.nombre_completo } } }
         end
     end
     
     def testigos
         @testigos = @bufete.testigos.all.where("nombre LIKE ? OR apellido LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
-       
         respond_to do |format|
             format.html
             format.json { render :json => @testigos.map { |model| {:id => model.id, :nombre_completo => model.nombre_completo } } }

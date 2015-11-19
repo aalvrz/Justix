@@ -1,7 +1,8 @@
 class BufetesController < ApplicationController
     
-    before_action :find_bufete, only:[:show, :edit, :update, :destroy]
     before_action :authenticate_user!
+    before_action :find_bufete, only:[:show, :edit, :update, :destroy]
+    
     load_and_authorize_resource
     
     def index

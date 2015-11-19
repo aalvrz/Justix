@@ -3,7 +3,8 @@ class CasosController < ApplicationController
     before_action :find_bufete
     before_action :find_caso, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_user!
-    load_and_authorize_resource param_method: :caso_params
+    
+    load_and_authorize_resource :through => :bufete, param_method: :caso_params
     require 'will_paginate/array'
     
     def index

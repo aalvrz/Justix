@@ -1,9 +1,11 @@
 class PruebasController < ApplicationController
     
+    before_action :authenticate_user!
     before_action :find_caso
     before_action :find_bufete
     before_action :find_prueba, only: [:show, :edit, :update, :destroy]
-    before_action :authenticate_user!
+    
+    load_and_authorize_resource :through => :caso
     
     def index
         @pruebas = @caso.pruebas.uniq
