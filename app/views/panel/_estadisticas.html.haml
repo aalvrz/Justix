@@ -1,0 +1,41 @@
+.widget
+    %h3.section-title.first-title
+        %i.fa.fa-tasks
+        Estadisticas
+        
+    .row
+        .col-lg-3.col-md-4.col-sm-6.text-center
+            .widget-content-blue-wrapper.changed-up
+                .widget-content-blue-inner.padded
+                    .pre-value-block
+                        %i.fa.fa-book
+                        Casos
+                    .value-block
+                        .value-self
+                            = @bufete.casos.count
+                        .value-sub
+                            En Total
+                    
+        .col-lg-3.col-md-4.col-sm-6.text-center
+            .widget-content-blue-wrapper.changed-up
+                .widget-content-blue-inner.padded
+                    .pre-value-block
+                        %i.fa.fa-money
+                        Honorarios
+                    .value-block
+                        .value-self
+                            $0
+                        .value-sub
+                            Este mes
+                            
+        .col-lg-3.col-md-4.col-sm-6.text-center
+            .widget-content-blue-wrapper.changed-up
+                .widget-content-blue-inner.padded
+                    .pre-value-block
+                        %i.fa.fa-user
+                        Clientes
+                    .value-block
+                        .value-self
+                            = @bufete.clientes.count
+                        .value-sub
+                            En Total

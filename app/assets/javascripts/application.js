@@ -17,11 +17,3 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
-
-
-$(function(){
-    var sidebar=$('#sidebar');
-    sidebar.delegate('li', 'click',function(){
-        $(this).addClass('current');
-    });
-});

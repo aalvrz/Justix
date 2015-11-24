@@ -1,0 +1,39 @@
+.widget
+    %h3.section-title
+        %i.fa.fa-bar-chart
+        Honorarios
+        
+    .widget-content-white
+        .shadowed-bottom.bottom-margin
+            
+            .row
+                .col-lg-4.col-md-5.col-sm-6.bordered
+                    .value-block.value-bigger.changed-up.some-left-padding
+                        .value-self
+                            Lps. 0.00
+                            %span.changed-icon
+                                %i.icon-caret-up
+                            %span.changed-value +0.00%
+                        .value-sub Promedio de Lps. 0.00 por Dia
+      
+                .col-lg-2.col-md-3.visible-md.visible-lg.bordered
+                    .value-block.text-center
+                        .value-self= @bufete.casos.count
+                        .value-sub Casos Totales
+      
+                .col-lg-2.bordered.visible-lg
+                    .value-block.text-center
+                        .value-self= @bufete.clientes.count
+                        .value-sub Clientes Totales
+      
+                .col-lg-4.col-md-4.col-sm-6
+                    %form.form-inline.form-period-selector
+                        %label.control-label Periodo:
+                        %br
+                        %input.form-control.input-sm{:placeholder => "01/12/2011", :type => "text"}
+                        %input.form-control.input-sm{:placeholder => "01/12/2011", :type => "text"}
+        
+        .padded
+            #areachart{:style => "height: 250px;"}
+                        
+                        
