@@ -19,32 +19,32 @@
                 %ul.side-menu
                     - if can? :manage, :all
                         %li
-                            = link_to admin_path do
+                            = active_link_to admin_path, :wrap_tag => :li, :class_active => 'current' do
                                 %i.fa.fa-lock
                                 Panel de Administracion
-                    %li.current
-                        = link_to (current_user.bufetes.any? ? panel_path : crear_bufete_path) do
+                    %li
+                        = active_link_to (current_user.bufetes.any? ? panel_path : crear_bufete_path), :wrap_tag => :li, :class_active => 'current' do
                             %i.fa.fa-dashboard
                             Panel de Control
     
                 .relative-w
                     %ul.side-menu
                         %li
-                            = link_to (current_user.bufetes.any? ? current_user.bufetes.first : crear_bufete_path) do
+                            = active_link_to (current_user.bufetes.any? ? current_user.bufetes.first : crear_bufete_path), :wrap_tag => :li, :class_active => 'current', :active => :exclusive do
                                 %i.fa.fa-briefcase
                                 Mi Bufete
                         %li
-                            = link_to (current_user.bufetes.any? ? bufete_casos_path(current_user.bufetes.first) : crear_bufete_path) do
+                            = active_link_to (current_user.bufetes.any? ? bufete_casos_path(current_user.bufetes.first) : crear_bufete_path), :wrap_tag => :li, :class_active => 'current' do
                                 %i.fa.fa-book
                                 Casos
                         %li
-                            = link_to (current_user.bufetes.any? ? bufete_personas_path(current_user.bufetes.first) : crear_bufete_path) do
+                            = active_link_to (current_user.bufetes.any? ? bufete_personas_path(current_user.bufetes.first) : crear_bufete_path), :wrap_tag => :li, :class_active => 'current' do
                                 %i.fa.fa-users
                                 Personas
                 
                 %ul.side-menu
                     %li
-                        = link_to edit_user_registration_path do
+                        = active_link_to edit_user_registration_path, :wrap_tag => :li, :class_active => 'current' do
                             %i.fa.fa-cog
                             Mi Cuenta
                     %li
