@@ -7,6 +7,8 @@ class Caso < ActiveRecord::Base
     validates :oficina, :presence => true
     validates :descripcion, :presence => true
     
+    validate :casos_count_within_limit, on: :create
+    
     belongs_to :bufete
     
     has_many :caso_personas
@@ -34,5 +36,13 @@ class Caso < ActiveRecord::Base
     
     def contraparte_tokens=(ids)
         self.contraparte_ids = ids.split(",")
+    end
+    
+    
+    
+    def casos_count_within_limit
+        if self.bufete.casos(:reload).count >= self.bufete.user.caso_limit # self is optional
+            errors.add(:base, 'Tu plan actual no te permite crear mas casos, actualiza tu plan!')
+        end
     end
 end

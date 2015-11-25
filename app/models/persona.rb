@@ -8,6 +8,8 @@ class Persona < ActiveRecord::Base
     validates :apellido, :presence => true
     validates :type, :presence => true
 
+    validate :personas_count_within_limit, on: :create
+
     # Associations
     belongs_to :bufete
     has_many :caso_personas
@@ -30,5 +32,9 @@ class Persona < ActiveRecord::Base
         "#{self.nombre} #{self.apellido}"
     end
     
-    
+    def personas_count_within_limit
+        if self.bufete.personas(:reload).count >= self.bufete.user.persona_limit # self is optional
+            errors.add(:base, 'Tu plan actual no te permite crear mas personas, actualiza tu plan!')
+        end
+    end
 end

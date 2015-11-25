@@ -27,11 +27,11 @@ class Ability
       
       # Evidencia
       can :create, Prueba
-      can :crud, Prueba, :bufete => { :user_id => user.id }
+      can :crud, Prueba, :caso => { :bufete => { :user_id => user.id } }
       
       # Bitacora
       can :create, Record
-      can :crud, Record, :bufete => { :user_id => user.id }
+      can :crud, Record, :caso => { :bufete => { :user_id => user.id } }
     end
     
     # Guest User Priveleges
