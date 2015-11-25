@@ -101,6 +101,6 @@ class PersonasController < ApplicationController
         end
         
         def persona_params
-           params.require(type.downcase.to_sym).permit(:nombre, :apellido, :email, :num_registro, :estado_civil, :telefono, :domicilio, :type, :bufete_id) 
+           params.require(type.downcase.to_sym).permit(:nombre, :apellido, :email, :num_registro, :fecha_nacimiento, :estado_civil, :telefono, :domicilio, :type, :bufete_id) 
         end
 end
