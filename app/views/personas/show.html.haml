@@ -23,6 +23,7 @@
                         %p
                             %span.fa.fa-calendar
                             %strong Fecha de Nacimiento:
+                            = I18n.localize( @persona.fecha_nacimiento.to_s.to_time, :format => '%e de %B del %Y')
                             
                         %p
                             %span.fa.fa-envelope-o
