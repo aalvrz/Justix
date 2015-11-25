@@ -73,7 +73,7 @@ class PersonasController < ApplicationController
     def destroy
         respond_to do |format|
             if @persona.destroy
-                format.html { redirect_to @bufete, :flash => { :success => 'La persona ha sido eliminada del sistema exitosamente.' } }
+                format.html { redirect_to bufete_personas_path(@bufete), :flash => { :success => 'La persona ha sido eliminada del sistema exitosamente.' } }
             end
         end
     end
