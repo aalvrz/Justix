@@ -19,7 +19,7 @@
                 
             .form-group
                 = f.label :fecha_nacimiento, 'Fecha de Nacimiento'
-                = f.date_select :fecha_nacimiento, :include_blank => true, class: 'form-control input-sm'
+                = f.date_select :fecha_nacimiento, :include_blank => true, :start_year => Date.today.year - 80, class: 'form-control input-sm'
                 
             .form-group
                 = f.label :type, 'Tipo de Persona'
