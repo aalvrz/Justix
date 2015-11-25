@@ -10,6 +10,10 @@
                 %h3.form-title.form-title-first
                     %i.fa.fa-pencil
                     Editar Mi Cuenta
+                    
+                    .pull-right
+                        Plan:
+                        %span.label.label-success= current_user.plan
 
                 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart:true }) do |f|
                     
@@ -45,11 +49,7 @@
                                 = f.label 'Confirmar contraseña'
                                 %i (Dejala en blanco si no quieres cambiarla)
                                 = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
-                                
-                            .form-group
-                                = f.label :avatar, 'Foto'
-                                = f.file_field :avatar
-            
+
                     %hr
             
                     .row
