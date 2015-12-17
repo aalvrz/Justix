@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   get 'faq', to: 'paginas#faq'
   get 'prueba', to: 'paginas#prueba'
   
-  get 'panel', to: 'panel#index'
+  # Admin Panel
   get 'admin', to: 'panel#admin'
   
   # Contact

@@ -22,10 +22,6 @@
                             = active_link_to admin_path, :wrap_tag => :li, :class_active => 'current' do
                                 %i.fa.fa-lock
                                 Panel de Administracion
-                    %li
-                        = active_link_to (current_user.bufetes.any? ? panel_path : crear_bufete_path), :wrap_tag => :li, :class_active => 'current' do
-                            %i.fa.fa-dashboard
-                            Panel de Control
     
                 .relative-w
                     %ul.side-menu
