@@ -13,17 +13,18 @@
                 = f.label :descripcion, 'Breve Descripcion'
                 = f.text_field :descripcion, class: 'form-control'
     
-        .col-md-4
+        .col-md-7
             .form-group
                 = f.label :archivo
                 = f.file_field :archivo, multiple: false, class: 'btn-file'
-        
-            .alert.alert-warning
-                %p.text-center 
-                    %i.fa.fa-exclamation-circle
-                    %strong Formatos permitidos: 
-                    %em .jpg .jpeg .png .pdf .doc .txt
+            
+            .form-group
+                .alert.alert-warning
+                    %p.text-center 
+                        %i.fa.fa-exclamation-circle
+                        %strong Formatos permitidos: 
+                        %em .jpg .jpeg .png .pdf .doc .txt
             
         
-    = f.submit ( f.object.new_record? ? "Agregar Evidencia" : "Guardar Cambios"), class: 'btn btn-success'
+    = f.submit ( f.object.new_record? ? "Agregar Prueba" : "Guardar Cambios"), class: 'btn btn-success'
     = link_to 'Cancelar', :back, class: 'btn btn-default'

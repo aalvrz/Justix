@@ -1,7 +1,7 @@
 .widget
     %h3.section-title.first-title
         %i.fa.fa-paperclip
-        Evidencia
+        Pruebas
         
 
     .row
@@ -10,7 +10,7 @@
                 - if can? :create, Prueba
                     = link_to new_bufete_caso_prueba_path(@bufete, @caso), class: "btn btn-default" do
                         %span.fa.fa-plus
-                        Agregar Evidencia
+                        Agregar Prueba
                         
     // SHOW EVIDENCE
     .row

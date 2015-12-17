@@ -12,7 +12,6 @@ class PersonasController < ApplicationController
         respond_to do |format|
             format.json { render :json => @clientes.map { |model| {:id => model.id, :nombre_completo => model.nombre_completo } } }
         end
-        
     end
     
     def contrapartes

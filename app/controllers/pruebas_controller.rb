@@ -13,7 +13,7 @@ class PruebasController < ApplicationController
     
     def new
         @prueba = @caso.pruebas.build
-        @title = "Agregar Evidencia"
+        @title = "Agregar Prueba"
     end
     
     def create
@@ -32,7 +32,7 @@ class PruebasController < ApplicationController
     end
     
     def edit
-        @title = "Editar Evidencia"
+        @title = "Editar Prueba"
     end
     
     def update
