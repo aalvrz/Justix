@@ -16,8 +16,8 @@
             /   %input.form-control{:placeholder => "SEARCH", :type => "text"}
             
             #sidebar
-                %ul.side-menu
-                    - if can? :manage, :all
+                - if can? :manage, :all
+                    %ul.side-menu
                         %li
                             = active_link_to admin_path, :wrap_tag => :li, :class_active => 'current' do
                                 %i.fa.fa-lock
