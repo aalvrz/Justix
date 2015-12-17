@@ -22,8 +22,8 @@
                 %th.text-center Instancia
                 %th.text-center Actuacion
                 %th.text-center Notificacion
-                %th.text-center Notificacion
                 %th.text-center Observaciones
+                %th.text-center Notificacion
                 %th
         %tbody
             - @records.each do |entrada|
@@ -33,8 +33,8 @@
                     %td= entrada.instancia
                     %td= entrada.actuacion
                     %td= entrada.notificacion_cliente
+                    %td= entrada.observaciones_cliente
                     %td= entrada.notificacion_contraparte
-                    %td= entrada.observaciones
                     %td
                         - if can? :update, Record
                             = link_to [:edit, @bufete, @caso, entrada], class: 'btn btn-default btn-xs' do

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151217060456) do
+ActiveRecord::Schema.define(version: 20151217064450) do
 
   create_table "bufetes", force: :cascade do |t|
     t.string   "nombre"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20151217060456) do
     t.datetime "updated_at",               null: false
     t.integer  "caso_id"
     t.string   "notificacion_contraparte"
+    t.string   "observaciones_cliente"
   end
 
   create_table "users", force: :cascade do |t|
