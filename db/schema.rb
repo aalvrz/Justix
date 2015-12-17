@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151125045149) do
+ActiveRecord::Schema.define(version: 20151217032837) do
 
   create_table "bufetes", force: :cascade do |t|
     t.string   "nombre"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 20151125045149) do
     t.integer  "caso_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.datetime "fecha"
   end
 
   create_table "records", force: :cascade do |t|

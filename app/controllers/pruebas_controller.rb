@@ -75,6 +75,6 @@ class PruebasController < ApplicationController
         end
         
         def prueba_params
-            params.require(:prueba).permit(:titulo, :descripcion, :archivo)
+            params.require(:prueba).permit(:titulo, :descripcion, :fecha, :archivo)
         end
 end

@@ -11,8 +11,8 @@ class Prueba < ActiveRecord::Base
     
     
     def pruebas_count_within_limit
-        if self.caso.pruebas(:reload).count >= self.caso.bufete.user.evidencia_limit # self is optional
-            errors.add(:base, 'Tu plan actual no te permite crear mas evidencia, actualiza tu plan!')
+        if self.caso.pruebas(:reload).count >= self.caso.bufete.user.evidencia_limit
+            errors.add(:base, 'Tu plan actual no te permite crear mas pruebas, actualiza tu plan!')
         end
     end
 end
