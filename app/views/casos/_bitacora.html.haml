@@ -22,19 +22,17 @@
                 %th.text-center Instancia
                 %th.text-center Actuacion
                 %th.text-center Notificacion
-                %th.text-center Fecha
                 %th.text-center Notificacion
                 %th.text-center Observaciones
                 %th
         %tbody
             - @records.each do |entrada|
                 %tr.text-center
-                    %td= entrada.visita
+                    %td= I18n.localize(entrada.visita.to_s.to_datetime, :format => '%e de %B del %Y a las %H:%M %p')
                     %td= entrada.folio
                     %td= entrada.instancia
                     %td= entrada.actuacion
                     %td= entrada.notificacion_cliente
-                    %td= entrada.fecha_contraparte
                     %td= entrada.notificacion_contraparte
                     %td= entrada.observaciones
                     %td

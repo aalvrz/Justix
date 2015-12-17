@@ -8,7 +8,7 @@
             %h3.section-title.first-title Cliente
         
             .form-group
-                = f.label :visita
+                = f.label :visita, 'Fecha de Visita'
                 %br
                 = f.datetime_select :visita, :ampm => true, :minute_step => 15, class: 'form-control'
             
@@ -31,10 +31,10 @@
         .col-md-6
             %h3.section-title.first-title Contraparte
         
-            .form-group
-                = f.label :fecha_contraparte, 'Fecha'
-                %br
-                = f.datetime_select :fecha_contraparte, :include_blank => true, :ampm => true, :minute_step => 15, class: 'form-control'
+            /.form-group
+            /    = f.label :fecha_contraparte, 'Fecha'
+            /    %br
+            /    = f.datetime_select :fecha_contraparte, :include_blank => true, :ampm => true, :minute_step => 15, class: 'form-control'
                 
             .form-group
                 = f.label :notificacion_contraparte, 'Notificacion'
