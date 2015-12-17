@@ -16,4 +16,4 @@
                     
         - else
             %li
-                = link_to 'Regresar al Sistema', panel_path, class: 'btn btn-primary'
+                = link_to 'Regresar al Sistema', (current_user.bufetes.any? ? current_user.bufetes.first : crear_bufete_path), class: 'btn btn-primary'

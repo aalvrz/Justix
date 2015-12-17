@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
   
   def after_sign_in_path_for(resource)
-    current_user.bufetes.first
+    current_user.bufetes.any? ? current_user.bufetes.first : crear_bufete_path
   end
   
   private
