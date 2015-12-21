@@ -1,0 +1,17 @@
+= form_for [@bufete, @caso, @honorario] do |f|
+
+    // ERROR MESSAGES
+    = render "shared/error_messages", model: @honorario
+    
+    .form-group
+        = f.label :fecha
+        %br
+        = f.datetime_select :fecha, :ampm => true, :minute_step => 15, class: 'form-control'
+
+    .form-group
+        = f.label :abono
+        = f.text_field :abono, autofocus: true, class: 'form-control'
+            
+                
+    = f.submit ( f.object.new_record? ? "Registrar Honorario" : "Guardar Cambios"), class: 'btn btn-success'
+    = link_to 'Cancelar', :back, class: 'btn btn-default'

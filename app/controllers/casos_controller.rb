@@ -19,6 +19,9 @@ class CasosController < ApplicationController
         @pruebas = @caso.pruebas
         @records = @caso.records
         
+        @honorarios = @caso.honorarios
+        @saldo = @honorarios.sum(:abono)
+        
         @title = @caso.nombre
     end
     

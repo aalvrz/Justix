@@ -1,0 +1,41 @@
+.widget
+    %h3.section-title.first-title
+        %i.fa.fa-money
+        Honorarios
+        
+    .row
+        .col-md-12
+            .btn-group.btn-group-xs
+                - if can? :create, Record
+                    = link_to new_bufete_caso_honorario_path(@bufete, @caso), class: "btn btn-default" do
+                        %span.fa.fa-plus
+                        Agregar Honorario
+            
+            .pull-right
+                %p
+                    %strong Saldo Pendiente:
+                    %span.badge
+                        Lps.
+                        = @saldo
+    
+    %table.table.table-striped.table-bordered.table-hover.datatable
+        %thead
+            %tr
+                %th.text-center Fecha
+                %th.text-center Abono
+                %th
+        %tbody
+            - @honorarios.each do |honorario|
+                %tr.text-center
+                    %td= I18n.localize(honorario.fecha.to_s.to_datetime, :format => '%e de %B del %Y a las %H:%M %p')
+                    %td
+                        Lps
+                        = honorario.abono
+                    %td
+                        - if can? :update, Honorario
+                            = link_to [:edit, @bufete, @caso, honorario], class: 'btn btn-default btn-xs' do
+                                %span.fa.fa-pencil
+                        
+                        - if can? :destroy, Honorario
+                            = link_to [@bufete, @caso, honorario], method: :delete, data: { confirm: 'Estas seguro? Esta accion es irreversible.' }, class: 'btn btn-danger btn-xs' do
+                                %span.fa.fa-trash

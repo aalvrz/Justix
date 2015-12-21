@@ -35,6 +35,10 @@ class Ability
       # Bitacora
       can :create, Record
       can :crud, Record, :caso => { :bufete => { :user_id => user.id } }
+      
+      # Honorarios
+      can :create, Honorario
+      can :crud, Honorario, :caso => { :bufete => { :user_id => user.id } }
     end
     
     # Guest User Priveleges

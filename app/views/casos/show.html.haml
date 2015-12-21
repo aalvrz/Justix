@@ -32,6 +32,11 @@
                     %span.fa.fa-paperclip
                     Pruebas 
                     %span.badge= @caso.pruebas.count
+            
+            %li
+                %a{ "aria-expanded" => "true", href: "#honorarios", "data-toggle" => "tab" }
+                    %span.fa.fa-money
+                    Honorarios
                         
             
         %div{ id: 'myTabContent', class: 'tab-content' }
@@ -47,3 +52,7 @@
                 / BITACORA
                 .padded
                     = render 'evidencia'
+            %div{ class: "tab-pane fade", id: "honorarios" }
+                / HONORARIOS
+                .padded
+                    = render 'honorarios'

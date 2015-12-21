@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :casos do
       resources :pruebas
       resources :records
+      resources :honorarios
     end
   end
   

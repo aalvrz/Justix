@@ -18,8 +18,8 @@ class Caso < ActiveRecord::Base
     has_many :testigos, class_name: 'Testigo', through: :caso_personas, source: :persona
     
     has_many :pruebas, dependent: :destroy
-    
     has_many :records, dependent: :destroy
+    has_many :honorarios, dependent: :destroy
     #delegate :clientes, :contrapartes, :testigos, to: :personas
     
     attr_reader :cliente_tokens
