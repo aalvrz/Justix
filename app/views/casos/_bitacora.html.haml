@@ -34,7 +34,7 @@
                     %td= entrada.actuacion
                     %td= I18n.localize(entrada.notificacion_cliente.to_s.to_datetime, :format => '%e de %B del %Y a las %H:%M %p')
                     %td= entrada.observaciones_cliente
-                    %td= entrada.notificacion_contraparte
+                    %td= I18n.localize(entrada.notificacion_contraparte.to_s.to_datetime, :format => '%e de %B del %Y a las %H:%M %p')
                     %td
                         - if can? :update, Record
                             = link_to [:edit, @bufete, @caso, entrada], class: 'btn btn-default btn-xs' do

@@ -36,14 +36,10 @@
         .col-md-6
             %h3.section-title.first-title Contraparte
         
-            /.form-group
-            /    = f.label :fecha_contraparte, 'Fecha'
-            /    %br
-            /    = f.datetime_select :fecha_contraparte, :include_blank => true, :ampm => true, :minute_step => 15, class: 'form-control'
-                
             .form-group
-                = f.label :notificacion_contraparte, 'Notificacion'
-                = f.text_field :notificacion_contraparte, class: 'form-control'
+                = f.label :notificacion_contraparte, 'Fecha de Notificacion'
+                %br
+                = f.datetime_select :notificacion_contraparte, :ampm => true, :minute_step => 15, :include_blank => true, class: 'form-control'
                 
             
     
