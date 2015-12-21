@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151217064450) do
+ActiveRecord::Schema.define(version: 20151221030303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,13 +76,13 @@ ActiveRecord::Schema.define(version: 20151217064450) do
     t.string   "instancia"
     t.string   "folio"
     t.string   "actuacion"
-    t.string   "notificacion_cliente"
     t.text     "observaciones"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.integer  "caso_id"
     t.string   "notificacion_contraparte"
     t.string   "observaciones_cliente"
+    t.datetime "notificacion_cliente"
   end
 
   create_table "users", force: :cascade do |t|

@@ -24,9 +24,10 @@
                 = f.label :actuacion
                 = f.text_field :actuacion, class: 'form-control'
                 
-            /.form-group
-            /    = f.label :notificacion_cliente, 'Notificacion'
-            /    = f.text_field :notificacion_cliente, class: 'form-control'
+            .form-group
+                = f.label :notificacion_cliente, 'Fecha de Notificacion'
+                %br
+                = f.datetime_select :notificacion_cliente, :ampm => true, :minute_step => 15, class: 'form-control'
                 
             .form-group
                 = f.label :observaciones_cliente, 'Observaciones'

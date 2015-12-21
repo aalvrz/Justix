@@ -32,7 +32,7 @@
                     %td= entrada.folio
                     %td= entrada.instancia
                     %td= entrada.actuacion
-                    %td= entrada.notificacion_cliente
+                    %td= I18n.localize(entrada.notificacion_cliente.to_s.to_datetime, :format => '%e de %B del %Y a las %H:%M %p')
                     %td= entrada.observaciones_cliente
                     %td= entrada.notificacion_contraparte
                     %td
