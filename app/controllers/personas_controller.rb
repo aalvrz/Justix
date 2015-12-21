@@ -5,9 +5,11 @@ class PersonasController < ApplicationController
     before_action :find_persona, only:[:show, :edit, :update, :destroy]
     before_action :set_type
     
-    load_and_authorize_resource :through => :bufete
+    load_and_authorize_resource :bufete
+    load_and_authorize_resource :through => :bufete, except: [:clientes, :contrapartes, :testigos]
     
     def clientes
+        authorize! :clientes, @clientes
         @clientes = @bufete.clientes.all.where("nombre LIKE ? OR apellido LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
         respond_to do |format|
             format.json { render :json => @clientes.map { |model| {:id => model.id, :nombre_completo => model.nombre_completo } } }
@@ -15,6 +17,7 @@ class PersonasController < ApplicationController
     end
     
     def contrapartes
+        authorize! :contrapartes, @contrapartes
         @contrapartes = @bufete.contrapartes.all.where("nombre LIKE ? OR apellido LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
         respond_to do |format|
             format.json { render :json => @contrapartes.map { |model| {:id => model.id, :nombre_completo => model.nombre_completo } } }
@@ -22,6 +25,7 @@ class PersonasController < ApplicationController
     end
     
     def testigos
+        authorize! :testigos, @testigos
         @testigos = @bufete.testigos.all.where("nombre LIKE ? OR apellido LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
         respond_to do |format|
             format.html

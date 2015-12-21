@@ -24,6 +24,9 @@ class Ability
       # Personas
       can :create, Persona
       can :crud, Persona, :bufete => { :user_id => user.id }
+      can :clientes, @clientes
+      can :contrapartes, @contrapartes
+      can :testigos, @testigos
       
       # Evidencia
       can :create, Prueba
