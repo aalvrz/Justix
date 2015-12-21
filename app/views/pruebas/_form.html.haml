@@ -32,5 +32,5 @@
                 = f.file_field :archivo, multiple: false, class: 'btn-file'
             
                 
-    = f.submit ( f.object.new_record? ? "Agregar Prueba" : "Guardar Cambios"), class: 'btn btn-success'
+    = f.submit ( f.object.new_record? ? "Agregar Prueba" : "Guardar Cambios"), class: 'btn btn-success', data: { disable_with: "Procesando..." }
     = link_to 'Cancelar', :back, class: 'btn btn-default'
