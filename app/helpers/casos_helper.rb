@@ -16,6 +16,8 @@ module CasosHelper
             "file-text-o"
         when "jpg", "jpeg", "png"
             "file-image-o"
+        else
+            "question"
         end
     end
 end

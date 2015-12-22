@@ -13,26 +13,29 @@
                         Agregar Prueba
                         
     // SHOW EVIDENCE
-    .row
-        .col-md-8.col-md-offset-2
+    %table.table.table-striped.table-bordered.table-hover.datatable
+        %thead
+            %tr
+                %th.text-center
+                %th.text-center Titulo
+                %th.text-center Descripcion
+                %th.text-center Fecha
+                %th
+        %tbody
             - @pruebas.each do |evidencia|
-                .media
-                    .media-left.media-middle
-                        %span{ class: "fa fa-#{get_evidencia_icon evidencia.archivo.file.extension.downcase} fa-3x" }
-                    .media-body
-                        .media-heading
-                            %h4
-                                = link_to evidencia.titulo, evidencia.archivo.url.to_s, :target => "_blank"
-                                .pull-right
-                                    - if can? :edit, Prueba
-                                        = link_to edit_bufete_caso_prueba_path(@bufete, @caso, evidencia), class: 'btn btn-default btn-xs' do
-                                            %span.fa.fa-pencil
-                                    - if can? :destroy, Prueba
-                                        = link_to bufete_caso_prueba_path(@bufete, @caso, evidencia), method: :delete, data: { confirm: 'Estas seguro? Esta accion es irreversible.' }, class: 'btn btn-danger btn-xs' do
-                                            %span.fa.fa-trash
-                                            
-                        %h4.small= I18n.localize(evidencia.fecha.to_s.to_datetime, :format => '%e de %B del %Y a las %H:%M %p')
-                        = evidencia.descripcion
-                %hr
-                        
-                                
+                %tr.text-center
+                    %td
+                        %span{ class: "fa fa-#{get_evidencia_icon(evidencia.archivo.file.extension.downcase) if evidencia.archivo.file}" }
+                    %td= link_to evidencia.titulo, evidencia.archivo.url.to_s, :target => "_blank"
+                    %td= evidencia.descripcion
+                    %td= localize_datetime(evidencia.fecha)
+                    %td
+                        - if can? :read, Prueba
+                            = link_to evidencia.archivo.url.to_s, :target => "_blank", class: 'btn btn-default btn-xs' do
+                                %span.fa.fa-eye
+                        - if can? :edit, Prueba
+                            = link_to edit_bufete_caso_prueba_path(@bufete, @caso, evidencia), class: 'btn btn-default btn-xs' do
+                                %span.fa.fa-pencil
+                        - if can? :destroy, Prueba
+                            = link_to bufete_caso_prueba_path(@bufete, @caso, evidencia), method: :delete, data: { confirm: 'Estas seguro? Esta accion es irreversible.' }, class: 'btn btn-danger btn-xs' do
+                                %span.fa.fa-trash
