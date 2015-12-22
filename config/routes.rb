@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   get 'prueba', to: 'paginas#prueba'
   
   # Admin Panel
-  #get 'admin', to: 'panel#admin'
+  get 'admin', to: 'panel#admin'
   
   # Contact
   resources :contacts, only: [:new, :create]
