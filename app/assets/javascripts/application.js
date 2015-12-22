@@ -16,4 +16,7 @@
 //= require jquery.tokeninput
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require moment
+//= require moment/es
+//= require bootstrap-datetimepicker
 //= require_tree .

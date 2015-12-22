@@ -14,8 +14,12 @@
  
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+@import 'bootstrap-datetimepicker';
+
 @import "token-input";
 @import "token-input-bootstrap3";
+
 @import "paginas";
 @import "casos";
 @import "app";
