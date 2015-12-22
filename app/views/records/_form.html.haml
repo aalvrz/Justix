@@ -9,7 +9,7 @@
         
             .form-group
                 = f.label :visita, 'Fecha de Visita'
-                /= f.datetime_select :visita
+                = f.datetime_select :visita
                     
             
             .form-group
@@ -26,7 +26,7 @@
                 
             .form-group
                 = f.label :notificacion_cliente, 'Fecha de Notificacion'
-                /= f.datetime_select :notificacion_cliente
+                = f.datetime_select :notificacion_cliente
                 
             .form-group
                 = f.label :observaciones_cliente, 'Observaciones'
@@ -37,7 +37,7 @@
         
             .form-group
                 = f.label :notificacion_contraparte, 'Fecha de Notificacion'
-                /= f.datetime_select :notificacion_contraparte
+                = f.datetime_select :notificacion_contraparte
                 
     .form-group    
         = f.submit ( f.object.new_record? ? "Agregar Entrada" : "Guardar Cambios"), class: 'btn btn-success'
