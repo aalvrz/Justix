@@ -7,6 +7,7 @@ module ApplicationHelper
     end
     
     def localize_datetime(d)
-        I18n.localize(d.to_s.to_datetime, :format => '%e de %B del %Y a las %I:%M %p')
+        #I18n.localize(d.to_s.to_datetime, :format => '%e de %B del %Y a las %I:%M %p')
+        I18n.localize(d.to_s.to_datetime, :format => '%d/%m/%Y %I:%M %p')
     end
 end
