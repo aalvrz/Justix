@@ -7,11 +7,11 @@
         = render 'layouts/error_alerts'
 
     .form-group
-        = f.label :email
+        = f.label :email, 'E-mail'
         = f.email_field :email, autofocus: true, placeholder: 'E-mail', class: 'form-control'
 
     .form-group
-        = f.label :password
+        = f.label :password, 'Contraseña'
         = f.password_field :password, autocomplete: "off", placeholder: 'Contraseña', class: 'form-control'
 
     .form-group
