@@ -3,11 +3,11 @@
         - if can? :update, @caso
             = link_to edit_bufete_caso_path(@bufete, @caso) do
                 %i.fa.fa-pencil
-                Editar
+                Editar Caso
         - if can? :destroy, @caso
             = link_to bufete_caso_path(@bufete, @caso), method: :delete, data: { confirm: 'Estas seguro? Esta accion es irreversible.' } do
                 %i.fa.fa-trash-o
-                Eliminar
+                Eliminar Caso
     %h1
         %i.fa.fa-book
         Casos
