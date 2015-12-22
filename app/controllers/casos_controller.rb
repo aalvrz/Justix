@@ -16,10 +16,10 @@ class CasosController < ApplicationController
     end
     
     def show
-        @pruebas = @caso.pruebas
-        @records = @caso.records
+        @pruebas = @caso.pruebas.order('created_at ASC')
+        @records = @caso.records.order('created_at ASC')
         
-        @honorarios = @caso.honorarios
+        @honorarios = @caso.honorarios.order('created_at ASC')
         @saldo = @honorarios.sum(:abono)
         
         @title = @caso.nombre

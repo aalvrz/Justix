@@ -28,13 +28,13 @@
         %tbody
             - @records.each do |entrada|
                 %tr.text-center
-                    %td= I18n.localize(entrada.visita.to_s.to_datetime, :format => '%e de %B del %Y a las %H:%M %p')
+                    %td= localize_datetime(entrada.visita) if entrada.visita
                     %td= entrada.folio
                     %td= entrada.instancia
                     %td= entrada.actuacion
-                    %td= I18n.localize(entrada.notificacion_cliente.to_s.to_datetime, :format => '%e de %B del %Y a las %H:%M %p')
+                    %td= localize_datetime(entrada.notificacion_cliente) if entrada.notificacion_cliente
                     %td= entrada.observaciones_cliente
-                    %td= I18n.localize(entrada.notificacion_contraparte.to_s.to_datetime, :format => '%e de %B del %Y a las %H:%M %p') if entrada.notificacion_contraparte
+                    %td= localize_datetime(entrada.notificacion_contraparte) if entrada.notificacion_contraparte
                     %td
                         - if can? :update, Record
                             = link_to [:edit, @bufete, @caso, entrada], class: 'btn btn-default btn-xs' do

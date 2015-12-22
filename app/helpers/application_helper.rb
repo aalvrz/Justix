@@ -5,4 +5,8 @@ module ApplicationHelper
             link_to link_text, link_path
         end
     end
+    
+    def localize_datetime(d)
+        I18n.localize(d.to_s.to_datetime, :format => '%e de %B del %Y a las %I:%M %p')
+    end
 end

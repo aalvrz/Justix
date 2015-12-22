@@ -19,12 +19,7 @@
                 
             .form-group
                 = f.label :fecha_nacimiento, 'Fecha de Nacimiento'
-                %br
-                #datepicker.input-group.date
-                    = f.text_field :fecha_nacimiento, class: 'form-control'
-                    %span.input-group-addon
-                        %span.fa.fa-calendar
-                /= f.date_select :fecha_nacimiento, :include_blank => true, :start_year => Date.today.year - 80, class: 'form-control input-sm'
+                = f.date_select :fecha_nacimiento
                 
             .form-group
                 = f.label :type, 'Tipo de Persona'

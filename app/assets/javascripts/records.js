@@ -1,8 +1,7 @@
 $(function () {
-    $('.datepicker').datetimepicker({
-        format: 'LL',
+    $('.datetimepicker').datetimepicker({
+        format: 'LLL',
         locale: 'es',
-        viewMode: 'years',
         icons: {
                     time: "fa fa-clock-o",
                     date: "fa fa-calendar",
@@ -11,5 +10,7 @@ $(function () {
                     previous: 'fa fa-arrow-left',
                     next: 'fa fa-arrow-right'
                 }
+        //useCurrent: false,
+        //showTodayButton: true
     });
 });

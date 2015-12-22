@@ -9,8 +9,8 @@
         
             .form-group
                 = f.label :visita, 'Fecha de Visita'
-                %br
-                = f.datetime_select :visita, :ampm => true, :minute_step => 15, class: 'form-control'
+                = f.datetime_select :visita
+                    
             
             .form-group
                 = f.label :folio
@@ -26,8 +26,7 @@
                 
             .form-group
                 = f.label :notificacion_cliente, 'Fecha de Notificacion'
-                %br
-                = f.datetime_select :notificacion_cliente, :ampm => true, :minute_step => 15, class: 'form-control'
+                = f.datetime_select :notificacion_cliente
                 
             .form-group
                 = f.label :observaciones_cliente, 'Observaciones'
@@ -38,13 +37,10 @@
         
             .form-group
                 = f.label :notificacion_contraparte, 'Fecha de Notificacion'
-                %br
-                = f.datetime_select :notificacion_contraparte, :ampm => true, :minute_step => 15, :include_blank => true, class: 'form-control'
+                = f.datetime_select :notificacion_contraparte
                 
-            
-    
-    
-    
     .form-group    
         = f.submit ( f.object.new_record? ? "Agregar Entrada" : "Guardar Cambios"), class: 'btn btn-success'
         = link_to 'Cancelar', :back, class: 'btn btn-default'
+        
+= console
