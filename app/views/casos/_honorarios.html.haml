@@ -15,8 +15,8 @@
                 %p
                     %strong Saldo Pendiente:
                     %span.badge
-                        Lps.
-                        = @saldo
+                        L.
+                        = number_with_precision(@saldo, :precision => 2, :delimiter => ',', :separator => ".")
     
     %table.table.table-striped.table-bordered.table-hover.datatable
         %thead
@@ -29,8 +29,8 @@
                 %tr.text-center
                     %td= I18n.localize(honorario.fecha.to_s.to_datetime, :format => '%e de %B del %Y a las %H:%M %p')
                     %td
-                        Lps
-                        = honorario.abono
+                        L.
+                        = number_with_precision(honorario.abono, :precision => 2, :delimiter => ',', :separator => ".")
                     %td
                         - if can? :update, Honorario
                             = link_to [:edit, @bufete, @caso, honorario], class: 'btn btn-default btn-xs' do
