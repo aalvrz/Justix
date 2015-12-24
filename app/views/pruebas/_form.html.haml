@@ -24,8 +24,7 @@
         .col-md-7
             .form-group
                 = f.label :fecha
-                %br
-                = f.datetime_select :fecha, :ampm => true, :minute_step => 15, class: 'form-control'
+                = f.datetime_select :fecha
         
             .form-group
                 = f.label :archivo
