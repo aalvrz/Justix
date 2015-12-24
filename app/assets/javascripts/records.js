@@ -1,7 +1,5 @@
 $(function () {
     $('.datetimepicker').datetimepicker({
-        format: 'DD/MM/YYYY hh:mm A',
-        //defaultDate: "<%= @record.visita %>",
         icons: {
                     time: "fa fa-clock-o",
                     date: "fa fa-calendar",
