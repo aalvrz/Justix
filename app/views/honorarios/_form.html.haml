@@ -9,7 +9,7 @@
 
     .form-group
         = f.label :abono
-        = f.text_field :abono, autofocus: true, class: 'form-control'
+        = f.text_field :abono, placeholder: 'Ejemplo: 50000', class: 'form-control'
             
                 
     = f.submit ( f.object.new_record? ? "Registrar Honorario" : "Guardar Cambios"), class: 'btn btn-success'
