@@ -9,7 +9,11 @@
         
             .form-group
                 = f.label :visita, 'Fecha de Visita'
-                = f.datetime_select :visita
+                .input-group.date.datetimepicker
+                    = f.text_field :visita, class: 'form-control'
+                    %span.input-group-addon
+                        %span.fa.fa-calendar
+                /= f.datetime_select :visita
                     
             .form-group
                 = f.label :folio

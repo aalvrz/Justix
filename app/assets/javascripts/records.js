@@ -1,7 +1,7 @@
 $(function () {
     $('.datetimepicker').datetimepicker({
-        format: 'LLL',
-        locale: 'es',
+        format: 'DD/MM/YYYY hh:mm A',
+        //defaultDate: "<%= @record.visita %>",
         icons: {
                     time: "fa fa-clock-o",
                     date: "fa fa-calendar",
@@ -10,7 +10,5 @@ $(function () {
                     previous: 'fa fa-arrow-left',
                     next: 'fa fa-arrow-right'
                 }
-        //useCurrent: false,
-        //showTodayButton: true
     });
 });

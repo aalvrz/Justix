@@ -1,7 +1,5 @@
 $(function () {
     $('.datepicker').datetimepicker({
-        format: 'LL',
-        locale: 'es',
         viewMode: 'years',
         icons: {
                     time: "fa fa-clock-o",
