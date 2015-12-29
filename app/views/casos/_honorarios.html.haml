@@ -27,7 +27,7 @@
         %tbody
             - @honorarios.each do |honorario|
                 %tr.text-center
-                    %td= I18n.localize(honorario.fecha.to_s.to_datetime, :format => '%e de %B del %Y a las %H:%M %p')
+                    %td= localize_datetime(honorario.fecha) if honorario.fecha
                     %td
                         L.
                         = number_with_precision(honorario.abono, :precision => 2, :delimiter => ',', :separator => ".")
