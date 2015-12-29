@@ -3,11 +3,11 @@
         - if can? :update, @bufete
             = link_to edit_bufete_path(@bufete) do
                 %i.fa.fa-pencil
-                Editar
+                Editar Bufete
         - if can? :destroy, @bufete
             = link_to bufete_path(@bufete), method: :delete, data: { confirm: 'Estas seguro? Esta accion es irreversible.' } do
                 %i.fa.fa-trash-o
-                Eliminar
+                Eliminar Bufete
     %h1
         %i.fa.fa-briefcase
         Mi Bufete
@@ -19,8 +19,19 @@
             %i.icon-tasks
             = @bufete.nombre
 
-        %p.smal
-            %span.fa.fa-map-marker
-            = @bufete.direccion + ", " + "Tel: " + @bufete.telefono
+        %ul.list-inline
+            %li
+                %span.fa.fa-map-marker
+                %strong Direccion:
+                = @bufete.direccion
+        
+            %li
+                %span.fa.fa-phone
+                %strong Telefono:
+                = @bufete.telefono
+                
+            %li
+                %span.fa.fa-mobile
+                %strong Movil:
     
         =simple_format h @bufete.descripcion
