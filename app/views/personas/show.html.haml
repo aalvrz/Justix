@@ -21,7 +21,7 @@
                 .row        
                     .col-md-6
                         %p
-                            %span.fa.fa-calendar
+                            %span.fa.fa-birthday-cake
                             %strong Fecha de Nacimiento:
                             = I18n.localize( @persona.fecha_nacimiento.to_s.to_time, :format => '%e de %B de %Y') if @persona.fecha_nacimiento
                             
@@ -39,12 +39,12 @@
                             %span.fa.fa-clock-o
                             %strong Fecha de Creacion:
                             = I18n.localize( @persona.created_at.to_s.to_time, :format => '%e de %B del %Y')
-                    .col-md-6
+                            
                         %p
                             %span.fa.fa-credit-card
                             %strong Numero de Registro:
                             = @persona.num_registro
-                    
+                    .col-md-6
                         %p
                             %span.fa.fa-heart-o
                             %strong Estado Civil:
@@ -54,6 +54,11 @@
                             %span.fa.fa-phone
                             %strong Telefono:
                             = @persona.telefono
+                            
+                        %p 
+                            %span.fa.fa-mobile
+                            %strong Movil:
+                            = @persona.movil
                             
                         %p
                             %span.fa.fa-map-marker
