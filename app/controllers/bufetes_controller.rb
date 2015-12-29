@@ -61,7 +61,7 @@ class BufetesController < ApplicationController
         end
         
         def bufete_params
-            params.require(:bufete).permit(:nombre, :direccion, :telefono, :descripcion, :user_id)
+            params.require(:bufete).permit(:nombre, :direccion, :telefono, :descripcion, :movil, :user_id)
         end
     
 end
