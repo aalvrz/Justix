@@ -1,6 +1,7 @@
 $("#caso_cliente_tokens").tokenInput("../clientes.json", {
     propertyToSearch: 'nombre_completo',
     crossDomain: false,
+    preventDuplicates: true,
     prePopulate: $("#caso_cliente_tokens").data("pre"),
     theme: "bootstrap",
     hintText: "Introduzca el nombre del cliente...",
@@ -11,6 +12,7 @@ $("#caso_cliente_tokens").tokenInput("../clientes.json", {
 $("#caso_contraparte_tokens").tokenInput("../contrapartes.json", {
     propertyToSearch: 'nombre_completo',
     crossDomain: false,
+    preventDuplicates: true,
     prePopulate: $("#caso_contraparte_tokens").data("pre"),
     theme: "bootstrap",
     hintText: "Introduzca el nombre de la contraparte...",
@@ -21,6 +23,7 @@ $("#caso_contraparte_tokens").tokenInput("../contrapartes.json", {
 $("#caso_testigo_tokens").tokenInput("../testigos.json", {
     propertyToSearch: 'nombre_completo',
     crossDomain: false,
+    preventDuplicates: true,
     prePopulate: $("#caso_testigo_tokens").data("pre"),
     theme: "bootstrap",
     hintText: "Introduzca el nombre del testigo...",
