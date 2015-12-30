@@ -1,4 +1,4 @@
-$("#caso_cliente_tokens").tokenInput("../clientes.json", {
+$("#caso_cliente_tokens").tokenInput($("#caso_cliente_tokens").data("token-source"), {
     propertyToSearch: 'nombre_completo',
     crossDomain: false,
     preventDuplicates: true,
@@ -9,7 +9,7 @@ $("#caso_cliente_tokens").tokenInput("../clientes.json", {
     searchingText: "Buscando..."
 });
 
-$("#caso_contraparte_tokens").tokenInput("../contrapartes.json", {
+$("#caso_contraparte_tokens").tokenInput($("#caso_contraparte_tokens").data("token-source"), {
     propertyToSearch: 'nombre_completo',
     crossDomain: false,
     preventDuplicates: true,
@@ -20,7 +20,7 @@ $("#caso_contraparte_tokens").tokenInput("../contrapartes.json", {
     searchingText: "Buscando..."
 });
 
-$("#caso_testigo_tokens").tokenInput("../testigos.json", {
+$("#caso_testigo_tokens").tokenInput($("#caso_testigo_tokens").data("token-source"), {
     propertyToSearch: 'nombre_completo',
     crossDomain: false,
     preventDuplicates: true,

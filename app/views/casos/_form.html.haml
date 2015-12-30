@@ -53,15 +53,15 @@
         .col-md-12
             .form-group
                 = f.label :cliente_tokens, 'Clientes'
-                = f.text_field :cliente_tokens, "data-pre" => @caso.clientes.map { |model| {:id => model.id, :nombre_completo => model.nombre_completo } }.to_json, class: 'form-control'
+                = f.text_field :cliente_tokens, "data-token-source" => bufete_clientes_path(@bufete), "data-pre" => @caso.clientes.map { |model| {:id => model.id, :nombre_completo => model.nombre_completo } }.to_json, class: 'form-control'
                 
             .form-group
                 = f.label :contraparte_tokens, 'Contrapartes'
-                = f.text_field :contraparte_tokens, "data-pre" => @caso.contrapartes.map { |model| {:id => model.id, :nombre_completo => model.nombre_completo } }.to_json, class: 'form-control'
+                = f.text_field :contraparte_tokens, "data-token-source" => bufete_contrapartes_path(@bufete), "data-pre" => @caso.contrapartes.map { |model| {:id => model.id, :nombre_completo => model.nombre_completo } }.to_json, class: 'form-control'
                 
             .form-group
                 = f.label :testigo_tokens, 'Testigos'
-                = f.text_field :testigo_tokens, "data-pre" => @caso.testigos.map { |model| {:id => model.id, :nombre_completo => model.nombre_completo } }.to_json, class: 'form-control'
+                = f.text_field :testigo_tokens, "data-token-source" => bufete_testigos_path(@bufete), "data-pre" => @caso.testigos.map { |model| {:id => model.id, :nombre_completo => model.nombre_completo } }.to_json, class: 'form-control'
     %hr
     
     .row
