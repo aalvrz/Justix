@@ -10,10 +10,15 @@
         
 .main-content
     .widget
-        .row
-            .col-md-12
-                .widget-content-white.glossed
-                    .padded
+        .widget-content-white.glossed
+            .padded
+                .row
+                    .col-md-12
+                        .pull-right
+                            = search_form_for @q, url: bufete_personas_path(params[:bufete_id]) do |f|
+                                .form-group
+                                    = f.search_field :nombre_or_apellido_cont, placeholder: 'Buscar...', class: 'form-control'
+                                        
                         %table.table.table-striped.table-bordered.table-hover
                             %thead
                                 %tr

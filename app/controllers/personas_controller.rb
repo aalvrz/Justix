@@ -34,12 +34,16 @@ class PersonasController < ApplicationController
     end
     
     def index
-       @personas = @bufete.personas.all
+        @personas = @bufete.personas.all
+        
+        # Ransack
+        @q = Persona.ransack(params[:q])    
+        @personas = @q.result.includes(:bufete, :casos).order("created_at DESC")
+        
+        # Pagination
+        @personas = @personas.paginate(:page => params[:page], :per_page => 6)
        
-       # Pagination
-       @personas = @personas.paginate(:page => params[:page], :per_page => 6)
-       
-       @title = "Mis Personas"
+        @title = "Mis Personas"
     end
     
     def new
