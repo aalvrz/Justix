@@ -37,7 +37,7 @@ class PersonasController < ApplicationController
         @personas = @bufete.personas.all
         
         # Ransack
-        @q = Persona.ransack(params[:q])    
+        @q = @personas.ransack(params[:q])    
         @personas = @q.result.includes(:bufete, :casos).order("created_at DESC")
         
         # Pagination

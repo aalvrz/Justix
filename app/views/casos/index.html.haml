@@ -10,35 +10,39 @@
 
 .main-content
     .widget
-        .row
-            .col-md-12
-                .widget-content-white.glossed
-                    .padded
-                        .list-group
-                            - @casos.each do |caso|
-                                .caso-item
-                                    = link_to bufete_caso_path(@bufete, caso), class: "list-group-item" do
-                                        %h4.list-group-item-heading
-                                            %strong= caso.nombre
-                                            %small= "(#{caso.num_accion})" 
-                                                
-                                            /%span{ class: "label label-#{caso_estado_contextual caso.estado}"}= caso.estado
+        .widget-content-white.glossed
+            .padded
+                .row
+                    .col-md-12
+                        .pull-right
+                            = search_form_for @q, url: bufete_casos_path(params[:bufete_id]) do |f|
+                                .form-group
+                                    = f.search_field :nombre_or_num_accion_cont, placeholder: 'Buscar...', class: 'form-control'
+                .list-group
+                    - @casos.each do |caso|
+                        .caso-item
+                            = link_to bufete_caso_path(@bufete, caso), class: "list-group-item" do
+                                %h4.list-group-item-heading
+                                    %strong= caso.nombre
+                                    %small= "(#{caso.num_accion})" 
                                         
-                                            .pull-right
-                                                .small
-                                                    %ul.list-inline
-                                                        %li{ "data-toggle"=> "tooltip", "data-placement" => "bottom", :title => "Entradas en Bitacora" }
-                                                            %span.fa.fa-file-text-o.fa-lg
-                                                            = caso.records.count
-                                                            
-                                                        %li{ "data-toggle"=> "tooltip", "data-placement" => "bottom", :title => "Pruebas" }
-                                                            %span.fa.fa-paperclip.fa-lg
-                                                            = caso.pruebas.count
-                                        
-                                        %h5
-                                            %strong Clientes:
-                                            = caso.clientes.map {|c| c.nombre_completo}.join(",")
-                                    
-                = render 'shared/pagination', model: @casos
-            
-            
+                                    /%span{ class: "label label-#{caso_estado_contextual caso.estado}"}= caso.estado
+                                
+                                    .pull-right
+                                        .small
+                                            %ul.list-inline
+                                                %li{ "data-toggle"=> "tooltip", "data-placement" => "bottom", :title => "Entradas en Bitacora" }
+                                                    %span.fa.fa-file-text-o.fa-lg
+                                                    = caso.records.count
+                                                    
+                                                %li{ "data-toggle"=> "tooltip", "data-placement" => "bottom", :title => "Pruebas" }
+                                                    %span.fa.fa-paperclip.fa-lg
+                                                    = caso.pruebas.count
+                                
+                                %h5
+                                    %strong Clientes:
+                                    = caso.clientes.map {|c| c.nombre_completo}.join(",")
+                            
+            = render 'shared/pagination', model: @casos
+    
+    

@@ -8,7 +8,11 @@ class CasosController < ApplicationController
     require 'will_paginate/array'
     
     def index
-        @casos = @bufete.casos.uniq
+        @casos = @bufete.casos.all
+        
+        # Ransack
+        @q = @casos.ransack(params[:q])
+        @casos = @q.result.includes(:bufete).order("created_at DESC")
         
         # Pagination
         @casos = @casos.paginate(:page => params[:page], :per_page => 10)
