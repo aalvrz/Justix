@@ -33,17 +33,17 @@
                 %div{ class: "btn-group", "data-toggle" => "buttons" }
                     %label.btn.btn-default.active.btn-sm
                         = f.radio_button :estado, "En Proceso", :checked => true
-                        %span.glyphicon.glyphicon-hourglass
+                        %span.fa.fa-clock-o
                         En Proceso
                 
                     %label.btn.btn-default.btn-sm
                         = f.radio_button :estado, "Ganado"
-                        %span.glyphicon.glyphicon-thumbs-up
+                        %span.fa.fa-thumbs-up
                         Ganado
                         
                     %label.btn.btn-default.btn-sm
                         = f.radio_button :estado, "Perdido"
-                        %span.glyphicon.glyphicon-thumbs-down
+                        %span.fa.fa-thumbs-down
                         Perdido
                     
     
@@ -55,22 +55,22 @@
                 = f.label :cliente_tokens, 'Clientes'
                 .input-group
                     = f.text_field :cliente_tokens, "data-token-source" => bufete_clientes_path(@bufete), "data-pre" => @caso.clientes.map { |model| {:id => model.id, :nombre_completo => model.nombre_completo } }.to_json, class: 'form-control'
-                    %span.input-group-addon{ "data-toggle"=> "tooltip", "data-placement" => "top", :title => "Crear Nuevo Cliente" }
-                        %span.fa.fa-user-plus
+                    = link_to '#new_persona_modal', 'data-toggle' => 'modal', class: 'input-group-addon' do
+                        %span.fa.fa-user-plus{ "data-toggle"=> "tooltip", "data-placement" => "top", :title => "Crear Nuevo Cliente" }
                 
             .form-group
                 = f.label :contraparte_tokens, 'Contrapartes'
                 .input-group
                     = f.text_field :contraparte_tokens, "data-token-source" => bufete_contrapartes_path(@bufete), "data-pre" => @caso.contrapartes.map { |model| {:id => model.id, :nombre_completo => model.nombre_completo } }.to_json, class: 'form-control'
-                    %span.input-group-addon{ "data-toggle"=> "tooltip", "data-placement" => "top", :title => "Crear Nueva Contraparte" }
-                        %span.fa.fa-user-plus
+                    = link_to '#new_persona_modal', 'data-toggle' => 'modal', class: 'input-group-addon' do
+                        %span.fa.fa-user-plus{ "data-toggle"=> "tooltip", "data-placement" => "top", :title => "Crear Nueva Contraparte" }
                 
             .form-group
                 = f.label :testigo_tokens, 'Testigos'
                 .input-group
                     = f.text_field :testigo_tokens, "data-token-source" => bufete_testigos_path(@bufete), "data-pre" => @caso.testigos.map { |model| {:id => model.id, :nombre_completo => model.nombre_completo } }.to_json, class: 'form-control'
-                    %span.input-group-addon{ "data-toggle"=> "tooltip", "data-placement" => "top", :title => "Crear Nuevo Testigo" }
-                        %span.fa.fa-user-plus
+                    = link_to '#new_persona_modal', 'data-toggle' => 'modal', class: 'input-group-addon' do
+                        %span.fa.fa-user-plus{ "data-toggle"=> "tooltip", "data-placement" => "top", :title => "Crear Nuevo Testigo" }
     %hr
     
     .row
@@ -82,3 +82,7 @@
             .form-group
                 = f.submit ( f.object.new_record? ? "Crear Caso" : "Guardar Cambios"), class: 'btn btn-success'
                 = link_to 'Cancelar', :back, class: 'btn btn-default'
+                
+
+// Render Partial that displays a bootstrap modal
+/= render 'new_persona_modal'

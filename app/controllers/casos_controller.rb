@@ -27,10 +27,12 @@ class CasosController < ApplicationController
     
     def new
         @caso = @bufete.casos.build
+        @persona = @bufete.personas.build
         @title = "Crear Nuevo Caso"
     end
     
     def edit
+        @persona = @bufete.personas.build
         @title = "Editar Caso"
     end
     
@@ -51,11 +53,9 @@ class CasosController < ApplicationController
         
         respond_to do |format|
             if @caso.save
-                format.html { redirect_to bufete_caso_path(@bufete, @caso), :flash => { :success => 'Caso ha sido creado exitosamente' } }
-                format.json { render :show, status: :created, location: @caso }
+                format.html { redirect_to bufete_caso_path(@bufete, @caso), :flash => { :success => 'El caso ha sido creado exitosamente' } }
             else
                 format.html { render :action => "new", :flash => { :danger => 'Hubo un error al tratar de crear el caso.' } }
-                format.json { render json: @caso.errors, status: :unprocessable_entity }
             end
         end
     end

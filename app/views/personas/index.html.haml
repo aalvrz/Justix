@@ -10,27 +10,31 @@
         
 .main-content
     .widget
-        .widget-content-white.glossed
-            
-            %table.table.table-striped.table-hover
-                %thead
-                    %tr
-                        %th.text-center Nombre Completo
-                        %th.text-center Identidad
-                        %th.text-center Telefono
-                        %th.text-center Domicilio
-                        %th.text-center Tipo
-                        %th
-                %tbody
-                    - @personas.each do |p|
-                        %tr.text-center
-                            %td= link_to p.nombre_completo, bufete_persona_path(@bufete, p)
-                            %td= p.num_registro
-                            %td= p.telefono
-                            %td= p.domicilio
-                            %td= p.type
-                            %td
-                                = link_to bufete_persona_path(@bufete, p), class: 'btn btn-default btn-xs' do
-                                    %span.fa.fa-search
-                                = link_to [:edit, @bufete, p], class: 'btn btn-default btn-xs' do
-                                    %span.fa.fa-pencil
+        .row
+            .col-md-12
+                .widget-content-white.glossed
+                    .padded
+                        %table.table.table-striped.table-bordered.table-hover
+                            %thead
+                                %tr
+                                    %th.text-center Nombre Completo
+                                    %th.text-center Identidad
+                                    %th.text-center Telefono
+                                    %th.text-center Domicilio
+                                    %th.text-center Tipo
+                                    %th
+                            %tbody
+                                - @personas.each do |p|
+                                    %tr.text-center
+                                        %td= link_to p.nombre_completo, bufete_persona_path(@bufete, p)
+                                        %td= p.num_registro
+                                        %td= p.telefono
+                                        %td= p.domicilio
+                                        %td= p.type
+                                        %td
+                                            = link_to bufete_persona_path(@bufete, p), class: 'btn btn-default btn-xs' do
+                                                %span.fa.fa-search
+                                            = link_to [:edit, @bufete, p], class: 'btn btn-default btn-xs' do
+                                                %span.fa.fa-pencil
+                        
+                        = render 'shared/pagination', model: @personas

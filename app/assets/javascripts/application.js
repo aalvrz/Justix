@@ -11,11 +11,12 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
+//= require bootstrap/transition
+//= require bootstrap/tooltip
+//= require bootstrap/tab
+//= require bootstrap/modal
 //= require jquery.tokeninput
-//= require turbolinks
-//= require bootstrap-sprockets
 //= require moment
 //= require moment/es
 //= require bootstrap-datetimepicker

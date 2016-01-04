@@ -39,12 +39,6 @@
                                             %strong Clientes:
                                             = caso.clientes.map {|c| c.nombre_completo}.join(",")
                                     
-                / Pagination
-                .row.text-center
-                    = will_paginate @casos, renderer: BootstrapPagination::Rails
+                = render 'shared/pagination', model: @casos
             
             
-:javascript
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })

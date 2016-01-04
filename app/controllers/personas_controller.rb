@@ -35,6 +35,10 @@ class PersonasController < ApplicationController
     
     def index
        @personas = @bufete.personas.all
+       
+       # Pagination
+       @personas = @personas.paginate(:page => params[:page], :per_page => 6)
+       
        @title = "Mis Personas"
     end
     
@@ -49,8 +53,10 @@ class PersonasController < ApplicationController
         respond_to do |format|
             if @persona.save
                 format.html { redirect_to bufete_persona_path(@bufete, @persona), :flash => { :success => 'La persona ha sido registrada exitosamente' } }
+                format.js
             else
                 format.html { render 'new', :flash => { :danger => 'Hubo un error al tratar de registrar la persona.' } }
+                format.js   { render json: @persona.errors, status: :unprocessable_entity }
             end
         end
     end

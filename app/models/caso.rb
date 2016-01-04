@@ -2,10 +2,6 @@ class Caso < ActiveRecord::Base
     
     validates :nombre, :presence => true
     validates :num_accion, :presence => true
-    validates :accion, :presence => true
-    validates :materia, :presence => true
-    validates :oficina, :presence => true
-    validates :descripcion, :presence => true
     
     validate :casos_count_within_limit, on: :create
     
