@@ -17,7 +17,7 @@
                         .pull-right
                             = search_form_for @q, url: bufete_casos_path(params[:bufete_id]) do |f|
                                 .form-group
-                                    = f.search_field :nombre_or_num_accion_cont, placeholder: 'Buscar...', class: 'form-control'
+                                    = f.search_field :nombre_or_num_accion_cont, placeholder: 'Buscar Casos...', class: 'form-control'
                 .list-group
                     - @casos.each do |caso|
                         .caso-item
