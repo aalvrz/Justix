@@ -1,4 +1,8 @@
 $(function () {
+
+    $('[data-toggle="tooltip"]').tooltip()
+
+    
     $("#caso_cliente_tokens").tokenInput($("#caso_cliente_tokens").data("token-source"), {
         propertyToSearch: 'nombre_completo',
         crossDomain: false,
