@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap/transition
 //= require bootstrap/tooltip
+//= require bootstrap/popover
 //= require bootstrap/tab
 //= require bootstrap/modal
 //= require jquery.tokeninput

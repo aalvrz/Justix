@@ -1,4 +1,7 @@
 $(function () {
+    
+    
+    
     $('.datetimepicker').datetimepicker({
         icons: {
                     time: "fa fa-clock-o",
@@ -9,4 +12,5 @@ $(function () {
                     next: 'fa fa-arrow-right'
                 }
     });
+    
 });

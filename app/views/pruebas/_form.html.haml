@@ -4,14 +4,6 @@
     = render "shared/error_messages", model: @prueba
 
     .row
-        .col-md-12
-            .alert.alert-warning
-                %p.text-center 
-                    %i.fa.fa-exclamation-circle
-                    %strong Formatos permitidos: 
-                    %em .jpg .jpeg .png .pdf .doc .txt
-
-    .row
         .col-md-5
             .form-group
                 = f.label :titulo
@@ -28,7 +20,10 @@
         
             .form-group
                 = f.label :archivo
-                = f.file_field :archivo, multiple: false, class: 'btn-file'
+                = link_to '#', :class => "btn btn-default btn-xs", "data-toggle" => "popover", "data-placement" => "top", :title => "<b>Formatos Permitidos</b>", "data-trigger" => "focus", "data-content" => "<p>Solamente se permiten los siguientes formatos: </p> <p class='text-center'><em>.jpg .jpeg .png .pdf .doc .txt</em></p>" do
+                    %span.fa.fa-exclamation-circle
+                = f.file_field :archivo, multiple: false
+                        
             
                 
     = f.submit ( f.object.new_record? ? "Agregar Prueba" : "Guardar Cambios"), class: 'btn btn-success', data: { disable_with: "Procesando..." }
