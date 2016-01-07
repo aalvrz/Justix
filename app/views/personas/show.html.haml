@@ -3,11 +3,11 @@
         - if can? :update, Persona
             = link_to [:edit, @bufete, @persona] do
                 %i.fa.fa-pencil
-                Editar
+                Editar Persona
         - if can? :destroy, Persona
             = link_to bufete_persona_path(@bufete, @persona), method: :delete, data: { confirm: 'Estas seguro? Esta accion es irreversible.' } do
                 %i.fa.fa-trash
-                Eliminar
+                Eliminar Persona
     %h1
         %i.fa.fa-users
         Personas
