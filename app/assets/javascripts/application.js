@@ -21,4 +21,5 @@
 //= require moment
 //= require moment/es
 //= require bootstrap-datetimepicker
+//= require data-confirm-modal
 //= require_tree .
