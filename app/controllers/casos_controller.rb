@@ -41,6 +41,7 @@ class CasosController < ApplicationController
     end
     
     def update
+        @persona = Persona.new # Dummy instance to handle the Form Nil error
         respond_to do |format|
             if @caso.update(caso_params)
                 format.html { redirect_to [@bufete,@caso], :flash => { :success => 'El caso ha sido editado exitosamente.' } }
@@ -54,6 +55,7 @@ class CasosController < ApplicationController
     
     def create
         @caso = @bufete.casos.build(caso_params)
+        @persona = Persona.new  # Dummy instance to handle the Form Nil error
         
         respond_to do |format|
             if @caso.save

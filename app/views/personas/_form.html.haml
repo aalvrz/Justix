@@ -10,12 +10,14 @@
     .row
         .col-md-6
             .form-group
-                = f.label :nombre, 'Nombre'
+                = f.label :nombre, 'Nombre', class: 'control-label'
                 = f.text_field :nombre, autofocus: true, class: 'form-control'
+                %span.help-block
                 
             .form-group
-                = f.label :apellido, 'Apellido'
+                = f.label :apellido, 'Apellido', class: 'control-label'
                 = f.text_field :apellido, class: 'form-control'
+                %span.help-block
             
             .form-group
                 = f.label :email

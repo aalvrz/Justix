@@ -1,11 +1,12 @@
 $(function () {
-    
-    // Hide the modal
-    $('#new_persona_modal').modal('hide');
-    
-    // Insert a new token of the newly created Persona
-    $('#caso_<%= @persona.type.downcase %>_tokens').tokenInput("add", {
-        id: '<%= @persona.id %>',
-        nombre_completo: '<%= @persona.nombre_completo %>'
-    });
+    <% if !@persona.errors.any? %>
+        // Hide the modal
+        $('#new_persona_modal').modal('hide');
+        
+        // Insert a new token of the newly created Persona
+        $('#caso_<%= @persona.type.downcase %>_tokens').tokenInput("add", {
+            id: '<%= @persona.id %>',
+            nombre_completo: '<%= @persona.nombre_completo %>'
+        });
+    <% end %>
 });

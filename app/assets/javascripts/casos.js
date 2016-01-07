@@ -45,8 +45,4 @@ $(function () {
         modal.find('#persona_type').val(type); // Change the select box value
     });
     
-    $(".modal").on("hidden.bs.modal", function(){
-        $(this).find('form')[0].reset();
-    });
-
 });
