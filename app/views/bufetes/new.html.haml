@@ -7,7 +7,7 @@
     .widget
         - if current_user.bufetes.count == 1
             %p.text-center
-                Tu plan actual no te permite crear mas de un bufete. Actualiza tu plan ya.
+                Tu plan actual no te permite crear más de un bufete. Actualiza tu plan yá.
         - else
             .widget-content-white.glossed
                 .padded
@@ -16,6 +16,6 @@
                         Crear Mi Bufete
                         
                     .alert.alert-info
-                        %p.text-center Ya casi estas listo! Pero antes de comenzar, crea tu bufete llenando los campos a continuacion:
+                        %p.text-center Yá casi estás listo! Pero antes de comenzar, crea tu bufete llenando los campos a continuación:
             
                     = render 'form'

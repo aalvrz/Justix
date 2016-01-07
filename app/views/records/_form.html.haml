@@ -20,11 +20,11 @@
                 = f.text_field :instancia, class: 'form-control'
                 
             .form-group
-                = f.label :actuacion
+                = f.label :actuacion, 'Actuación'
                 = f.text_field :actuacion, class: 'form-control'
                 
             .form-group
-                = f.label :notificacion_cliente, 'Fecha de Notificacion'
+                = f.label :notificacion_cliente, 'Fecha de Notificación'
                 = f.datetime_select :notificacion_cliente
                 
             .form-group
@@ -35,7 +35,7 @@
             %h3.section-title.first-title Contraparte
         
             .form-group
-                = f.label :notificacion_contraparte, 'Fecha de Notificacion'
+                = f.label :notificacion_contraparte, 'Fecha de Notificación'
                 = f.datetime_select :notificacion_contraparte
                 
     .form-group    

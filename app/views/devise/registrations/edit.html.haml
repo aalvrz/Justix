@@ -1,7 +1,7 @@
 .page-header
     %h1
         %i.fa.fa-cog
-        Mi Cuenta
+        Configuración
 
 .main-content
     .widget
@@ -64,7 +64,6 @@
                             .form-group.text-center
                                 = f.submit "Guardar Cambios", class: 'btn btn-success'
             
-            
                 %hr
             
                 .panel.panel-danger
@@ -73,7 +72,7 @@
                     .panel-body
                         %p 
                             Presiona el boton abajo si quiere eliminar tu cuenta.
-                            %b Esta accion es irreversible.
+                            %b Esta acción es irreversible.
                             
                             .form-group.text-center
-                                = button_to "Eliminar Mi Cuenta", registration_path(resource_name), data: { confirm: "Estas seguro? Esta accion es irreversible. Tu cuenta sera eliminada permanentemente del sistema y toda tu informacion relacionada a tu bufete sera eliminada." }, method: :delete, class: 'btn btn-danger'
+                                = button_to "Eliminar Mi Cuenta", registration_path(resource_name), data: { confirm: "Estás seguro? Esta acción es irreversible. Tu cuenta será eliminada permanentemente del sistema y toda tu información relacionada a tu bufete será eliminada." }, method: :delete, class: 'btn btn-danger'

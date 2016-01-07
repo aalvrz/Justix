@@ -7,17 +7,17 @@
         .col-md-6
             %p
                 %span.fa.fa-list-ol
-                %strong Numero de Accion:
+                %strong Número de Acción:
                 = @caso.num_accion
                 
             %p
                 %span.fa.fa-bookmark
-                %strong Accion:
+                %strong Acción:
                 = @caso.accion
                 
             %p
                 %span.fa.fa-clock-o
-                %strong Fecha de Creacion:
+                %strong Fecha de Creación:
                 = I18n.localize( @caso.created_at.to_s.to_time, :format => '%e de %B del %Y')
         
         .col-md-6 
@@ -39,9 +39,8 @@
                 
     .row
         .col-md-12
-            
             %p
-                %strong Descripcion:
+                %strong Descripción:
                 =simple_format h @caso.descripcion
     
     %hr
