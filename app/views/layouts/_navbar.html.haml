@@ -21,7 +21,7 @@
                         %li
                             = active_link_to admin_path, :wrap_tag => :li, :class_active => 'current' do
                                 %i.fa.fa-lock
-                                Panel de Administracion
+                                Panel de Administración
     
                 .relative-w
                     %ul.side-menu
@@ -32,7 +32,7 @@
                         %li
                             = active_link_to (current_user.bufetes.any? ? bufete_casos_path(current_user.bufetes.first) : crear_bufete_path), :wrap_tag => :li, :class_active => 'current' do
                                 %i.fa.fa-book
-                                Casos
+                                Mis Casos
                         %li
                             = active_link_to (current_user.bufetes.any? ? bufete_personas_path(current_user.bufetes.first) : crear_bufete_path), :wrap_tag => :li, :class_active => 'current' do
                                 %i.fa.fa-users
@@ -42,9 +42,9 @@
                     %li
                         = active_link_to edit_user_registration_path, :wrap_tag => :li, :class_active => 'current' do
                             %i.fa.fa-cog
-                            Configuracion
+                            Configuración
                     %li
                         = link_to logout_path, method: :delete  do
                             %i.fa.fa-sign-out
-                            Salir        
+                            Salir 
                 
