@@ -1,0 +1,6 @@
+- if current_user.plan == "Gratuito"
+    %h3 Gratuito
+- elsif current_user.plan == "Basico"
+    %h3 Basico
+- elsif current_user.plan == "Premium"
+    = image_tag 'icons/premium_plan.png', "data-toggle"=> "tooltip", "data-placement" => "bottom", :title => "Plan Premium"

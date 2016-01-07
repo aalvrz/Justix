@@ -12,8 +12,7 @@
                     Editar Mi Cuenta
                     
                     .pull-right
-                        Plan:
-                        %span.label.label-success= current_user.plan
+                        = render 'devise/registrations/planes/icons'
 
                 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart:true }) do |f|
                     
@@ -40,7 +39,7 @@
                         
                         .col-md-6
                             .form-group
-                                = f.label 'Contraseña' 
+                                = f.label 'Nueva Contraseña' 
                                 %i (Dejala en blanco si no quieres cambiarla)
                                 %br
                                 = f.password_field :password, autocomplete: "off", class: 'form-control'
@@ -53,7 +52,7 @@
                     %hr
             
                     .row
-                        .col-md-6.col-md-offset-3
+                        .col-md-12
             
                             .form-group
                                 = f.label 'Contraseña actual'
