@@ -57,6 +57,22 @@
                                             = link_to bufete_personas_path(bufete), class: 'btn btn-default btn-xs', "data-toggle"=> "tooltip", "data-placement" => "top", :title => "Personas" do
                                                 %i.fa.fa-users
                                                 
-
-                                                
-                                                
+    .row                  
+        // COUPONS
+        .col-md-12
+            .widget
+                %h3.section-title.first-title
+                    %i.fa.fa-briefcase
+                    Coupons
+                    
+                .widget-content-white.glossed
+                    .padded
+                        
+                        %table.table.table-striped.table-hover
+                            %thead
+                                %tr
+                                    %th Token
+                                    %th Plan
+                                    %th User
+                                    %th Issuer
+                            %tbody
