@@ -36,12 +36,13 @@
                     %td= entrada.observaciones_cliente
                     %td= localize_datetime(entrada.notificacion_contraparte) if entrada.notificacion_contraparte
                     %td
-                        - if can? :update, Record
-                            = link_to [:edit, @bufete, @caso, entrada], class: 'btn btn-default btn-xs' do
-                                %span.fa.fa-pencil
-                        
-                        - if can? :destroy, Record
-                            = link_to [@bufete, @caso, entrada], method: :delete, data: { confirm: 'Estas seguro? Esta accion es irreversible.' }, class: 'btn btn-danger btn-xs' do
-                                %span.fa.fa-trash
+                        .btn-group.btn-group-xs
+                            - if can? :update, Record
+                                = link_to [:edit, @bufete, @caso, entrada], class: 'btn btn-default' do
+                                    %span.fa.fa-pencil
+                            
+                            - if can? :destroy, Record
+                                = link_to [@bufete, @caso, entrada], method: :delete, data: { confirm: 'Estas seguro? Esta accion es irreversible.' }, class: 'btn btn-danger' do
+                                    %span.fa.fa-trash
                                 
             
