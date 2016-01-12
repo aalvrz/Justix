@@ -20,28 +20,25 @@
                                     = f.search_field :nombre_or_num_accion_cont, placeholder: 'Buscar Casos...', class: 'form-control'
                 .list-group
                     - @casos.each do |caso|
-                        .caso-item
-                            = link_to bufete_caso_path(@bufete, caso), class: "list-group-item" do
-                                %h4.list-group-item-heading
-                                    %strong= caso.nombre
-                                    %small= "(#{caso.num_accion})" 
-                                        
-                                    /%span{ class: "label label-#{caso_estado_contextual caso.estado}"}= caso.estado
-                                
-                                    .pull-right
-                                        .small
-                                            %ul.list-inline
-                                                %li{ "data-toggle"=> "tooltip", "data-placement" => "bottom", :title => "Entradas en Bitacora" }
-                                                    %span.fa.fa-file-text-o.fa-lg
-                                                    = caso.records.count
-                                                    
-                                                %li{ "data-toggle"=> "tooltip", "data-placement" => "bottom", :title => "Pruebas" }
-                                                    %span.fa.fa-paperclip.fa-lg
-                                                    = caso.pruebas.count
-                                
-                                %h5
-                                    %strong Clientes:
-                                    = caso.clientes.map {|c| c.nombre_completo}.join(",")
+                        = link_to bufete_caso_path(@bufete, caso), class: "list-group-item" do
+                            %h4.list-group-item-heading
+                                %strong= caso.nombre
+                                %small= "(#{caso.num_accion})" 
+                                    
+                                .pull-right
+                                    .small
+                                        %ul.list-inline
+                                            %li{ "data-toggle"=> "tooltip", "data-placement" => "bottom", :title => "Entradas en Bitacora" }
+                                                %span.fa.fa-file-text-o.fa-lg
+                                                = caso.records.count
+                                                
+                                            %li{ "data-toggle"=> "tooltip", "data-placement" => "bottom", :title => "Pruebas" }
+                                                %span.fa.fa-paperclip.fa-lg
+                                                = caso.pruebas.count
+                            
+                            %h5.list-group-item-text
+                                %strong Clientes:
+                                = caso.clientes.map {|c| c.nombre_completo}.join(",")
                             
             = render 'shared/pagination', model: @casos
     
