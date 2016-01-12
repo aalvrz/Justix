@@ -26,12 +26,16 @@
                 %tr.text-center
                     %td
                         %span{ class: "fa fa-#{get_evidencia_icon(evidencia.archivo.file.extension.downcase) if evidencia.archivo.file}" }
-                    %td= link_to evidencia.titulo, evidencia.archivo.url.to_s, :target => "_blank"
+                    %td
+                        - if evidencia.archivo.url 
+                            = link_to evidencia.titulo, evidencia.archivo.url.to_s, :target => "_blank"
+                        - else
+                            = evidencia.titulo
                     %td= evidencia.descripcion
                     %td= localize_datetime(evidencia.fecha)
                     %td
                         .btn-group.btn-group-xs
-                            - if can? :read, Prueba
+                            - if (can? :read, Prueba) && evidencia.archivo.url
                                 = link_to evidencia.archivo.url.to_s, :target => "_blank", class: 'btn btn-default' do
                                     %span.fa.fa-eye
                             - if can? :edit, Prueba
