@@ -5,75 +5,47 @@
         
 .main-content
     .row
-        // USERS
-        .col-md-12
+        .col-md-3
+            // NAVIGATION
+            %ul.nav.nav-pills.nav-stacked
+                %li.active 
+                    %a{ "aria-expanded" => "true", href: "#usuarios", "data-toggle" => "pill" }
+                        %span.fa.fa-users
+                        Usuarios
+                %li 
+                    %a{ "aria-expanded" => "true", href: "#bufetes", "data-toggle" => "pill" }
+                        %span.fa.fa-briefcase
+                        Bufetes
+                %li 
+                    %a{ "aria-expanded" => "true", href: "#cupones", "data-toggle" => "pill" } 
+                        %span.fa.fa-gift
+                        Cupones
+    
+        
+        .col-md-9
             .widget
-                %h3.section-title.first-title
-                    %i.fa.fa-user
-                    Usuarios
-                    
-                .widget-content-white.glossed
-                    .padded
-                        
-                        %table.table.table-striped.table-hover
-                            %thead
-                                %tr
-                                    %th E-Mail
-                                    %th Nombre Completo
-                                    %th Plan
-                            %tbody
-                                - @users.each do |user|
-                                    %tr
-                                        %td= user.email
-                                        %td= user.nombre_completo
-                                        %td
-                                            %span.label.label-info= user.plan
-    .row                  
-        // BUFETES
-        .col-md-12
-            .widget
-                %h3.section-title.first-title
-                    %i.fa.fa-briefcase
-                    Bufetes
-                    
-                .widget-content-white.glossed
-                    .padded
-                        
-                        %table.table.table-striped.table-hover
-                            %thead
-                                %tr
-                                    %th Nombre
-                                    %th Telefono
-                                    %th
-                            %tbody
-                                - @bufetes.each do |bufete|
-                                    %tr
-                                        %td= link_to bufete.nombre, bufete
-                                        %td= bufete.telefono
-                                        %td
-                                            .btn-group.btn-group-xs
-                                                = link_to bufete_casos_path(bufete), class: 'btn btn-default', "data-toggle"=> "tooltip", "data-placement" => "top", :title => "Casos" do
-                                                    %i.fa.fa-book
-                                                    
-                                                = link_to bufete_personas_path(bufete), class: 'btn btn-default', "data-toggle"=> "tooltip", "data-placement" => "top", :title => "Personas" do
-                                                    %i.fa.fa-users
-                                                
-    .row                  
-        // COUPONS
-        .col-md-12
-            .widget
-                %h3.section-title.first-title
-                    %i.fa.fa-briefcase
-                    Coupons
-                    
-                .widget-content-white.glossed
-                    .padded
-                        
-                        %table.table.table-striped.table-hover
-                            %thead
-                                %tr
-                                    %th Token
-                                    %th Plan
-                                    %th User
-                                    %th Issuer
-                            %tbody
+                %div{ id: 'myTabContent', class: 'tab-content' }
+                    %div{ class: "tab-pane fade active in", id: "usuarios" }
+                        / USUARIOS
+                        .padded
+                            %h3.section-title.first-title
+                                %i.fa.fa-users
+                                Usuarios
+                                
+                            = render 'usuarios'
+                    %div{ class: "tab-pane fade", id: "bufetes" }
+                        / BUFETES
+                        .padded
+                            %h3.section-title.first-title
+                                %i.fa.fa-briefcase
+                                Bufetes
+                                
+                            = render 'bufetes'
+                    %div{ class: "tab-pane fade", id: "cupones" }
+                        / USUARIOS
+                        .padded
+                            %h3.section-title.first-title
+                                %i.fa.fa-gift
+                                Cupones
+                                
+                            = render 'cupones'
