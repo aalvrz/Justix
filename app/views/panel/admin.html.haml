@@ -51,11 +51,12 @@
                                         %td= link_to bufete.nombre, bufete
                                         %td= bufete.telefono
                                         %td
-                                            = link_to bufete_casos_path(bufete), class: 'btn btn-default btn-xs', "data-toggle"=> "tooltip", "data-placement" => "top", :title => "Casos" do
-                                                %i.fa.fa-book
-                                                
-                                            = link_to bufete_personas_path(bufete), class: 'btn btn-default btn-xs', "data-toggle"=> "tooltip", "data-placement" => "top", :title => "Personas" do
-                                                %i.fa.fa-users
+                                            .btn-group.btn-group-xs
+                                                = link_to bufete_casos_path(bufete), class: 'btn btn-default', "data-toggle"=> "tooltip", "data-placement" => "top", :title => "Casos" do
+                                                    %i.fa.fa-book
+                                                    
+                                                = link_to bufete_personas_path(bufete), class: 'btn btn-default', "data-toggle"=> "tooltip", "data-placement" => "top", :title => "Personas" do
+                                                    %i.fa.fa-users
                                                 
     .row                  
         // COUPONS
