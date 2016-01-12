@@ -38,11 +38,14 @@
                                         %td= p.type
                                         %td
                                             .btn-group.btn-group-xs
-                                                = link_to [@bufete, p], class: 'btn btn-default' do
-                                                    %span.fa.fa-eye
-                                                = link_to [:edit, @bufete, p], class: 'btn btn-default' do
-                                                    %span.fa.fa-pencil
-                                                = link_to [@bufete, p], method: :delete, data: { confirm: 'Estas seguro? Esta accion es irreversible.' }, class: 'btn btn-danger' do
-                                                    %span.fa.fa-trash
+                                                - if can? :read, Persona
+                                                    = link_to [@bufete, p], class: 'btn btn-default' do
+                                                        %span.fa.fa-eye
+                                                - if can? :update, Persona
+                                                    = link_to [:edit, @bufete, p], class: 'btn btn-default' do
+                                                        %span.fa.fa-pencil
+                                                - if can? :destroy, Persona
+                                                    = link_to [@bufete, p], method: :delete, data: { confirm: 'Estas seguro? Esta accion es irreversible.' }, class: 'btn btn-danger' do
+                                                        %span.fa.fa-trash
                         
                         = render 'shared/pagination', model: @personas
