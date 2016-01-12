@@ -5,7 +5,7 @@
         
 .main-content
     .row
-        .col-md-3
+        .col-md-2
             // NAVIGATION
             %ul.nav.nav-pills.nav-stacked
                 %li.active 
@@ -16,36 +16,13 @@
                     %a{ "aria-expanded" => "true", href: "#bufetes", "data-toggle" => "pill" }
                         %span.fa.fa-briefcase
                         Bufetes
-                %li 
-                    %a{ "aria-expanded" => "true", href: "#cupones", "data-toggle" => "pill" } 
-                        %span.fa.fa-gift
-                        Cupones
     
-        
-        .col-md-9
+        .col-md-10
             .widget
                 %div{ id: 'myTabContent', class: 'tab-content' }
                     %div{ class: "tab-pane fade active in", id: "usuarios" }
                         / USUARIOS
-                        .padded
-                            %h3.section-title.first-title
-                                %i.fa.fa-users
-                                Usuarios
-                                
-                            = render 'usuarios'
+                        = render 'usuarios'
                     %div{ class: "tab-pane fade", id: "bufetes" }
                         / BUFETES
-                        .padded
-                            %h3.section-title.first-title
-                                %i.fa.fa-briefcase
-                                Bufetes
-                                
-                            = render 'bufetes'
-                    %div{ class: "tab-pane fade", id: "cupones" }
-                        / USUARIOS
-                        .padded
-                            %h3.section-title.first-title
-                                %i.fa.fa-gift
-                                Cupones
-                                
-                            = render 'cupones'
+                        = render 'bufetes'

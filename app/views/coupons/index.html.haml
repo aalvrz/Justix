@@ -1,0 +1,47 @@
+.page-header
+    .header-links.hidden-xs
+        - if can? :create, Coupon
+            = link_to new_coupon_path do
+                %i.fa.fa-plus
+                Crear Cupones
+    %h1
+        %i.fa.fa-gift
+        Cupones
+        
+.main-content
+    .widget
+        .widget-content-white.glossed
+            .padded
+                .row
+                    .col-md-12
+                        .pull-right
+                            
+                                        
+                        %table.table.table-striped.table-bordered.table-hover
+                            %thead
+                                %tr
+                                    %th
+                                    %th.text-center Codigo
+                                    %th.text-center Usuario
+                                    %th.text-center Plan
+                                    %th.text-center Solicitador
+                                    %th
+                            %tbody
+                                - @coupons.each do |coupon|
+                                    %tr.text-center
+                                        %td
+                                        %td= coupon.code
+                                        %td
+                                        %td
+                                            %span.label.label-info= coupon.plan
+                                        %td= coupon.issuer
+                                        %td
+                                            .btn-group.btn-group-xs
+                                                = link_to coupon, class: 'btn btn-default' do
+                                                    %span.fa.fa-eye
+                                                = link_to [:edit, coupon], class: 'btn btn-default' do
+                                                    %span.fa.fa-pencil
+                                                = link_to coupon, method: :delete, data: { confirm: 'Estas seguro? Esta accion es irreversible.' }, class: 'btn btn-danger' do
+                                                    %span.fa.fa-trash
+                        
+                        = render 'shared/pagination', model: @coupons

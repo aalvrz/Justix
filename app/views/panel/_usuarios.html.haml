@@ -1,13 +1,18 @@
-%table.table.table-striped.table-hover
-    %thead
-        %tr
-            %th E-Mail
-            %th Nombre Completo
-            %th Plan
-    %tbody
-        - @users.each do |user|
+.padded
+    %h3.section-title.first-title
+        %i.fa.fa-users
+        Usuarios
+
+    %table.table.table-striped.table-hover
+        %thead
             %tr
-                %td= user.email
-                %td= user.nombre_completo
-                %td
-                    %span.label.label-info= user.plan
+                %th E-Mail
+                %th Nombre Completo
+                %th Plan
+        %tbody
+            - @users.each do |user|
+                %tr
+                    %td= user.email
+                    %td= user.nombre_completo
+                    %td
+                        %span.label.label-info= user.plan

@@ -37,6 +37,12 @@
                             = active_link_to (current_user.bufetes.any? ? bufete_personas_path(current_user.bufetes.first) : crear_bufete_path), :wrap_tag => :li, :class_active => 'current' do
                                 %i.fa.fa-users
                                 Personas
+                        - if can? :manage, Coupon
+                            %li
+                                = active_link_to coupons_path, :wrap_tag => :li, :class_active => 'current' do
+                                    %i.fa.fa-gift
+                                    Cupones
+                                
                 
                 %ul.side-menu
                     %li

@@ -1,0 +1,48 @@
+.page-header
+    .header-links.hidden-xs
+        - if can? :update, Coupon
+            = link_to [:edit, @coupon] do
+                %i.fa.fa-pencil
+                Editar Cupon
+        - if can? :destroy, Coupon
+            = link_to @coupon, method: :delete, data: { confirm: 'Estas seguro? Esta accion es irreversible.' } do
+                %i.fa.fa-trash
+                Eliminar Cupon
+    %h1
+        %i.fa.fa-gift
+        Cupones
+
+.main-content
+    .widget
+        %h3.section-title.first-title= @coupon.code
+        
+        .widget-content-white.glossed
+            .padded
+                .row        
+                    .col-md-12
+                        %p
+                            %span.fa.fa-key
+                            %strong Codigo:
+                            = @coupon.code
+                            
+                        %p
+                            %span.fa.fa-institution
+                            %strong Solicitador:
+                            = @coupon.issuer
+                            
+                        %p
+                            %span.fa.fa-credit-card
+                            %strong Plan:
+                            = @coupon.plan
+                            
+                        %p
+                            %span.fa.fa-user
+                            %strong Usuario:
+                            
+                        %p
+                            %span.fa.fa-clock-o
+                            %strong Fecha de Creación:
+                            = I18n.localize( @coupon.created_at.to_s.to_time, :format => '%e de %B del %Y')
+                            
+                        
+                    

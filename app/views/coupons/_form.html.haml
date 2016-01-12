@@ -1,0 +1,23 @@
+= form_for @coupon do |f|
+
+    // ERROR MESSAGES
+    = render "shared/error_messages", model: @coupon
+
+    .row
+        .col-md-12
+            .form-group
+                = f.label :issuer, 'Solicitador'
+                = f.text_field :issuer, autofocus: true, class: 'form-control'
+            
+            .form-group
+                = f.label :plan, 'Plan'
+                = f.select :plan, User::PLANES_REGISTRO, {}, class: 'form-control'
+            
+            .form-group
+                = f.label 'Cantidad'
+                = number_field_tag 'quantity', 1, min: 1, class: 'form-control'
+                
+                
+    .form-group
+        = f.submit ( f.object.new_record? ? "Crear Cupones" : "Guardar Cambios"), class: 'btn btn-success'
+        = link_to 'Cancelar', coupons_path, class: 'btn btn-default'

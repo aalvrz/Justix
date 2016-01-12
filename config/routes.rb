@@ -30,6 +30,8 @@ Rails.application.routes.draw do
     end
   end
   
+  resources :coupons
+  
   get 'mi_bufete', to: 'bufetes#show'
   get 'crear_bufete', to: 'bufetes#new'
   
