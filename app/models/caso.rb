@@ -22,6 +22,7 @@ class Caso < ActiveRecord::Base
     attr_reader :testigo_tokens
     attr_reader :contraparte_tokens
     
+    
     def cliente_tokens=(ids)
         self.cliente_ids = ids.split(",")
     end

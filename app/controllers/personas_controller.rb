@@ -41,7 +41,7 @@ class PersonasController < ApplicationController
         @personas = @q.result.includes(:bufete, :casos).order("created_at DESC")
         
         # Pagination
-        @personas = @personas.paginate(:page => params[:page], :per_page => 6)
+        @personas = @personas.paginate(:page => params[:page], :per_page => 15)
        
         @title = "Mis Personas"
     end

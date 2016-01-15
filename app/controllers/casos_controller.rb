@@ -12,7 +12,7 @@ class CasosController < ApplicationController
         
         # Ransack
         @q = @casos.ransack(params[:q])
-        @casos = @q.result.includes(:bufete).order("created_at DESC")
+        @casos = @q.result.includes(:bufete, :clientes).order("created_at DESC")
         
         # Pagination
         @casos = @casos.paginate(:page => params[:page], :per_page => 10)
