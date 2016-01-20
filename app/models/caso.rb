@@ -1,4 +1,6 @@
 class Caso < ActiveRecord::Base
+    extend FriendlyId
+    friendly_id :nombre, use: :slugged
     
     validates :nombre, :presence => true
     validates :num_accion, :presence => true

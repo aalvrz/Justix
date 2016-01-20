@@ -94,11 +94,11 @@ class PersonasController < ApplicationController
     private
     
         def find_bufete
-            @bufete = Bufete.find(params[:bufete_id])
+            @bufete = Bufete.friendly.find(params[:bufete_id])
         end
     
         def find_persona
-            @persona = Persona.find(params[:id]) 
+            @persona = Persona.find(params[:id])
         end
         
         def set_type
