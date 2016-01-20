@@ -1,5 +1,5 @@
 class Persona < ActiveRecord::Base
-    
+
     # STI Column
     self.inheritance_column = :type
     

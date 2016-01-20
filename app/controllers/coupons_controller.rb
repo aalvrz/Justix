@@ -3,6 +3,8 @@ class CouponsController < ApplicationController
     before_action :authenticate_user!
     before_action :find_coupon, only:[:show, :edit, :update, :destroy]
     
+    load_and_authorize_resource
+    
     def index
         @coupons = Coupon.all
         
