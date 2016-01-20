@@ -67,7 +67,7 @@ class PruebasController < ApplicationController
         end
         
         def find_caso
-            @caso = Caso.find(params[:caso_id])
+            @caso = Caso.friendly.find(params[:caso_id])
         end
         
         def find_prueba

@@ -53,11 +53,11 @@ class RecordsController < ApplicationController
         end
     
         def find_caso
-            @caso = Caso.find(params[:caso_id])
+            @caso = Caso.friendly.find(params[:caso_id])
         end
         
         def find_bufete
-            @bufete = Bufete.find(params[:bufete_id])
+            @bufete = Bufete.friendly.find(params[:bufete_id])
         end
         
         def find_record
