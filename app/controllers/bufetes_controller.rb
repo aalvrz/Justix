@@ -57,7 +57,7 @@ class BufetesController < ApplicationController
     private
         
         def find_bufete
-            @bufete = Bufete.find(params[:id])
+            @bufete = Bufete.friendly.find(params[:id])
         end
         
         def bufete_params
