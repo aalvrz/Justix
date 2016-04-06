@@ -19,4 +19,20 @@
                             Prueba GRATIS
                     %li= link_to 'Ver Planes', planes_path, class: 'smothScroll'
                     %li= link_to 'Log In', login_path, class: 'smothScroll'
+                    
+                - else
+                    %li.dropdown
+                        %a{ :class => 'dropdown-toggle', "data-toggle" => 'dropdown', :role => 'button', "aria-expanded" => false }
+                            %strong= current_user.email 
+                            %span.caret
+                        %ul{:class => 'dropdown-menu', :role => 'menu' }
+                            %li
+                                = link_to current_user.bufetes.first do
+                                    %i.fa.fa-briefcase
+                                    Justix
+                            %li
+                                = link_to logout_path, method: :delete do
+                                    %i.fa.fa-sign-out
+                                    Cerrar Sesión
+                
     / /.nav-collapse

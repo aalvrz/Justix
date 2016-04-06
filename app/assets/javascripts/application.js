@@ -17,6 +17,7 @@
 //= require bootstrap/popover
 //= require bootstrap/tab
 //= require bootstrap/modal
+//= require bootstrap/dropdown
 //= require jquery.tokeninput
 //= require moment
 //= require moment/es
