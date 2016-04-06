@@ -26,8 +26,15 @@ module Workspace
     # Layouts for Devise views
     config.to_prepare do
       Devise::SessionsController.layout "sessions"
-      Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "paginas" }
+      Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "home" }
       Devise::PasswordsController.layout proc{ |controller| user_signed_in? ? "application" : "sessions" }
     end
+    
+    # Enable asset pipeline manifest files
+    config.assets.precompile += %w(
+      #home.js
+      home.css
+    )
+    
   end
 end

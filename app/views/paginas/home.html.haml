@@ -1,73 +1,80 @@
-.row
-    .col-md-12
-        %h1.text-center Tu Bufete, en un solo lugar.
-        %hr
-
-.row
-    .col-md-12
-        .col-md-3
-            .text-center
-                %span.fa.fa-users.fa-5x
-                %h3 Maneja Personas
-                %p Maneja todos tus clientes y testigos en un solo lugar.
-            
-        .col-md-3
-            .text-center
-                %span.fa.fa-file-text-o.fa-5x
-                %h3 Maneja tus Casos
-                %p Asigna personas a tus casos y mantenlos ordenados y guardados seguramente.
-        
-        .col-md-3
-            .text-center
-                %span.fa.fa-book.fa-5x
-                %h3 Maneja tu Bitacora
-                %p Maneja una bitacora por cada caso que lleves.
-        
-        .col-md-3
-            .text-center
-                %span.fa.fa-paperclip.fa-5x
-                %h3 Maneja Evidencia
-                %p Manten un control ordenado de evidencia por cada caso que lleves.
-                
-%hr
-
-.row
-    .col-md-12
-        %h1.text-center Abogados Satisfechos
-            
-        .widget
-            .widget-content-white.glossed
-                .padded
-                    .row
-                        // TESTIMONIO 1
-                        .col-md-6
-                            .col-md-2
-                                = image_tag 'testimonial-1.jpg', class: 'img-circle'
-                            .col-md-10
-                                %p
-                                    %em
-                                        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam.
-                            
-                                %p John Doe
-                                
-                        // TESTIMONIO 2
-                        .col-md-6
-                            .col-md-2
-                                = image_tag 'testimonial-3.jpg', class: 'img-circle'
-                            .col-md-10
-                                %p 
-                                    %em
-                                        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam.
-                            
-                                %p John Doe
-                
-%hr
-
-.row
-    .col-md-6
-        %h4
-            %strong MISION
-        %p Nuestra mision es proveer una plataforma sencilla y segura para los abogados en Honduras donde puedan manejar todo lo relacionado a sus bufetes, y que de esta manera puedan ser mas productivos.
+- content_for :home do
+    #headerwrap
+        .container
+            .row.centered
+                .col-lg-12
+                    %h1
+                        Conoce a
+                        %b Justix
+                %h3 El mejor aliado para tu bufete.
+                %br
+                .col-lg-2
+                    %h5 Navegación Fácil
+                    %p 
+                        No tienes que preocuparte por perderte en menus de navegacion inmensos. Navegar en Justix es 
+                        %strong sencillo y al grano.
+                    = image_tag 'home/arrow1.png', class: 'img.hidden-xs.hidden-sm.hidden-md'
+                .col-lg-8
+                    = image_tag 'home/app-bg.png', class: 'img-responsive'
+                .col-lg-2
+                    %br
+                    = image_tag 'home/arrow2.png', class: 'img.hidden-xs.hidden-sm.hidden-md'
+                    %h5 Diseño Intuitivo
+                    %p Justix ofrece un diseño agradable al ojo, mostrando toda tu información de la manera más organizada.
+        / / .container
+    / / #headerwrap
     
+- content_for :testimonials do
+    / FEATURES WRAP
+    #features
+        .container
+            .row
+                %h1.centered Abogados Satisfechos
+                %br
+                %br
+                .row
+                    .col-lg-2
+                        = image_tag 'home/masks_icon.png'
+                    .col-lg-9
+                        %blockquote.blockquote-reverse
+                            %p
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac lectus magna. Curabitur odio ipsum, condimentum sit amet tortor eget, rhoncus gravida purus. Curabitur orci mi, luctus ut tortor eu, efficitur vulputate tellus. Curabitur sapien lectus, dapibus id posuere sed, congue ut dolor. Nullam ornare porttitor libero ut porta. Sed lobortis lacinia enim, ac sodales nisi tempus in. Nunc eros sem, cursus sed libero eu, convallis euismod mi. Aenean maximus tellus at ex sollicitudin, sed iaculis enim faucibus
+                            %footer Jaime Alvarez
+                            
+                .row
+                    .col-lg-2
+                        = image_tag 'home/masks_icon.png'
+                    .col-lg-9
+                        %blockquote.blockquote-reverse
+                            %p
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac lectus magna. Curabitur odio ipsum, condimentum sit amet tortor eget, rhoncus gravida purus. Curabitur orci mi, luctus ut tortor eu, efficitur vulputate tellus. Curabitur sapien lectus, dapibus id posuere sed, congue ut dolor. Nullam ornare porttitor libero ut porta. Sed lobortis lacinia enim, ac sodales nisi tempus in. Nunc eros sem, cursus sed libero eu, convallis euismod mi. Aenean maximus tellus at ex sollicitudin, sed iaculis enim faucibus
+                            %footer Jaime Alvarez
+            
+        / / .container
+    / / #features
     
-    .col-md-6
+
+%h1 Diseñado para Sobresalir
+%br
+%br
+.col-lg-3
+    = image_tag 'home/masks_icon.png'
+    %h3 Personas
+    %p 
+        Maneja una base de datos de todos tus
+        %strong clientes
+        y
+        %strong contrapartes
+        , accessible solo por ti.
+.col-lg-3
+    = image_tag 'home/file_icon.png'
+    %h3 Casos
+    %p Manten todos tus casos en un solo lugar. Organizados, seguros, y a solo un clic.
+.col-lg-3
+    = image_tag 'home/book_icon.png'
+    %h3 Bitácoras
+    %p Maneja una bitacora para cada caso, la cual te ayudara a mantener un control y historial de todo el proceso.
+.col-lg-3
+    = image_tag 'home/bundle_icon.png'
+    %h3 Evidencia
+    %p Organiza evidencia asociada a cada caso, permitiendo el uso de archivos de fotografia, texto, y video.

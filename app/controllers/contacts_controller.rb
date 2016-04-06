@@ -1,6 +1,6 @@
 class ContactsController < ApplicationController
     
-    layout 'paginas'
+    layout 'home'
     
     def new
         @contact = Contact.new

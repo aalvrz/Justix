@@ -14,7 +14,10 @@
                 = devise_error_messages!
                 
                 .alert.alert-info
-                    %p.text-center Registra la cuenta que usaras para manejar tu bufete.
+                    %p
+                        %i.fa.fa-info-circle
+                        Plan seleccionado:
+                        %strong= params[:plan]
                 
                 .form-group
                     = f.label :nombre, 'Nombre'

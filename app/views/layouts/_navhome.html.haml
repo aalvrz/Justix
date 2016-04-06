@@ -1,0 +1,22 @@
+/ Fixed navbar
+#navigation.navbar.navbar-default.navbar-fixed-top
+    .container
+        .navbar-header
+            %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+                %span.icon-bar
+                %span.icon-bar
+                %span.icon-bar
+            =link_to root_path, class: 'navbar-brand' do
+                %b Justix
+        .navbar-collapse.collapse
+            %ul.nav.navbar-nav
+                    
+            %ul.nav.navbar-nav.navbar-right
+                - if !user_signed_in?
+                    %li
+                        = link_to prueba_path, class: 'btn btn-succcess smothScroll' do
+                            %i.fa.fa-star
+                            Prueba GRATIS
+                    %li= link_to 'Ver Planes', planes_path, class: 'smothScroll'
+                    %li= link_to 'Log In', login_path, class: 'smothScroll'
+    / /.nav-collapse

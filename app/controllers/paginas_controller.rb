@@ -1,6 +1,6 @@
 class PaginasController < ApplicationController
     
-    layout 'paginas'
+    layout 'home'
     
     def home
     end

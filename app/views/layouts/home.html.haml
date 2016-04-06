@@ -1,0 +1,66 @@
+!!! 5
+
+%html
+%head
+    %title
+        = "#{APP_NAME} - "
+        = !@title.blank? ? @title : "Tu Solucion Notarial"
+    
+    = stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', type: 'text/css'
+    = stylesheet_link_tag 'home'
+    
+    = stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+    
+    // FONTS
+    = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic', type: 'text/css'
+    = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Raleway:400,300,700', type: 'text/css'
+    
+    = javascript_include_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js'
+    
+    = csrf_meta_tags
+    
+    = favicon_link_tag 'favicon.ico'
+    
+%body
+    
+    = render 'layouts/navhome'
+    
+    %section#home{:name => "home"}
+    = yield :home
+    
+    %section#desc{:name => "desc"}
+    / VIEW CONTENT
+    #intro
+        .container
+            .row.centered
+                = yield
+                
+            %br
+            %hr
+        
+    
+    = yield :testimonials
+    
+    
+    // FOOTER
+    #c
+        .container
+            .pull-left
+                %p 
+                    %i.fa.fa-copyright
+                    Justix 2016, Todos los derechos reservados.
+            
+            .pull-right
+                %p
+                    = link_to 'Inicio', root_path
+                    ·
+                    = link_to 'Terminos y Condiciones', terminos_path
+                    ·
+                    = link_to 'Privacidad', privacidad_path
+                    ·
+                    = link_to 'Acerca', acerca_path
+                    ·
+                    = link_to 'FAQ', faq_path
+                    ·
+                    = link_to 'Contacto', contacto_path
+    
