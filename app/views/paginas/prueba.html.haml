@@ -11,6 +11,9 @@
         = render 'devise/registrations/planes/prueba'
     
     .col-md-8
+        
+        .center-block
+            = image_tag 'home/justix_screenshot.jpg', class: 'img-rounded img-responsive'
             
         %p 
             Simplemente escogiendo el plan de prueba gratuito, y luego registrando tu cuenta, tendras acceso a funciones basicas que te daran un
@@ -20,4 +23,4 @@
         %p Podras probar y jugar con la aplicacion a tu gusto, todo sin gastar ni un centavo.
         
         .text-center
-            = link_to 'QUIERO PROBARLO', registrarse_path(plan: 'Prueba'), class: 'btn btn-success btn-lg'
+            = link_to 'PROBAR JUSTIX AHORA', registrarse_path(plan: 'Prueba'), class: 'btn btn-success btn-lg'
